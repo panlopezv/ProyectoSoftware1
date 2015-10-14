@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablaEjemplo extends Migration
+class CreateTableCategoria extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,9 @@ class CreateTablaEjemplo extends Migration
      */
     public function up()
     {
-        Schema::create('ejemplo', function (Blueprint $table) {
+        Schema::create('categoria', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo', 45);
-            $table->string('descripcion')->nullable();
-            $table->string('ubicacionarchivo', 60);
-            $table->integer('descargas')->default(0);
-            $table->integer('temaid');
+            $table->string('categoria', 45);
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateTablaEjemplo extends Migration
      */
     public function down()
     {
-        Schema::drop('ejemplo');
+        Schema::drop('categoria');
     }
 }

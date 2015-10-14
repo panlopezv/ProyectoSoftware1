@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablaTema extends Migration
+class CreateTableTema extends Migration
 {
     /**
      * Run the migrations.
@@ -19,8 +19,10 @@ class CreateTablaTema extends Migration
             $table->datetime('fechapublicacion');
             $table->string('referencia', 60);
             $table->integer('visitas')->default(0);
-            $table->integer('usuarioid');
-            $table->integer('categoriaid');
+            $table->integer('usuarioid')->unsigned();
+            $table->foreign('usuarioid')->references('id')->on('usuario');
+            $table->integer('categoriaid')->unsigned();
+            $table->foreign('categoriaid')->references('id')->on('categoria');
             $table->timestamps();
         });
     }
@@ -32,6 +34,10 @@ class CreateTablaTema extends Migration
      */
     public function down()
     {
-        Schema::drop('tema');
+        Schema::drop('tema', function(Blueprint $table)
+        {
+            $table->dropForeign('tema_usuarioid_foreign');
+            $table->dropForeign('tema_categoriaid_foreign');
+        });
     }
 }

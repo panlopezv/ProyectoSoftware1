@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablaComentario extends Migration
+class CreateTableComentario extends Migration
 {
     /**
      * Run the migrations.
@@ -16,8 +16,10 @@ class CreateTablaComentario extends Migration
             $table->increments('id');
             $table->string('contenido');
             $table->datetime('fecha');
-            $table->integer('temaid');
-            $table->integer('usuarioid');
+            $table->integer('temaid')->unsigned();
+            $table->foreign('temaid')->references('id')->on('tema');
+            $table->integer('usuarioid')->unsigned();
+            $table->foreign('usuarioid')->references('id')->on('usuario');
             $table->timestamps();
         });
     }
@@ -29,6 +31,10 @@ class CreateTablaComentario extends Migration
      */
     public function down()
     {
-        Schema::drop('comentario');
+        Schema::drop('comentario', function(Blueprint $table)
+        {
+            $table->dropForeign('comentario_temaid_foreign');
+            $table->dropForeign('comentario_usuarioid_foreign');
+        });
     }
 }

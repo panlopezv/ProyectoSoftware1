@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablaUsuario extends Migration
+class CreateTableUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -17,8 +17,10 @@ class CreateTablaUsuario extends Migration
             $table->string('usuario', 45)->unique();
             $table->string('correo')->unique();
             $table->string('contrasenya', 60);
-            $table->integer('personaid');
-            $table->integer('tipousuarioid');
+            $table->integer('personaid')->unsigned();
+            $table->foreign('personaid')->references('id')->on('persona');
+            $table->integer('tipousuarioid')->unsigned();
+            $table->foreign('tipousuarioid')->references('id')->on('tipousuario');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -31,6 +33,10 @@ class CreateTablaUsuario extends Migration
      */
     public function down()
     {
-        Schema::drop('usuario');
+        Schema::drop('usuario', function(Blueprint $table)
+        {
+            $table->dropForeign('usuario_personaid_foreign');
+            $table->dropForeign('usuario_tipousuarioid_foreign');
+        });
     }
 }

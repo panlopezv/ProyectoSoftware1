@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablaTipousuario extends Migration
+class CreateTableTipousuario extends Migration
 {
     /**
      * Run the migrations.
