@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Acceder a metodo de un controlador
+Route::get('usuarios', 'ControladorUsuario@index');
+
+Route::get('usuario/{nombre}', function ($nombre=null) {
+    return 'Hola '.$nombre;
+})->where(array('nombre'=>'[A-Z][a-z]+'));
