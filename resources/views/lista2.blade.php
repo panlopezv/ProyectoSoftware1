@@ -64,7 +64,7 @@
             </tr>
             @foreach ($personas as $persona)
             <tr>
-                <td><a href="personas/".{{$persona->id}}>{{ $persona->nombres }}</a></td>
+                <td><a href={{'personas/'.$persona->id}}>{{ $persona->nombres }}</a></td>
                 <td>{{ $persona->apellidos }}</td>
                 <td>{{ $persona->fechanacimiento }}</td>
                 <td>{{ $persona->ubicacionavatar }}</td>
