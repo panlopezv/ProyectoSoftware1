@@ -15,7 +15,6 @@ class CreateTableTipousuario extends Migration
         Schema::create('tipousuario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tipo', 45);
-            $table->timestamps();
         });
     }
 

@@ -14,4 +14,5 @@ class Persona extends Model
         return $this->hasMany('usuario');
         //return $this->belongsTo('usuario', 'usuarioid');
     } 
+    public $timestamps = false;
 }

@@ -20,7 +20,6 @@ class CreateTableEjemplo extends Migration
             $table->integer('descargas')->default(0);
             $table->integer('temaid')->unsigned();
             $table->foreign('temaid')->references('id')->on('tema');
-            $table->timestamps();
         });
     }
 

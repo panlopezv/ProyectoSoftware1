@@ -19,7 +19,6 @@ class CreateTablePersona extends Migration
             $table->date('fechanacimiento')->nullable();
             $table->string('ubicacionavatar')->nullable();
             $table->boolean('sexo')->nullable();
-            $table->timestamps();
         });
     }
 

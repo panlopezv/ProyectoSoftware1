@@ -17,4 +17,5 @@ class Comentario extends Model
     {
         return $this->belongsTo('usuario', 'usuarioid');
     } 
+    public $timestamps = false;
 }

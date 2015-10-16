@@ -16,7 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Acceder a metodo de un controlador
-Route::get('usuarios', 'ControladorUsuario@index');
+Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
+//Route::get('persona/{id}', 'ControladorPersona@index');
+Route::get('personas', 'ControladorPersona@index');
 
 Route::get('usuario/{nombre}', function ($nombre=null) {
     return 'Hola '.$nombre;

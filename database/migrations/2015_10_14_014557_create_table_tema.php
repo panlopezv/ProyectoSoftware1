@@ -23,7 +23,6 @@ class CreateTableTema extends Migration
             $table->foreign('usuarioid')->references('id')->on('usuario');
             $table->integer('categoriaid')->unsigned();
             $table->foreign('categoriaid')->references('id')->on('categoria');
-            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comentario as Comentario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;

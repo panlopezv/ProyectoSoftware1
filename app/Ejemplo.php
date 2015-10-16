@@ -13,4 +13,5 @@ class Ejemplo extends Model
     {
         return $this->belongsTo('tema', 'temaid');
     } 
+    public $timestamps = false;
 }

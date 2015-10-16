@@ -21,8 +21,6 @@ class CreateTableUsuario extends Migration
             $table->foreign('personaid')->references('id')->on('persona');
             $table->integer('tipousuarioid')->unsigned();
             $table->foreign('tipousuarioid')->references('id')->on('tipousuario');
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Persona as Persona;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,8 @@ class ControladorPersona extends Controller
     public function index()
     {
         //
+        $personas = Persona::all();
+         return view('index')->with('personas', $personas);
     }
 
     /**
@@ -83,4 +86,23 @@ class ControladorPersona extends Controller
     {
         //
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function insertarPersona($nombre, $apellido, $fecha, $ubicacion, $sexo)
+    {
+        //
+        $nueva = new Persona;
+        $nueva->nombres = $nombre;
+        $nueva->apellidos = $apellido;
+        $nueva->fechanacimiento = $fecha;
+        $nueva->ubicacionavatar = $ubicacion;
+        $nueva->sexo = $sexo;
+        $nueva->save();
+    }
+
+
 }

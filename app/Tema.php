@@ -25,4 +25,5 @@ class Tema extends Model
     {
         return $this->hasMany('comentario');
     }
+    public $timestamps = false;
 }

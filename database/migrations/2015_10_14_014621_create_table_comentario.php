@@ -20,7 +20,6 @@ class CreateTableComentario extends Migration
             $table->foreign('temaid')->references('id')->on('tema');
             $table->integer('usuarioid')->unsigned();
             $table->foreign('usuarioid')->references('id')->on('usuario');
-            $table->timestamps();
         });
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Persona;
 use Illuminate\Database\Seeder;
 
 class TablaPersonaSeeder extends Seeder
@@ -17,5 +18,11 @@ class TablaPersonaSeeder extends Seeder
                 'fechanacimiento' => '1993-10-02',
 	            'sexo' => 'true',
 	        ]);
+        $nueva = new Persona;
+        $nueva->nombres = 'M';
+        $nueva->apellidos = 'A';
+        $nueva->fechanacimiento = '1999-11-11';
+        $nueva->sexo = 'true';
+        $nueva->save();
     }
 }

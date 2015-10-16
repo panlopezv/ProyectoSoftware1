@@ -13,4 +13,5 @@ class Categoria extends Model
     {
         return $this->hasMany('tema');
     }
+    public $timestamps = false;
 }

@@ -13,4 +13,5 @@ class TipoUsuario extends Model
     {
         return $this->hasMany('usuario');
     }
+    public $timestamps = false;
 }
