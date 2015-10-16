@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
 //Route::get('persona/{id}', 'ControladorPersona@index');
 Route::get('personas', 'ControladorPersona@index');
+Route::get('personas/{id}', 'ControladorPersona@index2');
 
 Route::get('usuario/{nombre}', function ($nombre=null) {
     return 'Hola '.$nombre;

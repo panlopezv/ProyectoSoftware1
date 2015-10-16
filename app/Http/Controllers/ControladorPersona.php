@@ -18,7 +18,13 @@ class ControladorPersona extends Controller
     {
         //
         $personas = Persona::all();
-         return view('index')->with('personas', $personas);
+         return view('lista2')->with('personas', $personas);
+    }
+    public function index2($id)
+    {
+        //
+        $persona = Persona::find($id);
+        echo 'hola '.$persona->nombres;
     }
 
     /**
