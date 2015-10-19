@@ -32,10 +32,10 @@
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Navegacion/span>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Navegacion/span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -46,12 +46,13 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Principal</a></li>
             <li><a href="/about">Quienes Somos</a></li>
-            <li><a href="#contact">Contactanos</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#login-modal">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
-              <input type="text" class="form-control" placeholder="Buscar">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <input type="text" class="form-control" placeholder="Buscar">
               </div>
               <button type="submit" class="btn btn-default">Aceptar</button>
             </form>
@@ -59,85 +60,154 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Inicio <b class="caret"></b>
               </a>
-                <ul class="dropdown-menu">
-                  <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Usuario">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-default">Enviar</button>
-                    <a href="#">Nuevo Usuario</a></li>
-                  </form>
-                  <li><a href=""></a></li>
-                  
-                </ul>
-              </li>
-            </ul>
+              <ul class="dropdown-menu">
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Usuario">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                  </div>
+                  <button type="submit" class="btn btn-default">Enviar</button>
+                  <a href="registro">Nuevo Usuario</a></li>
+                </form>
+                <li><a href=""></a></li>
+
+              </ul>
+            </li>
+          </ul>
         </div><!--/.nav-collapse -->
 
       </div>
     </nav>
-    <div class="page-header">
-      <h1>Carousel</h1>
-    </div>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
+    <div class="starter-template">
+
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img href="#"  data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
+          </div>
+          <div class="item">
+            <img href="#"  data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
+          </div>
+          <div class="item">
+            <img href="#"  data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
+          </div>
         </div>
-        <div class="item">
-          <img data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
-        </div>
-        <div class="item">
-          <img data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
-        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
 
-    <div class="row" class="page-header">
-      <h1>Thumbnails</h1>
-      <div class="col-md-4">
+      <div class="row" >
+        <h1>Categorias</h1>
 
-        <img href="#" class="thumbnail" src="holder.js/200x200" alt="...">
 
-      </div>
-      <div class="col-md-4">
+        <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
 
-        <img href="#" class="thumbnail" src="holder.js/200x200" alt="...">
+            <img src="holder.js/200x200" />
 
-      </div>
-      <div class="col-md-4">
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
 
-        <img href="#" class="thumbnail" src="holder.js/200x200" alt="...">
+            <img src="holder.js/200x200" />
 
-      </div>
-      <div class="col-md-4">
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
 
-        <img href="#" class="thumbnail" src="holder.js/200x200" alt="...">
+            <img src="holder.js/200x200" />
 
-      </div>
-      <div class="col-md-4">
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
 
-        <img href="#" class="thumbnail" src="holder.js/200x200" alt="...">
+            <img src="holder.js/200x200" />
 
-      </div>
-    </div>
-    <div class="container">
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
 
-      <div class="starter-template">
+            <img src="holder.js/200x200" />
+
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="col-xs-12 col-sm-6    col-lg-2" >
+          <div id="bljaIMGte">
+
+            <img src="holder.js/200x200" />
+
+            <div class="bljaIMGtex" style="color:#000000;">
+             <div class="uno">
+               <h3><b>Java</b></h3>
+             </div>
+             <div class="dos">
+               <a href="#">Temas<span class="badge">42</span></a>
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+
+
+      <div class="container">
+
+
         <div class="row">
           <div class="col-md-8">
             <table class="table">
@@ -160,13 +230,103 @@
             </table>
           </div>
         </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    ...
+  </div>
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
         </div>
 
-      </div>
-      <!-- /.container -->
+        <!-- Begin # DIV Form -->
+        <div id="div-forms">
 
-  ...
-</div>
+          <!-- Begin # Login Form -->
+          <form id="login-form">
+            <div class="modal-body">
+              <div id="div-login-msg">
+                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-login-msg">Type your username and password.</span>
+              </div>
+              <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+              </div>
+              <div>
+                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End # Login Form -->
+
+          <!-- Begin | Lost Password Form -->
+          <form id="lost-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-lost-msg">
+                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-lost-msg">Type your e-mail.</span>
+              </div>
+              <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+              </div>
+              <div>
+                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Lost Password Form -->
+
+          <!-- Begin | Register Form -->
+          <form id="register-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-register-msg">
+                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                <span id="text-register-msg">Register an account.</span>
+              </div>
+              <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+              </div>
+              <div>
+                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Register Form -->
+
+        </div>
+        <!-- End # DIV Form -->
+
+      </div>
+    </div>
+  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

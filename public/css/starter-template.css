@@ -1,7 +1,109 @@
 body {
-  padding-top: 50px;
+  padding-top: 0px;
 }
 .starter-template {
-  padding: 40px 15px;
-  text-align: center;
+  padding: 30px 80px;
+  text-align: left;
+
+   color: #797979;
+    font-family: 'Lato', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+      font-size: 14px;
 }
+.navegacion {
+    background: #083568;
+    color: #f5f5f1    ;
+    padding: 60px 0;
+     margin-top: 35px;
+     opacity: 0.80;
+}
+.breadcrumb {
+	margin-top: 35px;
+    margin-bottom: 30;
+
+    /*background: none;*/
+}
+}
+.tema {
+	background: #083568;
+	color: #f5f5f1    ;
+	padding: 250px 0;
+}
+#izquierda
+{
+	color:#fff;
+	min-height: 300px;
+	background: #fff url(../images/bghead.PNG) repeat-x;
+	border-radius:5px;
+	border: 1px solid #848484;
+
+}
+#izquierda h3
+{
+
+	text-align: center;
+	color:#fff;
+}
+
+#imagen
+
+{	padding: 0px 0;
+	margin-bottom: 45px;
+
+}
+h2 span {
+
+	color: white;
+
+	font: bold 24px/45px Helvetica, Sans-Serif;
+
+	letter-spacing: -1px;
+
+	background: rgb(0, 0, 0);
+
+	background: rgba(0, 0, 0, 0.7);
+
+	padding: 10px;
+
+}
+.image {
+
+	position: relative;
+
+	width: 100%; /* for IE 6 */
+
+}
+
+h2 {
+
+	position: absolute;
+
+	top: 200px;
+
+	left: 0;
+
+	width: 100%;
+
+}
+#bljaIMGte{
+	float:left;position:relative;
+	}
+
+#bljaIMGte .bljaIMGtex 
+{width:320px;
+	position:relative;
+	top:0px;
+	left:0px;}
+
+#bljaIMGte .bljaIMGtex .uno
+{width:320px;
+	position:relative;
+	top:-220px;
+	left:0px;}	
+	#bljaIMGte .bljaIMGtex .dos
+{width:320px;
+	position:relative;
+	top:-75px;
+	left:130px;}	
+
+
