@@ -26,6 +26,9 @@ Route::get('registro', function () {
 Route::get('tema/java/+', function () {
     return view('tema');
 });
+Route::get('nuevos', function () {
+    return view('NuevoPost');
+});
 
 Route::get('usuario/{nombre}', function ($nombre=null) {
     return 'Hola '.$nombre;
