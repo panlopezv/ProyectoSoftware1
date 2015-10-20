@@ -45,8 +45,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Principal</a></li>
-            <li><a href="/about">Quienes Somos</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#login-modal">Contactanos</a></li>
+            <li><a href="/about">Quienes somos</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#login-modal">Contactenos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left" role="search">
@@ -67,7 +67,7 @@
                       <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
                     </div>
                     <button type="submit" class="btn btn-default">Enviar</button>
-                    <a href="#">Nuevo Usuario</a></li>
+                    <a href="#">Nuevo usuario</a></li>
                   </form>
                   <li><a href=""></a></li>
                   
@@ -125,7 +125,7 @@
   <label class="col-md-4 control-label" for="Apellido">Apellidos</label>  
   <div class="col-md-4">
   <input id="Apellido" name="Apellido" placeholder="Diaz Muñoz" class="form-control input-md" required="" type="text">
-  <span class="help-block">Coloque su apellido o Apellidos</span>  
+  <span class="help-block">Coloque su apellido o apellidos</span>  
   </div>
 </div>
 
@@ -162,7 +162,7 @@
   <label class="col-md-4 control-label" for="Correo">Correo</label>  
   <div class="col-md-4">
   <input id="Correo" name="Correo" placeholder="modm@ejemplo.com" class="form-control input-md" required="" type="text">
-  <span class="help-block">Correo Electronico</span>  
+  <span class="help-block">Correo electronico</span>  
   </div>
 </div>
 
@@ -177,10 +177,10 @@
 
 <!-- Password input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Contraseña2">Repita Contraseña</label>
+  <label class="col-md-4 control-label" for="Contraseña2">Repita contraseña</label>
   <div class="col-md-4">
     <input id="Contraseña2" name="Contraseña2" placeholder="" class="form-control input-md" required="" type="password">
-    <span class="help-block">Comprabacion de Contraseña</span>
+    <span class="help-block">Comprabacion de contraseña</span>
   </div>
 </div>
 
@@ -196,7 +196,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Politicas">Politicas</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="Politicas" name="Politicas">Aquie van o se colocan las politicas.</textarea>
+    <textarea class="form-control" id="Politicas" name="Politicas">Politicas de uso y privacidad.</textarea>
   </div>
 </div>
 
