@@ -84,4 +84,17 @@ class ControladorTipoUsuario extends Controller
     {
         //
     }
+
+    /**
+     * Crea un objeto TipoUsuario y lo almacena en la base de datos.
+     * @param String tipo;
+     */
+    public function insertarTipoUsuario($tTipo)
+    {
+        //
+        $nueva = new TipoUsuario;
+        $nueva->tipo = $tTipo;
+        $nueva->save();
+    }
+
 }

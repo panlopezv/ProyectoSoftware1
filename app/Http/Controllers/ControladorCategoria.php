@@ -84,4 +84,16 @@ class ControladorCategoria extends Controller
     {
         //
     }
+
+    /**
+     * Crea un objeto Categoria y lo almacena en la base de datos.
+     * @param String nombre;
+     */
+    public function insertarCategoria($nombre)
+    {
+        //
+        $nueva = new Categoria;
+        $nueva->categoria = $nombre;
+        $nueva->save();
+    }
 }

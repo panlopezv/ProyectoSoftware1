@@ -84,4 +84,21 @@ class ControladorUsuario extends Controller
     {
         //
     }
+
+    /**
+     * Crea un objeto Usuario y lo almacena en la base de datos.
+     * @param String usuario;
+     * @param String correo;
+     * @param String contrasenya;
+     */
+    public function insertarUsuario($uUsuario, $uCorreo, $uContrasenya)
+    {
+        //
+        $nueva = new Usuario;
+        $nueva->usuario = $uUsuario;
+        $nueva->correo = $uCorreo;
+        $nueva->contrasenya = $uContrasenya;
+        $nueva->save();
+    }
+
 }
