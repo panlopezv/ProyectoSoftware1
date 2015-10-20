@@ -83,6 +83,8 @@ class ControladorTema extends Controller
     public function destroy($id)
     {
         //
+        $tema = Tema::find($id);
+        $tema->delete();
     }
 
     /**

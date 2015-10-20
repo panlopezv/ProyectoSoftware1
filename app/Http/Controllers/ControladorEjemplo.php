@@ -83,6 +83,8 @@ class ControladorEjemplo extends Controller
     public function destroy($id)
     {
         //
+        $ejemplo = Ejemplo::find($id);
+        $ejemplo->delete();
     }
 
     /**

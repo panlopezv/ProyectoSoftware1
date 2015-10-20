@@ -91,6 +91,8 @@ class ControladorPersona extends Controller
     public function destroy($id)
     {
         //
+        $persona = Persona::find($id);
+        $persona->delete();
     }
 
     /**

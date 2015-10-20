@@ -83,6 +83,8 @@ class ControladorComentario extends Controller
     public function destroy($id)
     {
         //
+        $comentario = Comentario::find($id);
+        $comentario->delete();
     }
 
 

@@ -83,6 +83,8 @@ class ControladorTipoUsuario extends Controller
     public function destroy($id)
     {
         //
+        $tUsuario = TipoUsuario::find($id);
+        $tUsuario->delete();
     }
 
     /**

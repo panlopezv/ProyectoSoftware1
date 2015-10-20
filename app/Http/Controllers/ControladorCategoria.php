@@ -83,6 +83,8 @@ class ControladorCategoria extends Controller
     public function destroy($id)
     {
         //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
     }
 
     /**
