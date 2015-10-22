@@ -77,55 +77,55 @@
 
         
         <div class="form-group">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-        <div class="hero-unit" style="margin-top:40px )">
-    <textarea class="textarea" placeholder="Ingres y edite el codigo" style="width: 810px; height: 200px;"></textarea>
-        </div>
-        </div>
-        <!-- Button (Double) -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="Aceptar"></label>
-          <div class="col-md-8">
-            <button id="Aceptar" name="Aceptar" class="btn btn-success">Aceptar</button>
-            <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
+          <div class="col-md-2">
           </div>
-        </div>
+          <div class="col-md-8">
+            <div class="hero-unit" style="margin-top:40px )">
+              <textarea class="textarea" placeholder="Ingres y edite el codigo" style="width: 810px; height: 200px;"></textarea>
+            </div>
+          </div>
+          <!-- Button (Double) -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="Aceptar"></label>
+            <div class="col-md-8">
+              <button id="Aceptar" name="Aceptar" class="btn btn-success">Aceptar</button>
+              <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
+            </div>
+          </div>
 
-      </fieldset>
-    </form>
+        </fieldset>
+      </form>
 
+    </div>
   </div>
-</div>
 </div>
 
 
 @endsection
 @section('navegacion')
 <div class="navegacion">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-sm-4">
-            <h1>
-              Creando Tema
-            </h1>
-          </div>
-          <div class="col-lg-8 col-sm-8">
-            <ol class="breadcrumb pull-right">
-              <li>
-                <a href='/'>
-                  Principal
-                </a>
-              </li>
-              
-              <li class="active">
-                Creando Tema
-              </li>
-            </ol>
-          </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4">
+        <h1>
+          Creando Tema
+        </h1>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <ol class="breadcrumb pull-right">
+          <li>
+            <a href='/'>
+              Principal
+            </a>
+          </li>
+          
+          <li class="active">
+            Creando Tema
+          </li>
+        </ol>
       </div>
     </div>
+  </div>
+</div>
 @endsection
 
