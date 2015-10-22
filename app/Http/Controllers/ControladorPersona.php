@@ -18,7 +18,7 @@ class ControladorPersona extends Controller
     {
         //
         $personas = Persona::all();
-         return view('lista2')->with('personas', $personas);
+         return view('temas3')->with('personas', $personas);
     }
     public function index2($id)
     {

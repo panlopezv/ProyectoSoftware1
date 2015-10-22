@@ -11,7 +11,7 @@
 
   <title>I-Tutos</title>
 
-    <!-- Bootstrap core CSS -->
+  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"/>
 
   <!-- Custom styles for this template -->
@@ -26,7 +26,7 @@
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <!--[endif]-->
 </head>
 
 <body>
@@ -78,135 +78,10 @@
 
       </div>
     </nav>
-    <div class="starter-template">
-
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img href="#"  data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
-          </div>
-          <div class="item">
-            <img href="#"  data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
-          </div>
-          <div class="item">
-            <img href="#"  data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
-          </div>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-      <div class="row" >
-        <h1>Categorias</h1>
-
-
-        <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-     </div>
-
-
-      
-    </div>
+           @yield('navegacion') 
+           @yield('lista')
+    
+    
     <!-- /.container -->
   </div>
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -227,23 +102,23 @@
             <div class="modal-body">
               <div id="div-login-msg">
                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                <span id="text-login-msg">Type your username and password.</span>
+                <span id="text-login-msg">Escriba su Usuario y Contraseña.</span>
               </div>
               <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
               <input id="login_password" class="form-control" type="password" placeholder="Password" required>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox"> Remember me
+                  <input type="checkbox"> Recordar
                 </label>
               </div>
             </div>
             <div class="modal-footer">
               <div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Inicio</button>
               </div>
               <div>
-                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                <button id="login_lost_btn" type="button" class="btn btn-link">Recuperar Contraseña</button>
+                <button id="login_register_btn" type="button" class="btn btn-link">Registrase</button>
               </div>
             </div>
           </form>
@@ -254,17 +129,17 @@
             <div class="modal-body">
               <div id="div-lost-msg">
                 <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                <span id="text-lost-msg">Type your e-mail.</span>
+                <span id="text-lost-msg">Usuario</span>
               </div>
               <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
             </div>
             <div class="modal-footer">
               <div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
               </div>
               <div>
-                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
-                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                <button id="lost_login_btn" type="button" class="btn btn-link">Iniciar Sesio</button>
+                <button id="lost_register_btn" type="button" class="btn btn-link">Registro</button>
               </div>
             </div>
           </form>
@@ -299,19 +174,156 @@
       </div>
     </div>
   </div>
+   <!--footer start-->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+            <h1>
+              contact info
+            </h1>
+            <address>
+              <p>
+                <i class="fa fa-home pr-10">
+                </i>
+                Address: No.XXXXXX street
+              </p>
+              <p>
+                <i class="fa fa-globe pr-10">
+                </i>
+                Mars city, Country
+              </p>
+              <p>
+                <i class="fa fa-mobile pr-10">
+                </i>
+                Mobile : (123) 456-7890
+              </p>
+              <p>
+                <i class="fa fa-phone pr-10">
+                </i>
+                Phone : (123) 456-7890
+              </p>
+              <p>
+                <i class="fa fa-envelope pr-10">
+                </i>
+                Email :
+                <a href="javascript:;">
+                  support@example.com
+                </a>
+              </p>
+            </address>
+          </div>
+          <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
+            <h1>
+              Ultimos Post
+            </h1>
+            <div id="owl-slide">
+              <div class="tweet-box">
+                <i class="fa fa-twitter">
+                </i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">
+                    @example
+                  </a>
+                  for all future updates of us!
+                  <a href="javascript:;">
+                    twitter.com/acme
+                  </a>
+                </em>
+              </div>
+              <div class="tweet-box">
+                <i class="fa fa-twitter">
+                </i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">
+                    @example
+                  </a>
+                  for all future updates of us!
+                  <a href="javascript:;">
+                    twitter.com/acme
+                  </a>
+                </em>
+              </div>
+              <div class="tweet-box">
+                <i class="fa fa-twitter">
+                </i>
+                <em>
+                  Please follow
+                  <a href="javascript:;">
+                    @example
+                  </a>
+                  for all future updates of us!
+                  <a href="javascript:;">
+                    twitter.com/acme
+                  </a>
+                </em>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+              <h1>
+                Our Company
+              </h1>
+              <ul class="page-footer-list">
 
-  <footer class="clase-general">
-    <p>Footer</p>
-</footer>
+                <li>
+                  <i class="fa fa-angle-right">
+                  </i>
+                  <a href="about.html">
+                    Quienes Somos
+                  </a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right">
+                  </i>
+                  <a href="service.html">
+                    Categorias
+                  </a>
+                </li>
+                <li>
+                  <i class="fa fa-angle-right">
+                  </i>
+                  <a href="privacy-policy.html">
+                    Perfil
+                  </a>
+                
+
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+    <!-- footer end -->
+    <!--small footer start -->
+    <footer class="footer-small">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-4">
+                  <div class="copyright">
+                    <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--small footer end-->
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/docs.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
 
   </body>
   </html>
