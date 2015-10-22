@@ -8,7 +8,7 @@ class Comentario extends Model
 {
     //
     protected $table = 'comentario';
-    protected $fillable = ['contenido', 'fecha'];
+    protected $fillable = ['contenido', 'temaid', 'usuarioid'];
     public function tema()
     {
         return $this->belongsTo('tema', 'temaid');

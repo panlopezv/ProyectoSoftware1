@@ -83,5 +83,24 @@ class ControladorComentario extends Controller
     public function destroy($id)
     {
         //
+        $comentario = Comentario::find($id);
+        $comentario->delete();
+    }
+
+
+    /**
+     * Crea un objeto Comentario y lo almacena en la base de datos.
+     * @param String contenido;
+     * @param Integer temaid;
+     * @param Integer usuarioid;
+     */
+    public function insertarComentario($cContenido, $cTemaID, $cUsuarioID)
+    {
+        //
+        $nueva = new Comentario;
+        $nueva->contenido = $cContenido;
+        $nueva->temaid = $cTemaID;
+        $nueva->usuarioid = $cUsuarioID;
+        $nueva->save();
     }
 }

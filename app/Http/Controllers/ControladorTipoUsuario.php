@@ -83,5 +83,20 @@ class ControladorTipoUsuario extends Controller
     public function destroy($id)
     {
         //
+        $tUsuario = TipoUsuario::find($id);
+        $tUsuario->delete();
     }
+
+    /**
+     * Crea un objeto TipoUsuario y lo almacena en la base de datos.
+     * @param String tipo;
+     */
+    public function insertarTipoUsuario($tTipo)
+    {
+        //
+        $nueva = new TipoUsuario;
+        $nueva->tipo = $tTipo;
+        $nueva->save();
+    }
+
 }

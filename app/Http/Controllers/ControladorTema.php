@@ -83,5 +83,28 @@ class ControladorTema extends Controller
     public function destroy($id)
     {
         //
+        $tema = Tema::find($id);
+        $tema->delete();
     }
+
+    /**
+     * Crea un objeto Tema y lo almacena en la base de datos.
+     * @param String titulo;
+     * @param String contenido;
+     * @param String referencia;
+     * @param Integer categoriaid;
+     * @param Integer usuarioid;
+     */
+    public function insertarTema($tTitulo, $tContenido, $tReferencia, $cID, $uID)
+    {
+        //
+        $nueva = new Tema;
+        $nueva->titulo = $tTitulo;
+        $nueva->contenido = $tContenido;
+        $nueva->referencia = $tReferencia;
+        $nueva->categoriaid = $cID;
+        $nueva->usuarioid = $uID;
+        $nueva->save();
+    }
+
 }

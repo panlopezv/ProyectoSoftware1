@@ -8,7 +8,7 @@ class Ejemplo extends Model
 {
     //
     protected $table = 'ejemplo';
-    protected $fillable = ['titulo', 'descripcion', 'ubicacionarchivo', 'descargas'];
+    protected $fillable = ['titulo', 'descripcion', 'ubicacionarchivo', 'temaid'];
     public function tema()
     {
         return $this->belongsTo('tema', 'temaid');

@@ -83,5 +83,25 @@ class ControladorEjemplo extends Controller
     public function destroy($id)
     {
         //
+        $ejemplo = Ejemplo::find($id);
+        $ejemplo->delete();
+    }
+
+    /**
+     * Crea un objeto Ejemplo y lo almacena en la base de datos.
+     * @param String eTitulo;
+     * @param String eDescripcion;
+     * @param String ubicacion;
+     * @param Integer tID;
+     */
+    public function insertarEjemplo($eTitulo, $eDescripcion, $ubicacion, $tID)
+    {
+        //
+        $nueva = new Ejemplo;
+        $nueva->titulo = $eTitulo;
+        $nueva->descripcion = $eDescripcion;
+        $nueva->ubicacionarchivo = $ubicacion;
+        $nueva->temaid = $tID;
+        $nueva->save();
     }
 }

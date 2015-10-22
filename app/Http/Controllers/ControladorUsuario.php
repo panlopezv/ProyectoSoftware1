@@ -83,5 +83,24 @@ class ControladorUsuario extends Controller
     public function destroy($id)
     {
         //
+        $usuario = Usuario::find($id);
+        $usuario->delete();
     }
+
+    /**
+     * Crea un objeto Usuario y lo almacena en la base de datos.
+     * @param String usuario;
+     * @param String correo;
+     * @param String contrasenya;
+     */
+    public function insertarUsuario($uUsuario, $uCorreo, $uContrasenya)
+    {
+        //
+        $nueva = new Usuario;
+        $nueva->usuario = $uUsuario;
+        $nueva->correo = $uCorreo;
+        $nueva->contrasenya = $uContrasenya;
+        $nueva->save();
+    }
+
 }

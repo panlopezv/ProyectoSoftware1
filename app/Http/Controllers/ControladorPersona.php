@@ -91,12 +91,17 @@ class ControladorPersona extends Controller
     public function destroy($id)
     {
         //
+        $persona = Persona::find($id);
+        $persona->delete();
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Crea un objeto Persona y lo almacena en la base de datos.
+     * @param String nombre;
+     * @param String apellido;
+     * @param Date fecha;
+     * @param String ubicacion;
+     * @param Boolean sexo;
      */
     public function insertarPersona($nombre, $apellido, $fecha, $ubicacion, $sexo)
     {

@@ -83,5 +83,19 @@ class ControladorCategoria extends Controller
     public function destroy($id)
     {
         //
+        $categoria = Categoria::find($id);
+        $categoria->delete();
+    }
+
+    /**
+     * Crea un objeto Categoria y lo almacena en la base de datos.
+     * @param String nombre;
+     */
+    public function insertarCategoria($nombre)
+    {
+        //
+        $nueva = new Categoria;
+        $nueva->categoria = $nombre;
+        $nueva->save();
     }
 }
