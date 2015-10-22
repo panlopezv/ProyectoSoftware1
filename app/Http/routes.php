@@ -21,7 +21,7 @@ Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'Controlado
 Route::get('personas', 'ControladorPersona@index');
 Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::get('registro', function () {
-    return view('temas3');
+    return view('registro');
 });
 Route::get('tema/java/+', function () {
     return view('tema');
@@ -30,9 +30,8 @@ Route::get('base', function () {
     return view('base');
 });
 Route::get('nuevos', function () {
-    return view('NuevoPost');
+    return view('crear');
 });
-
 Route::get('usuario/{nombre}', function ($nombre=null) {
     return 'Hola '.$nombre;
 })->where(array('nombre'=>'[A-Z][a-z]+'));

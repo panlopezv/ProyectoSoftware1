@@ -19,7 +19,7 @@
 
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
   <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
+ @yield('css') 
 
   
 
@@ -79,6 +79,7 @@
       </div>
     </nav>
            @yield('navegacion') 
+           @yield('areatext')
            @yield('lista')
     
     
@@ -319,6 +320,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    @yield('script') 
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/docs.min.js')}}"></script>
