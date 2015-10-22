@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 //Acceder a metodo de un controlador
 Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
@@ -21,10 +21,13 @@ Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'Controlado
 Route::get('personas', 'ControladorPersona@index');
 Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::get('registro', function () {
-    return view('registro');
+    return view('temas3');
 });
 Route::get('tema/java/+', function () {
     return view('tema');
+});
+Route::get('base', function () {
+    return view('base');
 });
 Route::get('nuevos', function () {
     return view('NuevoPost');

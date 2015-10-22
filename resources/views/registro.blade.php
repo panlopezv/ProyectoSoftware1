@@ -214,7 +214,11 @@
 
 </div>
     </div>
- 
+    
+  <footer class="clase-general">
+    <p>Copyright (c) 2015</p>
+</footer>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
