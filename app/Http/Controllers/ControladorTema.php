@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Tema as Tema;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ControladorTema extends Controller
 {
@@ -37,17 +38,21 @@ class ControladorTema extends Controller
      */
     public function store(Request $request)
     {
-        //
         $validador = Validator::make($request->all(),[
-            'titulo'        => 'required',
+            'titulo'        => 'required|unique:tema',
+            'categoria'        => 'required',
             'contenido'        => 'required',
             'referencia'        => 'required',
         ],[
             'required' => 'El campo :attribute es obligatorio.',
+            'unique' => 'El campo :attribute ya existe en la base de datos.',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator -> errors());
+        if ($validador->fails()) {
+            return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
+        }
+        else {
+            ControladorTema::insertarTema($request->input('titulo'), $request->input('contenido'), $request->input('referencia'), $request->input('categoria'), '1');
         }
     }
 
@@ -113,6 +118,7 @@ class ControladorTema extends Controller
         $nueva->titulo = $tTitulo;
         $nueva->contenido = $tContenido;
         $nueva->referencia = $tReferencia;
+        $nueva->fechapublicacion = date('Y-m-d H:i:s');
         $nueva->categoriaid = $cID;
         $nueva->usuarioid = $uID;
         $nueva->save();

@@ -7,7 +7,7 @@ class TablaUsuarioSeeder extends Seeder {
 		DB::table('usuario')->insert([
 	            'usuario' => 'panlopezv',
 	            'correo' => 'panlopezv@gmail.com',
-	            'contrasenya' => bcrypt('contrasenya'),
+	            'contrasenya' => Hash::make('contrasenya'),
 	            'personaid' => '1',
 	            'tipousuarioid' => '1',
 	        ]);

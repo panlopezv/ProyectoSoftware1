@@ -101,8 +101,10 @@ class ControladorCategoria extends Controller
 
     public function getCategorias()
     {
-        $categorias = Categoria::all();
-         return view('crear');
+        $categorias = Categoria::all()->lists('categoria','id');
+        $categorias[''] = 'Categoria del tema';
+        //array_merge(['' => 'Categoria del tema'], $categorias);
+        return view('crear')->with('categorias', $categorias);
     }
     public function getCategorias2()
     {

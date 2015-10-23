@@ -48,12 +48,30 @@
             <div class="panel panel-default">
               <!--<div class="panel-heading">Nuevo tema.</div>-->
               <div class="panel-body">
+
+
+                @if ($errors->any())
+                  <div class="alert alert-info" role="alert">
+                    <p>Corregir los siguientes campos:</p>
+                    <ul>
+                      @foreach($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                @endif
+              
                 {!! Form::open(array('route' => 'controladorTema.store')) !!}
                 
 
                 <div class="form-group">
                   {!! Form::label('titulo', 'Titulo') !!}
                   {!! Form::text('titulo', null, array('class' => 'form-control', 'placeholder' => 'Titulo del tema') ) !!}
+                </div>
+
+                <div class="form-group">
+                  {!! Form::label('categoria', 'Categoria') !!}
+                  {!! Form::select('categoria', $categorias, null, array('class' => 'form-control' )) !!}
                 </div>
 
                 <div class="form-group">
@@ -67,7 +85,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="button" class="btn btn-primary btn-lg active">Aceptar</button>
+                  <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
                   <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
                 </div>
                 
