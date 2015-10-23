@@ -129,37 +129,7 @@
       </div>
       <div class="container">
 
-<<<<<<< HEAD
-          <div class="col-lg-8 col-sm-12">
-            <h1>
-              <a href="blog_detail.html">
-                Suspendisse dignissim in sem eget pulvinar. Mauris aliquam nulla at libero pretium.
-              </a>
-            </h1>
-            <p>
-              Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
-            </p>
-            <blockquote>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit posuere erat a ante.
-              </p>
-              <small>
-                Someone famous
-                <cite title="Source Title">
-                  Source Title
-                </cite>
-              </small>
-            </blockquote>
-            <p>
-              Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus.
-            </p>
-            <h3>
-              Comments
-            </h3>
-            <hr>
-            <div class="media">
 
-=======
         <div class="col-xs-6 col-lg-4 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
             <a href="#" class="list-group-item">Link</a>
@@ -198,86 +168,12 @@
             @foreach ($comentarios as $comentario)
             <hr>                
             <div class "media">
->>>>>>> origin/master
               <a class="pull-left" href="javascript:;">
                 <img class="media-object" src="holder.js/200x200" alt="">
               </a>
               <div class="media-body">
                 <h4 class="media-heading">
-<<<<<<< HEAD
-                  Maria Joli
-                  <span>
-                    |
-                  </span>
-                  <span>
-                    12 July 2014, 10:20
-                  </span>
-                </h4>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <a href="javascript:;">
-                  Reply
-                </a>
-                <hr>
-                
-              </div>
-              </div>
-              <div class="media">
-                <a class="pull-left" href="javascript:;">
-                  <img class="media-object" src="holder.js/200x200" alt="">
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">
-                    Danny Dev
-                    <span>
-                      |
-                    </span>
-                    <span>
-                      12 July 2014, 11:10
-                    </span>
-                  </h4>
-                  <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                  </p>
-                  <a href="javascript:;">
-                    Reply
-                  </a>
-                </div>
-              </div>
-              <hr>
-              <div class="media">
-                <a class="pull-left" href="javascript:;">
-                  <img class="media-object" src="holder.js/200x200" alt="">
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">
-                    Danny Dev
-                    <span>
-                      |
-                    </span>
-                    <span>
-                      12 July 2014, 11:10
-                    </span>
-                  </h4>
-                  <p>
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                  </p>
-                  <a href="javascript:;">
-                    Reply
-                  </a>
-                </div>
-              </div>
-              <div class="post-comment">
-                <h3 class="skills">
-                  Post Comments
-                </h3>
-              <form class="form-horizontal" role="form">
-                <div class="form-group">
-                  <div class="col-lg-4">
-                    <input type="text" placeholder="Name" class="col-lg-12 form-control">
-                  </div>
-=======
+
                   {{ $comentario->usuarioid }}
                   <span>|</span>
                   <span>{{ $comentario->fecha }}</span>
