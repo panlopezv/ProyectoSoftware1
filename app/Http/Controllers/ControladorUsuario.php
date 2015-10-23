@@ -6,6 +6,8 @@ use App\Usuario as Usuario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use DB;
 
 class ControladorUsuario extends Controller
 {
@@ -37,7 +39,29 @@ class ControladorUsuario extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validador = Validator::make($request->all(), [
+            'usuario'        => 'required|exists:usuario,usuario',
+            'pass'           => 'required',
+        ],[
+            'required'  => 'necesitamos que ingrese su :attribute.',
+            'exists'    => ':attribute incorrecto'
+        ]);
+
+        $usuario = DB::table('usuario')->where('usuario',$request->input('usuario'))->first();
+
+
+        if ($validador->fails()) {
+            return redirect('iniciofallido')
+                        ->withErrors($validador -> errors())
+                        ->withInput($request->all());
+
+        }else if ($usuario->contrasenya != $request->input('pass')){
+            return redirect('iniciofallido')
+                        ->withErrors('contraseña incorrecta')
+                        ->withInput($request->all());
+        }
+
+        return redirect('inicio');
     }
 
     /**

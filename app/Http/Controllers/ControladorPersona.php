@@ -54,12 +54,13 @@ class ControladorPersona extends Controller
         $validator = Validator::make($request->all(), [
             'nombre'        => 'required',
             'apellido'      => 'required',
-            'usuario'       => 'required',
-            'correo'        => 'required',
+            'usuario'       => 'required|exists:usuario,usuario',
+            'correo'        => 'required|exists:usuario,usuario',
             'contrasenia'   => 'required',
             'sexo'          => 'required'
         ],[
             'required' => 'necesitamos que ingrese su :attribute.',
+            'exists'    => 'el :attribute ya existe',
         ]);
 
         if ($validator->fails()) {

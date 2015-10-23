@@ -22,12 +22,17 @@ Route::get('personas/{id}', 'ControladorPersona@index2');
 
 
 Route::resource('controladorPersona', 'ControladorPersona');
+Route::resource('controladorUsuario', 'ControladorUsuario');
+
 Route::get('nuevoTema', 'ControladorCategoria@getCategorias');
 
 Route::resource('controladorTema','ControladorTema');
 
 Route::get('registro', function () {
     return view('registro');
+});
+Route::get('iniciofallido', function () {
+    return view('iniciofallido');
 });
 Route::get('inicio', function () {
     return view('inicio');
