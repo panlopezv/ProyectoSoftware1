@@ -38,12 +38,17 @@ class ControladorTema extends Controller
     public function store(Request $request)
     {
         //
-        $titulo = $request->Input('titulo');
         $validador = Validator::make($request->all(),[
-            
+            'titulo'        => 'required',
+            'contenido'        => 'required',
+            'referencia'        => 'required',
         ],[
-
+            'required' => 'El campo :attribute es obligatorio.',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator -> errors());
+        }
     }
 
     /**
