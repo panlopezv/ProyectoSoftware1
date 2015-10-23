@@ -38,6 +38,12 @@ class ControladorTema extends Controller
     public function store(Request $request)
     {
         //
+        $titulo = $request->Input('titulo');
+        $validador = Validator::make($request->all(),[
+            
+        ],[
+
+        ]);
     }
 
     /**
