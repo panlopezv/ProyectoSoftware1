@@ -20,8 +20,14 @@ Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'Controlado
 //Route::get('persona/{id}', 'ControladorPersona@index');
 Route::get('personas', 'ControladorPersona@index');
 Route::get('personas/{id}', 'ControladorPersona@index2');
+
+Route::resource('controladorPersona', 'ControladorPersona');
+
 Route::get('registro', function () {
     return view('registro');
+});
+Route::get('inicio', function () {
+    return view('inicio');
 });
 Route::get('tema/java/+', function () {
     return view('tema');

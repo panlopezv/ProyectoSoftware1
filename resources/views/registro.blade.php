@@ -106,111 +106,91 @@
 
 <!-- Text input-->     
 <div class="starter-template">
-<div class="row">
-<form class="form-horizontal">
-<fieldset>
+  <div class="container">
+    <div class ="row">
+      <div class ="col-md-8 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">Nuevo Usuario</div>
+            <div class="panel-body">
+              
 
-<!-- Form Name -->
+                @if ($errors->any())
+                  <div class="alert alert-info" role="alert">
+                    <p>Corrige los siguientes errores</p>
+                    <ul>
+                      @foreach($errors->all() as $error)
+                        <li>{!! $error !!}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                @endif
+              
 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Nombre">Nombre</label>  
-  <div class="col-md-4">
-  <input id="Nombre" name="Nombre" placeholder="Miguel" class="form-control input-md" required="" type="text">
-  <span class="help-block">Aqui escriba su nombre real.</span>  
+            {!! Form::open(array('route' => 'controladorPersona.store')) !!}
+               
+
+              <div class="form-group">
+                {!! Form::label('nombre', 'Nombres') !!}
+                {!! Form::text('nombre', null, array('class' => 'form-control' ) ) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('apellido', 'Apellidos') !!}
+                {!! Form::text('apellido', null, array('class' => 'form-control' )) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('usuario', 'Usuario') !!}
+                {!! Form::text('usuario', null, array('class' => 'form-control' ) ) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('correo', 'Correo Electronico') !!}
+                {!! Form::email('correo', null, array('class' => 'form-control', 'placeholder' => 'ejemplo@correo.url.edu.gt') ) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('contrasenia', 'Contraseña') !!}
+                {!! Form::password('contrasenia', array('class' => 'form-control' ) ) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('conContrasenia', 'Repita Contraseña') !!}
+                {!! Form::password('conContrasenia', array('class' => 'form-control' ) ) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('sexo', 'Sexo') !!}
+                {!! Form::select('sexo', array('' => 'Seleccione', '1' => 'Hombre', '0' => 'Mujer' ), null, array('class' => 'form-control' )) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento') !!}
+                {!! Form::date('fechaNacimiento', \Carbon\Carbon::now()) !!}
+              </div>
+
+              <div class="form-group">
+                {!! Form::label('avatar', 'Seleccione una imagen') !!}
+                {!! Form::file('avatar'); !!}
+              </div>
+
+
+
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
+                  <button type="button" class="btn btn-default btn-lg active">Cancelar</button>
+              </div>
+                      
+            {!! Form::close() !!}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Apellido">Apellidos</label>  
-  <div class="col-md-4">
-  <input id="Apellido" name="Apellido" placeholder="Diaz Muñoz" class="form-control input-md" required="" type="text">
-  <span class="help-block">Coloque su apellido o apellidos</span>  
-  </div>
-</div>
-
-<!-- Multiple Checkboxes -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Sexo">Sexo</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label for="Sexo-0">
-      <input name="Sexo" id="Sexo-0" value="1" type="checkbox">
-      Hombre
-    </label>
-  </div>
-  <div class="checkbox">
-    <label for="Sexo-1">
-      <input name="Sexo" id="Sexo-1" value="2" type="checkbox">
-      Mujer
-    </label>
-  </div>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="usuario">Usuario</label>  
-  <div class="col-md-4">
-  <input id="usuario" name="usuario" placeholder="Nick" class="form-control input-md" required="" type="text">
-  <span class="help-block">mikediaz12, panlopez</span>  
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Correo">Correo</label>  
-  <div class="col-md-4">
-  <input id="Correo" name="Correo" placeholder="modm@ejemplo.com" class="form-control input-md" required="" type="text">
-  <span class="help-block">Correo electronico</span>  
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Contraseña1">Contraseña</label>
-  <div class="col-md-4">
-    <input id="Contraseña1" name="Contraseña1" placeholder="" class="form-control input-md" required="" type="password">
-    
-  </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Contraseña2">Repita contraseña</label>
-  <div class="col-md-4">
-    <input id="Contraseña2" name="Contraseña2" placeholder="" class="form-control input-md" required="" type="password">
-    <span class="help-block">Comprabacion de contraseña</span>
-  </div>
-</div>
-
-<!-- File Button --> 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Avatar">Avatar</label>
-  <div class="col-md-4">
-    <input id="Avatar" name="Avatar" class="input-file" type="file">
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Politicas">Politicas</label>
-  <div class="col-md-4">                     
-    <textarea class="form-control" id="Politicas" name="Politicas">Politicas de uso y privacidad.</textarea>
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Aceptar"></label>
-  <div class="col-md-8">
-    <button id="Aceptar" name="Aceptar" class="btn btn-success">Aceptar</button>
-    <button id="Cancelar" name="Cancelar" class="btn btn-danger">Cancelar</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
 
 </div>
     </div>

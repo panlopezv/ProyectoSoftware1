@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Persona as Persona;
+use App\Usuario as Usuario;
+use App\TipoUsuario as TipoUsuario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ControladorPersona extends Controller
 {
@@ -34,7 +37,7 @@ class ControladorPersona extends Controller
      */
     public function create()
     {
-        //
+        return view('registro');
     }
 
     /**
@@ -45,7 +48,51 @@ class ControladorPersona extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $con1 = $request->Input('contrasenia');
+        $con2 = $request->Input('conContrasenia');
+
+        $validator = Validator::make($request->all(), [
+            'nombre'        => 'required',
+            'apellido'      => 'required',
+            'usuario'       => 'required',
+            'correo'        => 'required',
+            'contrasenia'   => 'required',
+            'sexo'          => 'required'
+        ],[
+            'required' => 'necesitamos que ingrese su :attribute.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator -> errors())
+                        ->withInput($request->except('contrasenia'))
+                        ->withInput($request->except('conContrasenia'));
+
+        }else if ($con1!=$con2) {
+            return redirect()->back()
+                        ->withErrors('las contraseñas son diferentes')
+                        ->withInput($request->except('contrasenia'))
+                        ->withInput($request->except('conContrasenia'));
+
+        }
+
+        $nuevaPersona = new Persona;
+        $nuevaPersona->nombres = $request->input('nombre');
+        $nuevaPersona->apellidos = $request->input('apellido');
+        $nuevaPersona->fechanacimiento = $request->input('fechaNacimiento');
+        $nuevaPersona->ubicacionavatar = $request->input('avatar');
+        $nuevaPersona->sexo = $request->input('sexo');
+        $nuevaPersona->save();
+
+        $usuario = new Usuario;
+        $usuario->usuario = $request->input('usuario');
+        $usuario->correo = $request->input('correo');
+        $usuario->contrasenya = $request->input('contrasenia');
+        $usuario->personaid = $nuevaPersona->id;
+        $usuario->tipousuarioid = 3;
+        $usuario->save();
+
+        return redirect('inicio');
     }
 
     /**
