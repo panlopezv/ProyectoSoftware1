@@ -212,19 +212,16 @@
           <div class="col-md-8">
             <table class="table">
               <tr>
-                <th >Nombres</th>
-                <th>Apellidos</th>
-                <th>Fecha Nacimiento</th>
-                <th>Ubicacion Avatar</th>
-                <th>Sexo</th>
+                <th >Titulo</th>
+                <th>Contenido</th>
+                <th>Fecha</th>
               </tr>
-              @foreach ($personas as $persona)
+              @foreach ($temas as $tema)
               <tr>
-                <td><a href={{'personas/'.$persona->id}}>{{ $persona->nombres }}</a></td>
-                <td>{{ $persona->apellidos }}</td>
-                <td>{{ $persona->fechanacimiento }}</td>
-                <td>{{ $persona->ubicacionavatar }}</td>
-                <td>{{ $persona->sexo }}</td>
+                <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }}</a></td>
+                <td>{{ $tema->contenido }}</td>
+                <td>{{ $tema->fechapublicacion }}</td>
+                
               </tr>
               @endforeach
             </table>

@@ -24,6 +24,8 @@ Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorComentario', 'controladorComentario');
 Route::get('nuevotema', 'ControladorCategoria@getCategorias');
+Route::resource('busquedas', 'ControladorBusqueda');
+Route::get('busqueda', 'ControladorBusqueda@index');
 
 Route::resource('controladorTema','ControladorTema');
 
