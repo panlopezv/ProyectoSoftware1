@@ -19,7 +19,7 @@
 
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
   <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
- @yield('css') 
+  @yield('css') 
 
   
 
@@ -78,9 +78,9 @@
 
       </div>
     </nav>
-           @yield('navegacion') 
-           @yield('areatext')
-           @yield('lista')
+    @yield('navegacion') 
+    @yield('nuevotema')
+    @yield('lista')
     
     
     <!-- /.container -->
@@ -175,121 +175,121 @@
       </div>
     </div>
   </div>
-   <!--footer start-->
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
-            <h1>
-              contact info
-            </h1>
-            <address>
-              <p>
-                <i class="fa fa-home pr-10">
-                </i>
-                Address: No.XXXXXX street
-              </p>
-              <p>
-                <i class="fa fa-globe pr-10">
-                </i>
-                Mars city, Country
-              </p>
-              <p>
-                <i class="fa fa-mobile pr-10">
-                </i>
-                Mobile : (123) 456-7890
-              </p>
-              <p>
-                <i class="fa fa-phone pr-10">
-                </i>
-                Phone : (123) 456-7890
-              </p>
-              <p>
-                <i class="fa fa-envelope pr-10">
-                </i>
-                Email :
+  <!--footer start-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+          <h1>
+            contact info
+          </h1>
+          <address>
+            <p>
+              <i class="fa fa-home pr-10">
+              </i>
+              Address: No.XXXXXX street
+            </p>
+            <p>
+              <i class="fa fa-globe pr-10">
+              </i>
+              Mars city, Country
+            </p>
+            <p>
+              <i class="fa fa-mobile pr-10">
+              </i>
+              Mobile : (123) 456-7890
+            </p>
+            <p>
+              <i class="fa fa-phone pr-10">
+              </i>
+              Phone : (123) 456-7890
+            </p>
+            <p>
+              <i class="fa fa-envelope pr-10">
+              </i>
+              Email :
+              <a href="javascript:;">
+                support@example.com
+              </a>
+            </p>
+          </address>
+        </div>
+        <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
+          <h1>
+            Ultimos Post
+          </h1>
+          <div id="owl-slide">
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Please follow
                 <a href="javascript:;">
-                  support@example.com
+                  @example
                 </a>
-              </p>
-            </address>
-          </div>
-          <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
-            <h1>
-              Ultimos Post
-            </h1>
-            <div id="owl-slide">
-              <div class="tweet-box">
-                <i class="fa fa-twitter">
-                </i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">
-                    @example
-                  </a>
-                  for all future updates of us!
-                  <a href="javascript:;">
-                    twitter.com/acme
-                  </a>
-                </em>
-              </div>
-              <div class="tweet-box">
-                <i class="fa fa-twitter">
-                </i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">
-                    @example
-                  </a>
-                  for all future updates of us!
-                  <a href="javascript:;">
-                    twitter.com/acme
-                  </a>
-                </em>
-              </div>
-              <div class="tweet-box">
-                <i class="fa fa-twitter">
-                </i>
-                <em>
-                  Please follow
-                  <a href="javascript:;">
-                    @example
-                  </a>
-                  for all future updates of us!
-                  <a href="javascript:;">
-                    twitter.com/acme
-                  </a>
-                </em>
-              </div>
+                for all future updates of us!
+                <a href="javascript:;">
+                  twitter.com/acme
+                </a>
+              </em>
+            </div>
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Please follow
+                <a href="javascript:;">
+                  @example
+                </a>
+                for all future updates of us!
+                <a href="javascript:;">
+                  twitter.com/acme
+                </a>
+              </em>
+            </div>
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Please follow
+                <a href="javascript:;">
+                  @example
+                </a>
+                for all future updates of us!
+                <a href="javascript:;">
+                  twitter.com/acme
+                </a>
+              </em>
             </div>
           </div>
-          <div class="col-lg-3 col-sm-3">
-            <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
-              <h1>
-                Our Company
-              </h1>
-              <ul class="page-footer-list">
+        </div>
+        <div class="col-lg-3 col-sm-3">
+          <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+            <h1>
+              Our Company
+            </h1>
+            <ul class="page-footer-list">
 
-                <li>
-                  <i class="fa fa-angle-right">
-                  </i>
-                  <a href="about.html">
-                    Quienes Somos
-                  </a>
-                </li>
-                <li>
-                  <i class="fa fa-angle-right">
-                  </i>
-                  <a href="service.html">
-                    Categorias
-                  </a>
-                </li>
-                <li>
-                  <i class="fa fa-angle-right">
-                  </i>
-                  <a href="privacy-policy.html">
-                    Perfil
-                  </a>
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="about.html">
+                  Quienes Somos
+                </a>
+              </li>
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="service.html">
+                  Categorias
+                </a>
+              </li>
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="privacy-policy.html">
+                  Perfil
+                </a>
                 
 
               </ul>
@@ -303,16 +303,16 @@
     <!-- footer end -->
     <!--small footer start -->
     <footer class="footer-small">
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-md-4">
-                  <div class="copyright">
-                    <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
-                  </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-4">
+            <div class="copyright">
+              <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
             </div>
+          </div>
         </div>
+      </div>
     </footer>
     <!--small footer end-->
 
@@ -327,6 +327,5 @@
     <script src="{{asset('js/docs.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
-
   </body>
   </html>
