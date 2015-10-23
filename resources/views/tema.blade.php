@@ -168,12 +168,12 @@
             <p>
               Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ipsum. Aliquam ac magna metus.
             </p>
-
+            <h3>
+              Comments
+            </h3>
+            <hr>
             <div class="media">
-              <h3>
-                Comments
-              </h3>
-              <hr>
+
               <a class="pull-left" href="javascript:;">
                 <img class="media-object" src="holder.js/200x200" alt="">
               </a>
@@ -194,83 +194,58 @@
                   Reply
                 </a>
                 <hr>
-                <!-- Nested media object -->
-                <div class="media">
-                  <a class="pull-left" href="javascript:;">
-                    <img class="media-object" src="holder.js/200x200" alt="">
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">
-                      John Doe
-                      <span>
-                        |
-                      </span>
-                      <span>
-                        12 July 2014, 10:30
-                      </span>
-                    </h4>
-                    <p>
-                      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                    </p>
-                    <a href="javascript:;">
-                      Reply
-                    </a>
-                  </div>
-                </div>
-                <!--end media-->
-                <hr>
-                <div class="media">
-                  <a class="pull-left" href="javascript:;">
-                    <img class="media-object" src="holder.js/200x200" alt="">
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">
-                      Jane Doe
-                      <span>
-                        |
-                      </span>
-                      <span>
-                        12 July 2014, 10:40
-                      </span>
-                    </h4>
-                    <p>
-                      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                    </p>
-                    <a href="javascript:;">
-                      Reply
-                    </a>
-                  </div>
-                </div>
-                <hr>
-                <!--end media-->
+                
               </div>
-            </div>
-            <div class="media">
-              <a class="pull-left" href="javascript:;">
-                <img class="media-object" src="holder.js/200x200" alt="">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading">
-                  Danny Dev
-                  <span>
-                    |
-                  </span>
-                  <span>
-                    12 July 2014, 11:10
-                  </span>
-                </h4>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                </p>
-                <a href="javascript:;">
-                  Reply
+              </div>
+              <div class="media">
+                <a class="pull-left" href="javascript:;">
+                  <img class="media-object" src="holder.js/200x200" alt="">
                 </a>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    Danny Dev
+                    <span>
+                      |
+                    </span>
+                    <span>
+                      12 July 2014, 11:10
+                    </span>
+                  </h4>
+                  <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                  </p>
+                  <a href="javascript:;">
+                    Reply
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="post-comment">
-              <h3 class="skills">
-                Post Comments
-              </h3>
+              <hr>
+              <div class="media">
+                <a class="pull-left" href="javascript:;">
+                  <img class="media-object" src="holder.js/200x200" alt="">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">
+                    Danny Dev
+                    <span>
+                      |
+                    </span>
+                    <span>
+                      12 July 2014, 11:10
+                    </span>
+                  </h4>
+                  <p>
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                  </p>
+                  <a href="javascript:;">
+                    Reply
+                  </a>
+                </div>
+              </div>
+              <div class="post-comment">
+                <h3 class="skills">
+                  Post Comments
+                </h3>
               <form class="form-horizontal" role="form">
                 <div class="form-group">
                   <div class="col-lg-4">

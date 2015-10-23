@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../../../../Users/modm_/Documents/Ingenieria de Software/bootstrap-3.3.5/docs/favicon.ico">
 
-  <title>I-Tutos</title>
+  <title>PrograPedia</title>
 
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"/>
@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Aqui va el Nombre</a>
+          <a class="navbar-brand" href="#">PrograPedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -88,13 +88,13 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img href="#"  data-src="holder.js/1140x500/auto/#777:#555/text:First slide" alt="First slide">
+            <img href="#"  src="images/asd.jpg" alt="First slide">
           </div>
           <div class="item">
-            <img href="#"  data-src="holder.js/1140x500/auto/#666:#444/text:Second slide" alt="Second slide">
+            <img href="#"  src="images/post-1140x500.jpg" alt="Second slide">
           </div>
           <div class="item">
-            <img href="#"  data-src="holder.js/1140x500/auto/#555:#333/text:Third slide" alt="Third slide">
+            <img href="#"  src="images/url.jpg" alt="http://www.artegrafico.cl/magazine/wp-content/uploads/2015/07/post-1140x500.jpg">
           </div>
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -114,14 +114,14 @@
         <div class="col-xs-12 col-sm-6    col-lg-2" >
           <div id="bljaIMGte">
 
-            <img src="holder.js/200x200" />
+            <img src="images/iteration.png" />
 
             <div class="bljaIMGtex" style="color:#000000;">
              <div class="uno">
-               <h3><b>Java</b></h3>
+               <h3><b>Bucles</b></h3>
              </div>
              <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
+               <a href="#">Temas<span class="badge">3</span></a>
              </div>
            </div>
          </div>
@@ -129,80 +129,19 @@
        <div class="col-xs-12 col-sm-6    col-lg-2" >
           <div id="bljaIMGte">
 
-            <img src="holder.js/200x200" />
+            <img src="images/cfunciones.jpg" />
 
             <div class="bljaIMGtex" style="color:#000000;">
              <div class="uno">
-               <h3><b>Java</b></h3>
+               <h3><b>Funciones</b></h3>
              </div>
              <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
+               <a href="#">Temas<span class="badge">6</span></a>
              </div>
            </div>
          </div>
        </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
-
-            <img src="holder.js/200x200" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Java</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">42</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-     </div>
+       
 
 
       
@@ -300,9 +239,127 @@
     </div>
   </div>
 
-  <footer class="clase-general">
-    <p>Footer</p>
-</footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+          <h1>
+            Informacion de contacto
+          </h1>
+          <address>
+            <p>
+              <i class="fa fa-home pr-10">
+              </i>
+              Guatemala
+            </p>
+            <p>
+              <i class="fa fa-globe pr-10">
+              </i>
+              Xela
+            </p>
+            <p>
+              <i class="fa fa-mobile pr-10">
+              </i>
+              Mobile : 55173357
+            </p>
+            <p>
+              <i class="fa fa-phone pr-10">
+              </i>
+              Phone : (123) 456-7890
+            </p>
+            <p>
+              <i class="fa fa-envelope pr-10">
+              </i>
+              Email :
+              <a href="javascript:;">
+                soporte@prograpedia.com
+              </a>
+            </p>
+          </address>
+        </div>
+        <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
+          <h1>
+            Ultimos Post
+          </h1>
+          <div id="owl-slide">
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Bucles
+                
+              </em>
+            </div>
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Instancias
+                
+              </em>
+            </div>
+            <div class="tweet-box">
+              <i class="fa fa-twitter">
+              </i>
+              <em>
+                Bucles
+                
+              </em>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-3">
+          <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
+            <h1>
+              Our Company
+            </h1>
+            <ul class="page-footer-list">
+
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="about.html">
+                  Quienes Somos
+                </a>
+              </li>
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="service.html">
+                  Categorias
+                </a>
+              </li>
+              <li>
+                <i class="fa fa-angle-right">
+                </i>
+                <a href="privacy-policy.html">
+                  Perfil
+                </a>
+                
+
+              </ul>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </footer>
+    <!-- footer end -->
+    <!--small footer start -->
+    <footer class="footer-small">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-4">
+            <div class="copyright">
+              <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--small footer end-->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
