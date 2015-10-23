@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
+                  <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
                   <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
                 </div>
                 
@@ -104,7 +104,7 @@
     <div class="row">
       <div class="col-lg-4 col-sm-4">
         <h1>
-          Creando Tema
+          Nuevo tema
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">

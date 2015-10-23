@@ -6,6 +6,7 @@ use App\Comentario as Comentario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ControladorComentario extends Controller
 {
@@ -37,7 +38,19 @@ class ControladorComentario extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validador = Validator::make($request->all(),[
+            'comentario'        => 'required',
+        ],[
+            'required' => 'El campo :attribute es obligatorio.',
+        ]);
+
+        if ($validador->fails()) {
+            return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
+        }
+        else {
+            ControladorComentario::insertarComentario($request->input('comentario'), $request->input('temaid'), '1');
+            return redirect('temas/'. $request->input('temaid'));
+        }
     }
 
     /**
@@ -101,6 +114,7 @@ class ControladorComentario extends Controller
         $nueva->contenido = $cContenido;
         $nueva->temaid = $cTemaID;
         $nueva->usuarioid = $cUsuarioID;
+        $nueva->fecha = date('Y-m-d H:i:s');
         $nueva->save();
     }
 }
