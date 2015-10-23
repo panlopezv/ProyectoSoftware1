@@ -26,8 +26,11 @@ Route::get('registro', function () {
 Route::get('tema/java/+', function () {
     return view('tema');
 });
+Route::get('prueba', function () {
+    return view('BaseVista');
+});
 Route::get('base', function () {
-    return view('base');
+    return view('registro');
 });
 Route::get('nuevos', function () {
     return view('crear');
