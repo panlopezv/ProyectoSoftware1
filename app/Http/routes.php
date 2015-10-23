@@ -25,6 +25,10 @@ Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
 Route::get('nuevoTema', 'ControladorCategoria@getCategorias');
+Route::resource('controladorComentario', 'controladorComentario');
+Route::get('nuevotema', 'ControladorCategoria@getCategorias');
+Route::resource('busquedas', 'ControladorBusqueda');
+Route::get('busqueda', 'ControladorBusqueda@index');
 
 Route::resource('controladorTema','ControladorTema');
 
@@ -37,9 +41,9 @@ Route::get('iniciofallido', function () {
 Route::get('inicio', function () {
     return view('inicio');
 });
-Route::get('tema/java/+', function () {
-    return view('tema');
-});
+
+Route::get('temas/{idTema}', 'ControladorTema@index');
+
 Route::get('prueba', function () {
     return view('BaseVista');
 });

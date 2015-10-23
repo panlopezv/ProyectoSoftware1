@@ -19,8 +19,10 @@ class ControladorPersona extends Controller
      */
     public function index()
     {
-        //
-        $personas = Persona::all();
+        //Persona::all()->where('nombres', 'Popo');
+        $personas = Persona::all()->where('nombres', 'mike');
+        $personas=$personas::paginate(5);
+        $personas->setPath('personas');
          return view('temas3')->with('personas', $personas);
     }
     public function index2($id)

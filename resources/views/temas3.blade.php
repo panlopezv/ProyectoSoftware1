@@ -24,6 +24,7 @@
 					<td>{{ $persona->sexo }}</td>
 				</tr>
 				@endforeach
+
 			</table>
 		</div>
 	</div>

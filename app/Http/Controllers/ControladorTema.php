@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Tema as Tema;
+use App\Comentario as Comentario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,9 +16,12 @@ class ControladorTema extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idTema)
     {
-        //
+        $tema = Tema::find($idTema);
+        $comentarios = DB::table('comentario')->where('temaid',$idTema)->get();
+        //return view('tema')->with('tema', $tema);
+        return view('tema', compact('tema', 'comentarios'));
     }
 
     /**
@@ -53,6 +57,8 @@ class ControladorTema extends Controller
         }
         else {
             ControladorTema::insertarTema($request->input('titulo'), $request->input('contenido'), $request->input('referencia'), $request->input('categoria'), '1');
+            $nuevoTemaID = DB::table('tema')->max('id');
+            return redirect('temas/'.$nuevoTemaID);
         }
     }
 
