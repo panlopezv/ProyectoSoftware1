@@ -154,7 +154,7 @@
       <div class="modal-content">
         
           <div class="modal-header" align="center">
-            <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+            <img class="img-circle" id="img_logo" src="images/logo.jpg">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
             </button>

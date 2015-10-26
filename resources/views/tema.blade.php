@@ -197,11 +197,8 @@
                 </ul>
               </div>
               @endif
->>>>>>> origin/master
 
               {!! Form::open(array('route' => 'controladorComentario.store')) !!}
-
-
               <div class="form-group">
                 {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
                 {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}

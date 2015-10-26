@@ -53,3 +53,7 @@ Route::get('base', function () {
 Route::get('usuario/{nombre}', function ($nombre=null) {
     return 'Hola '.$nombre;
 })->where(array('nombre'=>'[A-Z][a-z]+'));
+
+Route::get('prueba', function () {
+    return view('crear2');
+});

@@ -56,8 +56,8 @@ class ControladorPersona extends Controller
         $validator = Validator::make($request->all(), [
             'nombre'        => 'required',
             'apellido'      => 'required',
-            'usuario'       => 'required|exists:usuario,usuario',
-            'correo'        => 'required|exists:usuario,usuario',
+            'usuario'       => 'required',
+            'correo'        => 'required',
             'contrasenia'   => 'required',
             'sexo'          => 'required'
         ],[

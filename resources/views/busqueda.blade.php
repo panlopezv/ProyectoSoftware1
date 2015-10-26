@@ -50,7 +50,7 @@
           <div class="container">
             {!! Form::open(array('route' => 'busquedas.store')) !!}
             <div class="form-group">
-              <button type="submit" class="btn btn-success btn-lg active">Nuevo temas</button>
+              <button type="submit" class="btn btn-success btn-lg active">Nuevo tema</button>
             </div>
 
             {!! Form::close() !!}
@@ -65,13 +65,12 @@
                   <table class="table">
                     <tr>
                       <th >Titulo</th>
-                      <th>Contenido</th>
                       <th>Fecha</th>
                     </tr>
                     @foreach ($temas as $tema)
                     <tr>
                       <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }}</a></td>
-                      <td>{{ $tema->contenido }}</td>
+                      
                       <td>{{ $tema->fechapublicacion }}</td>
 
                     </tr>

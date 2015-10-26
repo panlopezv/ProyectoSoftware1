@@ -24,15 +24,16 @@
 <script src="lib/js/wysihtml5-0.3.0.js"></script>
 <script src="lib/js/jquery-1.7.2.min.js"></script>
 <script src="lib/js/prettify.js"></script>
-<script src="src/bootstrap-wysihtml5.js"></script>
-
-
-<script>
-	$('.textarea').wysihtml5();
-</script>
-
 <script type="text/javascript" charset="utf-8">
 	$(prettyPrint);
+</script>
+
+<script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    selector : "#contenido",
+    toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
+});
 </script>
 
 
@@ -76,7 +77,7 @@
 
                 <div class="form-group">
                   {!! Form::label('contenido', 'Contenido') !!}
-                  {!! Form::textarea('contenido', null, array('class' => 'form-control', 'placeholder' => 'Contenido del tema')) !!}
+                  {!! Form::textarea('contenido', null, array('class' => 'form-control', 'placeholder' => 'Contenido del tema', 'name' => 'contenido')) !!}
                 </div>
 
                 <div class="form-group">
