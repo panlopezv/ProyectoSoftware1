@@ -149,7 +149,7 @@
           <h1>
             <a>{{ $tema->titulo }}</a>
           </h1>
-          <p>{{ $tema->contenido }}</p>
+          {{ printf($tema->contenido) }}
           <blockquote>
             <p>{{ $tema->referencia }}</p>
             <small>
