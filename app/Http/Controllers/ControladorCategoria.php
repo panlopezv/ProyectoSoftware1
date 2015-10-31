@@ -98,16 +98,4 @@ class ControladorCategoria extends Controller
         $nueva->categoria = $nombre;
         $nueva->save();
     }
-
-    public function getCategorias()
-    {
-        $categorias = Categoria::all()->lists('categoria','id');
-        $categorias[''] = 'Categoria del tema';
-        return view('crear')->with('categorias', $categorias);
-    }
-    public function getCategorias2()
-    {
-        $categorias = Categoria::all();
-         return view('crear2');
-    }
 }
