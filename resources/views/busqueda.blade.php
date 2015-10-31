@@ -48,45 +48,68 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="container">
-            {!! Form::open(array('route' => 'busquedas.store')) !!}
-            <div class="form-group">
-              <button type="submit" class="btn btn-success btn-lg active">Nuevo tema</button>
-            </div>
+            <div class="row">
+              {!! Form::open(array('route' => 'busquedas.store')) !!}
 
-            {!! Form::close() !!}
-
-
-
-            <div class="container">
-
-
-              <div class="row">
-                <div class="col-md-8">
-                  <table class="table">
-                    <tr>
-                      <th >Titulo</th>
-                      <th>Fecha</th>
-                    </tr>
-                    @foreach ($temas as $tema)
-                    <tr>
-                      <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }}</a></td>
-                      
-                      <td>{{ $tema->fechapublicacion }}</td>
-
-                    </tr>
-                    @endforeach
-                  </table>
+              <div class="col-md-2">
+                <div class="form-group">
+                 {!! Form::text('var', 0, array('class' => 'form-control','style' => 'display:none') ) !!}
+                  <button type="submit" class="btn btn-success btn-lg active">Nuevo tema</button>
                 </div>
               </div>
+
+              {!! Form::close() !!}
+              {!! Form::open(array('route' => 'busquedas.store')) !!}
+              <div class="col-md-2">
+                <div class="form-group">
+                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+
+                </div>
+                </div>
+                <div class="col-md-1">
+                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                </div>
+              
+
+
+
+              {!! Form::close() !!}
             </div>
           </div>
 
 
-          {!! $temas->render() !!}
+
+          <div class="container">
+
+
+            <div class="row">
+              <div class="col-md-8">
+                <table class="table">
+                  <tr>
+                    <th >Titulo</th>
+                    <th>Fecha</th>
+                  </tr>
+                  @foreach ($temas as $tema)
+                  <tr>
+                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} </a><br>{{ $tema->contenido }}</td>
+
+                    <td>{{ $tema->fechapublicacion }}</td>
+
+                  </tr>
+                  @endforeach
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
+
+
+        {!! $temas->render() !!}
       </div>
     </div>
   </div>
+</div>
   @endsection
 
   @section('navegacion')
