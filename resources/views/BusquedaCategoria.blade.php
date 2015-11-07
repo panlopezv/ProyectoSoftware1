@@ -48,40 +48,6 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="container">
-            <div class="row">
-
-              {!! Form::open(array('route' => 'busquedas.store')) !!}
-
-              <div class="col-md-2">
-                <div class="form-group">
-                 {!! Form::text('var', 0, array('class' => 'form-control','style' => 'display:none') ) !!}
-                  <button type="submit" class="btn btn-success btn-lg active">Nuevo tema</button>
-                </div>
-              </div>
-
-              {!! Form::close() !!}
-              {!! Form::open(array('route' => 'busquedas.store')) !!}
-              <div class="col-md-2">
-                <div class="form-group">
-                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-
-                </div>
-                </div>
-                <div class="col-md-1">
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                </div>
-              
-
-
-
-              {!! Form::close() !!}
-            </div>
-          </div>
-
-
-
-          <div class="container">
 
 
             <div class="row">
@@ -93,8 +59,7 @@
                   </tr>
                   @foreach ($temas as $tema)
                   <tr>
-                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} </a><br>{{ printf(substr ( $tema->contenido , 0 , 50  )) }}</td>
-
+                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} 
                     <td>{{ $tema->fechapublicacion }}</td>
 
                   </tr>
@@ -120,7 +85,7 @@
         <div class="col-lg-4 col-sm-4">
           <h1>
            
-             {{ 'Busqueda/'.$categoria->categoria }}
+             {{$categoria->categoria }}
             
         </h1>
       </div>
@@ -133,8 +98,8 @@
           </li>
           
           <li >
-          <a href='..'>
-              Busqueda
+          <a href='../categorias'>
+              Categorias
             </a>
             
           </li>

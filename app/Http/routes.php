@@ -21,10 +21,15 @@ Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
+//categoria
+Route::resource('controladorcategoria','ControladorCategoria');
+//Route::get('nuevacategoria','ControladorCategoria@index');
+Route::get('categorias', 'ControladorCategoria@index');
+Route::get('categorias/{b}', 'ControladorBusqueda@buscarCategoria');
+
 //busquedas
 Route::resource('busquedas', 'ControladorBusqueda');
 Route::get('busqueda/{b}', 'ControladorBusqueda@buscar');
-Route::get('busqueda/categoria/{b}', 'ControladorBusqueda@buscarCategoria');
 Route::get('busqueda', 'ControladorBusqueda@index');
 
 //temas

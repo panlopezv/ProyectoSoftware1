@@ -22,14 +22,14 @@ class ControladorBusqueda extends Controller
     {
            
 
-           $temas = Tema::paginate(15);
+           $temas = Tema::paginate(5);
            $temas->setPath('busqueda');
          return view('busqueda')->with('temas', $temas);
     }
     public function store(Request $request)
     {
             if ($request->var >0) {
-                return redirect('Busqueda/'.$request->busqueda);
+                return redirect('busqueda/'.$request->busqueda);
                 # code...
             }else {
                 # code...
@@ -40,7 +40,7 @@ class ControladorBusqueda extends Controller
     }
     public function buscar($b)
     {
-             $temas = Tema::where('titulo', 'like', '%'.$b.'%')->paginate(1);
+             $temas = Tema::where('titulo', 'like', '%'.$b.'%')->paginate(5);
            $temas->setPath($b);
          return view('busqueda')->with('temas', $temas);
   

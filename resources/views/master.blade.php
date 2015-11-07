@@ -48,13 +48,33 @@
             <li><a href="contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar">
-              </div>
-              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            
 
-            </form>
+              <ul class="nav navbar-nav">
+              {!! Form::open(array('route' => 'busquedas.store')) !!}
+
+               <div class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+               
+                {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+                {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+                 
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+               
+              </div>
+               </div>
+
+
+
+              
+              {!! Form::close() !!}
+              </ul>
+               <ul class="nav navbar-nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                </a>
+              
+                </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal">
                 Inicio <b class="caret"></b>
@@ -69,7 +89,7 @@
                   <a href="registro">Nuevo Usuario</a>
                 </li>
               </form>
-              <li><a href=""></a></li>
+              </ul>
 
             </ul>
           </li>

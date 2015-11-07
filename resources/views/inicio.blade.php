@@ -48,13 +48,22 @@
             <li><a href="contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar">
-              </div>
-              <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            <ul class="nav navbar-nav">
+              {!! Form::open(array('route' => 'busquedas.store')) !!}
 
-            </form>
+              <div class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                 
+                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+                  
+                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                  
+                </div>
+              </div>
+
+              {!! Form::close() !!}
+            </ul>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
                 Inicio <b class="caret"></b>
@@ -123,7 +132,7 @@
                <h3><b>{{$categoria->categoria}} </b></h3>
              </div>
              <div class="dos">
-               <a href={{'busqueda/categoria/'.$categoria->id}}>Temas<span class="badge">3</span></a>
+               <a href={{'categorias/'.$categoria->id}}>Temas<span class="badge">3</span></a>
              </div>
            </div>
          </div>

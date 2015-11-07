@@ -16,7 +16,11 @@ class ControladorCategoria extends Controller
      */
     public function index()
     {
-        //
+           
+
+           $categorias = Categoria::paginate(5);
+           $categorias->setPath('categorias');
+         return view('VerCategorias')->with('categorias', $categorias);
     }
 
     /**
@@ -37,7 +41,6 @@ class ControladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -91,11 +94,12 @@ class ControladorCategoria extends Controller
      * Crea un objeto Categoria y lo almacena en la base de datos.
      * @param String nombre;
      */
-    public function insertarCategoria($nombre)
+    public function insertarCategoria($nombre,$imagen)
     {
         //
         $nueva = new Categoria;
         $nueva->categoria = $nombre;
+        $nueva->ubicacionimagen=$imagen;
         $nueva->save();
     }
 }

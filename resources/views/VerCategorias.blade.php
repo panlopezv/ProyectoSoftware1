@@ -48,46 +48,18 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="container">
-            <div class="row">
-
-              <ul class="nav navbar-nav">
-                {!! Form::open(array('route' => 'busquedas.store')) !!}
-
-                <div class="navbar-form navbar-left col-md-8 col-md-offset-1" role="search">
-                  <div class="form-group">
-
-                    {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                    {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-
-                  </div>
-                </div>
-
-
-
-
-                {!! Form::close() !!}
-              </ul>
-            </div>
-          </div>
-
-
-
-          <div class="container">
 
 
             <div class="row">
-              <div class="col-md-8 ">
+              <div class="col-md-8">
                 <table class="table">
                   <tr>
-                    <th >Titulo</th>
-                    <th>Fecha</th>
+                    <th >Categorias</th>
+                    <th>Cantidad de Categorias</th>
                   </tr>
-                  @foreach ($temas as $tema)
+                  @foreach ($categorias as $categoria)
                   <tr>
-                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} </a>
-                     <td>{{ $tema->fechapublicacion }}</td>
+                    <td><a href={{'categorias/'.$categoria->id}}>{{ $categoria->categoria }} 
 
                   </tr>
                   @endforeach
@@ -98,7 +70,7 @@
         </div>
 
 
-        {!! $temas->render() !!}
+        {!! $categorias->render() !!}
       </div>
     </div>
   </div>
@@ -111,19 +83,21 @@
       <div class="row">
         <div class="col-lg-4 col-sm-4">
           <h1>
-            Busqueda
+           
+             Categorias
+            
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/'>
+            <a href='..'>
               Principal
             </a>
           </li>
-          
+                    
           <li class="active">
-            Busqueda
+            Categorias
           </li>
         </ol>
       </div>
@@ -131,4 +105,3 @@
   </div>
 </div>
 @endsection
-
