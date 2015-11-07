@@ -11,11 +11,9 @@
 |
 */
 
-
 Route::get('/', function () {
     return view('inicio');
 });
-//Acceder a metodo de un controlador
 Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
 Route::get('personas', 'ControladorPersona@index');
 Route::get('personas/{id}', 'ControladorPersona@index2');
@@ -24,16 +22,17 @@ Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
-Route::get('nuevoTema', 'ControladorCategoria@getCategorias');
-Route::resource('controladorComentario', 'controladorComentario');
-Route::get('nuevotema', 'ControladorCategoria@getCategorias');
-
 //busquedas
 Route::resource('busquedas', 'ControladorBusqueda');
 Route::get('busqueda/{b}', 'ControladorBusqueda@buscar');
 Route::get('busqueda', 'ControladorBusqueda@index');
 
+//temas
 Route::resource('controladorTema','ControladorTema');
+Route::resource('controladorComentario', 'controladorComentario');
+Route::get('nuevotema', 'ControladorTema@nuevoTema');
+Route::get('temas/{idTema}', 'ControladorTema@index');
+Route::get('temas/modificar/{id}', 'ControladorTema@edit');
 
 //ejemplos
 Route::resource('controladorEjemplo','ControladorEjemplo');
@@ -49,18 +48,9 @@ Route::get('inicio', function () {
     return view('inicio');
 });
 
-Route::get('temas/{idTema}', 'ControladorTema@index');
-
 Route::get('prueba', function () {
     return view('BaseVista');
 });
 Route::get('base', function () {
     return view('registro');
-});
-Route::get('usuario/{nombre}', function ($nombre=null) {
-    return 'Hola '.$nombre;
-})->where(array('nombre'=>'[A-Z][a-z]+'));
-
-Route::get('prueba', function () {
-    return view('crear2');
 });

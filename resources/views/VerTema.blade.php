@@ -132,16 +132,9 @@
 
         <div class="col-xs-6 col-lg-4 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+            @foreach ($ejemplos as $ejemplo)
+            <a href="#" class="list-group-item">$ejemplos->titulo</a>
+            @endforeach
           </div>
         </div><!--/.sidebar-offcanvas-->
 
