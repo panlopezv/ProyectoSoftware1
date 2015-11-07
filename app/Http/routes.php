@@ -37,6 +37,7 @@ Route::get('temas/modificar/{id}', 'ControladorTema@edit');
 //ejemplos
 Route::resource('controladorEjemplo','ControladorEjemplo');
 Route::get('nuevoejemplo/{temaid}', 'ControladorEjemplo@nuevoEjemplo');
+Route::get('ejemplos/{idEjemplo}', 'ControladorEjemplo@index');
 
 Route::get('registro', function () {
     return view('registro');

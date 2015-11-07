@@ -15,9 +15,10 @@ class ControladorEjemplo extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($idEjemplo)
     {
-        //
+        $ejemplo = Ejemplo::find($idEjemplo);
+        return view('VerEjemplo', compact('ejemplo'));
     }
 
     /**
@@ -42,10 +43,10 @@ class ControladorEjemplo extends Controller
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',
-            'archivo'        => 'required|mimes:txt',
+            'archivo'        => 'required|mimes:java',
         ],[
             'required' => 'El campo :attribute es obligatorio.',
-            'mimes' => 'El archivo debe tener extension .txt.',
+            'mimes' => 'El archivo debe tener extension .java.',
         ]);
 
         if ($validador->fails()) {
