@@ -31,10 +31,10 @@
 
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script type="text/javascript">
-tinymce.init({
+  tinymce.init({
     selector : "#contenido",
     toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
-});
+  });
 </script>
 
 
@@ -42,86 +42,85 @@ tinymce.init({
 
 @section('nuevotema')
 
-      <div class="container">
+<div class="container">
 
 
-        <div class="col-xs-6 col-lg-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            @foreach ($ejemplos as $ejemplo)
-            <a href={{ '../ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
-            @endforeach
-          </div>
-        </div><!--/.sidebar-offcanvas-->
+  <div class="col-xs-6 col-lg-3 sidebar-offcanvas" id="sidebar">
+    <div class="list-group">
+      @foreach ($ejemplos as $ejemplo)
+      <a href={{ '../ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
+      @endforeach
+    </div>
+  </div><!--/.sidebar-offcanvas-->
 
-        <div class="col-lg-8 col-sm-12">
-          <h1>
-            <a>{{ $tema->titulo }}</a>
-          </h1>
-          {{ printf($tema->contenido) }}
-          <blockquote>
-            <p>{{ $tema->referencia }}</p>
-            <small>
-              <cite title="Referencia">
-                Referencia
-              </cite>
-            </small>
-          </blockquote>
+  <div class="col-lg-8 col-sm-12">
+    <h1>
+      <a>{{ $tema->titulo }}</a>
+    </h1>
+    {{ printf($tema->contenido) }}
+    <blockquote>
+      <p>{{ $tema->referencia }}</p>
+      <small>
+        <cite title="Referencia">
+          Referencia
+        </cite>
+      </small>
+    </blockquote>
 
-          <div class="media">
-            <h3>
-              Comentarios
-            </h3>
-            <hr>
+    <div class="media">
+      <h3>
+        Comentarios
+      </h3>
+      <hr>
 
-            @foreach ($comentarios as $comentario)
-            <hr>                
-            <div class "media">
-              <a class="pull-left" href="javascript:;">
-                <img class="media-object" src="http://vignette3.wikia.nocookie.net/vsbattles/images/5/58/Rias_Gremory.png/revision/latest?cb=20150402181653"."/65x65" alt="">
-              </a>
-              <div class="media-body">
-                <h4 class="media-heading">
+      @foreach ($comentarios as $comentario)
+      <hr>                
+      <div class "media">
+        <a class="pull-left" href="javascript:;">
+          <img class="media-object" src="http://vignette3.wikia.nocookie.net/vsbattles/images/5/58/Rias_Gremory.png/revision/latest?cb=20150402181653"."/65x65" alt="">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">
 
-                  {{ $comentario->usuario }}
-                  <span>|</span>
-                  <span>{{ $comentario->fecha }}</span>
-                </h4>
-                <p>{{ $comentario->contenido }}</p>
-              </div>
-            </div>
-            @endforeach
-            <hr> 
-            <hr> <hr> 
-            <div class="post-comment">
-              <h3 class="skills">Hacer un comentario</h3>
-
-              @if ($errors->any())
-              <div class="alert alert-info" role="alert">
-                <p>Corregir los siguientes campos:</p>
-                <ul>
-                  @foreach($errors->all() as $error)
-                  <li>{!! $error !!}</li>
-                  @endforeach
-                </ul>
-              </div>
-              @endif
-
-              {!! Form::open(array('route' => 'controladorComentario.store')) !!}
-              <div class="form-group">
-                {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
-                {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}
-              </div>
-
-              <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg active">Comentar</button>
-              </div>
-
-              {!! Form::close() !!}
-            </div>
-
-          </div>
+            {{ $comentario->usuario }}
+            <span>|</span>
+            <span>{{ $comentario->fecha }}</span>
+          </h4>
+          <p>{{ $comentario->contenido }}</p>
         </div>
       </div>
+      @endforeach
+      <hr> 
+      <hr> <hr> 
+      <div class="post-comment">
+        <h3 class="skills">Hacer un comentario</h3>
+
+        @if ($errors->any())
+        <div class="alert alert-info" role="alert">
+          <p>Corregir los siguientes campos:</p>
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{!! $error !!}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+
+        {!! Form::open(array('route' => 'controladorComentario.store')) !!}
+        <div class="form-group">
+          {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
+          {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-lg active">Comentar</button>
+        </div>
+
+        {!! Form::close() !!}
+        </div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('navegacion')
