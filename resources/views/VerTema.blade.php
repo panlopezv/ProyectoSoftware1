@@ -82,7 +82,7 @@ tinymce.init({
               <div class="media-body">
                 <h4 class="media-heading">
 
-                  {{ $comentario->usuarioid }}
+                  {{ $comentario->usuario }}
                   <span>|</span>
                   <span>{{ $comentario->fecha }}</span>
                 </h4>

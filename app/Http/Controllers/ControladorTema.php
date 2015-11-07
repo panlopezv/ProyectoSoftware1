@@ -20,7 +20,11 @@ class ControladorTema extends Controller
     public function index($idTema)
     {
         $tema = Tema::find($idTema);
-        $comentarios = DB::table('comentario')->where('temaid',$idTema)->get();
+        $comentarios = DB::table('comentario')
+            ->join('usuario', 'usuario.id', '=', 'comentario.usuarioid')
+            ->select('comentario.*', 'usuario.usuario', 'usuario.avatar')
+            ->where('temaid',$idTema)
+            ->get();
         $ejemplos = DB::table('ejemplo')->where('temaid',$idTema)->get();
 
         //return view('tema')->with('tema', $tema);
