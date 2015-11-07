@@ -35,6 +35,10 @@ Route::get('busqueda', 'ControladorBusqueda@index');
 
 Route::resource('controladorTema','ControladorTema');
 
+//ejemplos
+Route::resource('controladorEjemplo','ControladorEjemplo');
+Route::get('nuevoejemplo/{temaid}', 'ControladorEjemplo@nuevoEjemplo');
+
 Route::get('registro', function () {
     return view('registro');
 });

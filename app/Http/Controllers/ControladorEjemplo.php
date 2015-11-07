@@ -6,6 +6,7 @@ use App\Ejemplo as Ejemplo;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ControladorEjemplo extends Controller
 {
@@ -37,7 +38,25 @@ class ControladorEjemplo extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validador = Validator::make($request->all(),[
+            'titulo'        => 'required',
+            'descripcion'        => 'required',
+            'archivo'        => 'required|mimes:txt',
+        ],[
+            'required' => 'El campo :attribute es obligatorio.',
+            'mimes' => 'El archivo debe tener extension .txt.',
+        ]);
+
+        if ($validador->fails()) {
+            return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
+        }
+        else {
+            $imageName = $request->input('titulo') . rand(11111,99999) . '.' . $request->file('archivo')->getClientOriginalExtension();
+            ControladorEjemplo::insertarEjemplo($request->input('titulo'), $request->input('descripcion'), $imageName, $request->input('temaid'));
+            $request->file('archivo')->move(base_path() . '/public/ejemplostema/', $imageName);
+            return redirect('temas/'.$request->input('temaid'))->with('message', '¡Ejemplo añadido!'); ;
+        } 
     }
 
     /**
@@ -103,5 +122,9 @@ class ControladorEjemplo extends Controller
         $nueva->ubicacionarchivo = $ubicacion;
         $nueva->temaid = $tID;
         $nueva->save();
+    }
+
+    public function nuevoEjemplo($temaid){
+        return view('CrearEjemplo')->with('temaid', $temaid);
     }
 }
