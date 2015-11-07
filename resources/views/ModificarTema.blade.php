@@ -5,15 +5,15 @@
 <link rel="stylesheet" type="text/css" href="lib/css/prettify.css"></link>
 <link rel="stylesheet" type="text/css" href="src/bootstrap-wysihtml5.css"></link>
 <style type="text/css" media="screen">
-	.btn.jumbo {
-		font-size: 20px;
-		font-weight: normal;
-		padding: 14px 24px;
-		margin-right: 10px;
-		-webkit-border-radius: 6px;
-		-moz-border-radius: 6px;
-		border-radius: 6px;
-	}
+  .btn.jumbo {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 14px 24px;
+    margin-right: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+  }
 </style>
 
 @endsection
@@ -25,7 +25,7 @@
 <script src="lib/js/jquery-1.7.2.min.js"></script>
 <script src="lib/js/prettify.js"></script>
 <script type="text/javascript" charset="utf-8">
-	$(prettyPrint);
+  $(prettyPrint);
 </script>
 
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
@@ -64,25 +64,27 @@ tinymce.init({
               
                 {!! Form::open(array('route' => 'controladorTema.store')) !!}
                 
-
                 <div class="form-group">
+                  {!! Form::text('accion', "modificar", array('class' => 'form-control', 'style' => 'display:none') ) !!}
+                  {!! Form::text('tAnterior', "$tema->titulo", array('class' => 'form-control', 'style' => 'display:none') ) !!}
+                  {!! Form::text('id', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
                   {!! Form::label('titulo', 'Titulo') !!}
-                  {!! Form::text('titulo', null, array('class' => 'form-control', 'placeholder' => 'Titulo del tema') ) !!}
+                  {!! Form::text('titulo', "$tema->titulo", array('class' => 'form-control', 'placeholder' => 'Titulo del tema') ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('categoria', 'Categoria') !!}
-                  {!! Form::select('categoria', $categorias, null, array('class' => 'form-control' )) !!}
+                  {!! Form::select('categoria', $categorias, $tema->categoriaid, array('class' => 'form-control' )) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('contenido', 'Contenido') !!}
-                  {!! Form::textarea('contenido', null, array('class' => 'form-control', 'placeholder' => 'Contenido del tema', 'name' => 'contenido')) !!}
+                  {!! Form::textarea('contenido', $tema->contenido, array('class' => 'form-control', 'placeholder' => 'Contenido del tema', 'name' => 'contenido')) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('referencia', 'Referencia') !!}
-                  {!! Form::text('referencia', null, array('class' => 'form-control', 'placeholder' => 'Referencia del tema') ) !!}
+                  {!! Form::text('referencia', $tema->referencia, array('class' => 'form-control', 'placeholder' => 'Referencia del tema') ) !!}
                 </div>
 
                 <div class="form-group">
@@ -105,7 +107,7 @@ tinymce.init({
     <div class="row">
       <div class="col-lg-4 col-sm-4">
         <h1>
-          Nuevo tema
+          Modificar tema
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
@@ -117,7 +119,7 @@ tinymce.init({
           </li>
           
           <li class="active">
-            Creando Tema
+            Modificando tema
           </li>
         </ol>
       </div>
