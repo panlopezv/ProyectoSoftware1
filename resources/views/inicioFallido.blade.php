@@ -113,11 +113,11 @@
      {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
                
       <div class="form-group">
-        {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
+        {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario') ) !!}
       </div>
 
       <div class="form-group">
-        {!!Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'ejemplo@correo.url.edu.gt') ) !!}
+        {!!Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'contraseña') ) !!}
       </div>
 
       <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
