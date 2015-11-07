@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', 'ControladorInicio@index');
 //Acceder a metodo de un controlador
 Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
 Route::get('personas', 'ControladorPersona@index');
@@ -31,6 +29,7 @@ Route::get('nuevotema', 'ControladorCategoria@getCategorias');
 //busquedas
 Route::resource('busquedas', 'ControladorBusqueda');
 Route::get('busqueda/{b}', 'ControladorBusqueda@buscar');
+Route::get('busqueda/categoria/{b}', 'ControladorBusqueda@buscarCategoria');
 Route::get('busqueda', 'ControladorBusqueda@index');
 
 Route::resource('controladorTema','ControladorTema');

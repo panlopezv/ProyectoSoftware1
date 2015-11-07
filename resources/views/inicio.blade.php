@@ -26,7 +26,7 @@
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
 </head>
 
 <body>
@@ -40,13 +40,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">PrograPedia</a>
+          <a class="navbar-brand" href="">PrograPedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Principal</a></li>
-            <li><a href="/about">Quienes Somos</a></li>
-            <li><a href="#"  data-target="#login-modal">Contactanos</a></li>
+            <li ><a href="quienesSomos">Quienes Somos</a></li>
+            <li><a href="contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left" role="search">
@@ -106,41 +105,33 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      <div id="margen">
+        <h1>Categorias</h1>
+        </div>
 
       <div class="row" >
-        <h1>Categorias</h1>
 
 
+        @foreach ($categorias as $categoria)
         <div class="col-xs-12 col-sm-6    col-lg-2" >
           <div id="bljaIMGte">
 
-            <img src="images/iteration.png" />
+            <img src={{'images/'.$categoria->nombreimagen}} />
 
             <div class="bljaIMGtex" style="color:#000000;">
              <div class="uno">
-               <h3><b>Bucles</b></h3>
+               <h3><b>{{$categoria->categoria}} </b></h3>
              </div>
              <div class="dos">
-               <a href="#">Temas<span class="badge">3</span></a>
+               <a href={{'busqueda/categoria/'.$categoria->id}}>Temas<span class="badge">3</span></a>
              </div>
            </div>
          </div>
        </div>
-       <div class="col-xs-12 col-sm-6    col-lg-2" >
-          <div id="bljaIMGte">
 
-            <img src="images/cfunciones.jpg" />
-
-            <div class="bljaIMGtex" style="color:#000000;">
-             <div class="uno">
-               <h3><b>Funciones</b></h3>
-             </div>
-             <div class="dos">
-               <a href="#">Temas<span class="badge">6</span></a>
-             </div>
-           </div>
-         </div>
-       </div>
+        @endforeach
+        
+    
        
 
 
@@ -196,6 +187,9 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
+      <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+      <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
+      </div>
         <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
           <h1>
             Informacion de contacto
@@ -231,41 +225,11 @@
             </p>
           </address>
         </div>
-        <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
-          <h1>
-            Ultimos Post
-          </h1>
-          <div id="owl-slide">
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Bucles
-                
-              </em>
-            </div>
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Instancias
-                
-              </em>
-            </div>
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Bucles
-                
-              </em>
-            </div>
-          </div>
-        </div>
+        
         <div class="col-lg-3 col-sm-3">
           <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
             <h1>
-              Our Company
+              Secciones
             </h1>
             <ul class="page-footer-list">
 
