@@ -49,6 +49,7 @@
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="container">
             <div class="row">
+
               {!! Form::open(array('route' => 'busquedas.store')) !!}
 
               <div class="col-md-2">
@@ -118,19 +119,27 @@
       <div class="row">
         <div class="col-lg-4 col-sm-4">
           <h1>
-            Busqueda
+           
+             {{ 'Busqueda/'.$categoria->categoria }}
+            
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/'>
+            <a href='..'>
               Principal
             </a>
           </li>
           
+          <li >
+          <a href='..'>
+              Busqueda
+            </a>
+            
+          </li>
           <li class="active">
-            Busqueda
+            {{ $categoria->categoria }}
           </li>
         </ol>
       </div>

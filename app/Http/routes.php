@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', 'ControladorInicio@index');
+
 Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
 Route::get('personas', 'ControladorPersona@index');
 Route::get('personas/{id}', 'ControladorPersona@index2');
@@ -25,6 +24,7 @@ Route::resource('controladorUsuario', 'ControladorUsuario');
 //busquedas
 Route::resource('busquedas', 'ControladorBusqueda');
 Route::get('busqueda/{b}', 'ControladorBusqueda@buscar');
+Route::get('busqueda/categoria/{b}', 'ControladorBusqueda@buscarCategoria');
 Route::get('busqueda', 'ControladorBusqueda@index');
 
 //temas

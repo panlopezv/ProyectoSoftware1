@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Tema as Tema;
-use App\Persona as pers;
+use App\Persona as persona;
+use App\Categoria as categoria;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,14 +22,14 @@ class ControladorBusqueda extends Controller
     {
            
 
-           $temas = Tema::where('titulo', 'like', '%o%')->paginate(15);
+           $temas = Tema::paginate(15);
            $temas->setPath('busqueda');
          return view('busqueda')->with('temas', $temas);
     }
     public function store(Request $request)
     {
             if ($request->var >0) {
-                return redirect('busqueda/'.$request->busqueda);
+                return redirect('Busqueda/'.$request->busqueda);
                 # code...
             }else {
                 # code...
@@ -39,9 +40,17 @@ class ControladorBusqueda extends Controller
     }
     public function buscar($b)
     {
-             $temas = Tema::where('titulo', 'like', '%'.$b.'%')->paginate(15);
-           $temas->setPath('busqueda');
+             $temas = Tema::where('titulo', 'like', '%'.$b.'%')->paginate(1);
+           $temas->setPath($b);
          return view('busqueda')->with('temas', $temas);
+  
+    }
+    public function buscarCategoria($b)
+    {        $categoria= Categoria::find($b);
+
+             $temas = Tema::where('categoriaid',$b)->paginate(1);
+           $temas->setPath($b);
+         return view('BusquedaCategoria', compact('temas','categoria'));
   
     }
 

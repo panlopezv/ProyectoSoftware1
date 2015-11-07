@@ -15,6 +15,7 @@ class CreateTableCategoria extends Migration
         Schema::create('categoria', function (Blueprint $table) {
             $table->increments('id');
             $table->string('categoria', 45);
+            $table->string('nombreimagen', 60);
         });
     }
 

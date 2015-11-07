@@ -79,13 +79,20 @@ h2 {
 
 	position: absolute;
 
-	top: 200px;
+	top: 200px ;
 
 	left: 0;
 
 	width: 100%;
 
 }
+.margen{
+   width:320px;
+    position:relative;
+    top:-250px;
+    left:0px;
+}
+
 #bljaIMGte{
 	float:left;position:relative;
 	}
@@ -99,13 +106,15 @@ h2 {
 #bljaIMGte .bljaIMGtex .uno
 {width:320px;
 	position:relative;
-	top:-220px;
+	top:-240px;
 	left:0px;}	
 	#bljaIMGte .bljaIMGtex .dos
 {width:320px;
 	position:relative;
-	top:-75px;
-	left:130px;}	
+	top:-50px;
+	left:130px;}
+
+
 
  
 

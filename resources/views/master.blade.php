@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../../../../Users/modm_/Documents/Ingenieria de Software/bootstrap-3.3.5/docs/favicon.ico">
 
-  <title>I-Tutos</title>
+  <title>Prograpedia</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"/>
@@ -40,13 +40,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Aqui va el Nombre</a>
+          <a class="navbar-brand" href="/">Prograpedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Principal</a></li>
-            <li><a href="/about">Quienes Somos</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#login-modal">Contactanos</a></li>
+            <li ><a href="quienesSomos">Quienes Somos</a></li>
+            <li><a href="contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <form class="navbar-form navbar-left" role="search">
@@ -57,7 +56,7 @@
 
             </form>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal">
                 Inicio <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
@@ -67,111 +66,66 @@
                     <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
                   </div>
                   <button type="submit" class="btn btn-default">Enviar</button>
-                  <a href="registro">Nuevo Usuario</a></li>
-                </form>
-                <li><a href=""></a></li>
+                  <a href="registro">Nuevo Usuario</a>
+                </li>
+              </form>
+              <li><a href=""></a></li>
 
-              </ul>
-            </li>
+            </ul>
+          </li>
           </ul>
         </div><!--/.nav-collapse -->
 
       </div>
     </nav>
     @yield('navegacion') 
-    @yield('nuevotema')
-    @yield('lista')
+    @yield('contenido')
     
     
     <!-- /.container -->
   </div>
+  </div>
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
+    <div class ="col-md-6">
       <div class="modal-content">
-        <div class="modal-header" align="center">
-          <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          </button>
+        
+          <div class="modal-header" align="center">
+            <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <!-- Begin # DIV Form -->
+          <div id="div-forms">
+                <div class ="row">
+                  <div class ="col-md-12 ">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+
+                        {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
+                           
+
+                          <div class="form-group">
+                            {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
+                          </div>
+
+                          <div class="form-group">
+                            {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'contraseña') ) !!}
+                          </div>
+
+                          <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                          <a href="registro"> Nuevo Usuario</a>    
+
+                        {!! Form::close() !!}
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
         </div>
-
-        <!-- Begin # DIV Form -->
-        <div id="div-forms">
-
-          <!-- Begin # Login Form -->
-          <form id="login-form">
-            <div class="modal-body">
-              <div id="div-login-msg">
-                <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
-                <span id="text-login-msg">Escriba su Usuario y Contraseña.</span>
-              </div>
-              <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Recordar
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Inicio</button>
-              </div>
-              <div>
-                <button id="login_lost_btn" type="button" class="btn btn-link">Recuperar Contraseña</button>
-                <button id="login_register_btn" type="button" class="btn btn-link">Registrase</button>
-              </div>
-            </div>
-          </form>
-          <!-- End # Login Form -->
-
-          <!-- Begin | Lost Password Form -->
-          <form id="lost-form" style="display:none;">
-            <div class="modal-body">
-              <div id="div-lost-msg">
-                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
-                <span id="text-lost-msg">Usuario</span>
-              </div>
-              <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
-            </div>
-            <div class="modal-footer">
-              <div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
-              </div>
-              <div>
-                <button id="lost_login_btn" type="button" class="btn btn-link">Iniciar Sesio</button>
-                <button id="lost_register_btn" type="button" class="btn btn-link">Registro</button>
-              </div>
-            </div>
-          </form>
-          <!-- End | Lost Password Form -->
-
-          <!-- Begin | Register Form -->
-          <form id="register-form" style="display:none;">
-            <div class="modal-body">
-              <div id="div-register-msg">
-                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                <span id="text-register-msg">Register an account.</span>
-              </div>
-              <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-            </div>
-            <div class="modal-footer">
-              <div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-              </div>
-              <div>
-                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-              </div>
-            </div>
-          </form>
-          <!-- End | Register Form -->
-
-        </div>
-        <!-- End # DIV Form -->
-
       </div>
     </div>
   </div>
@@ -179,25 +133,28 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
+       <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
+      <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
+      </div>
         <div class="col-lg-3 col-sm-3 address wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">
           <h1>
-            contact info
+            Informacion de contacto
           </h1>
           <address>
             <p>
               <i class="fa fa-home pr-10">
               </i>
-              Address: No.XXXXXX street
+              Guatemala
             </p>
             <p>
               <i class="fa fa-globe pr-10">
               </i>
-              Mars city, Country
+              Xela
             </p>
             <p>
               <i class="fa fa-mobile pr-10">
               </i>
-              Mobile : (123) 456-7890
+              Mobile : 55173357
             </p>
             <p>
               <i class="fa fa-phone pr-10">
@@ -209,64 +166,16 @@
               </i>
               Email :
               <a href="javascript:;">
-                support@example.com
+                soporte@prograpedia.com
               </a>
             </p>
           </address>
         </div>
-        <div class="col-lg-3 col-sm-3 wow fadeInUp" data-wow-duration="2s" data-wow-delay=".3s">
-          <h1>
-            Ultimos Post
-          </h1>
-          <div id="owl-slide">
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Please follow
-                <a href="javascript:;">
-                  @example
-                </a>
-                for all future updates of us!
-                <a href="javascript:;">
-                  twitter.com/acme
-                </a>
-              </em>
-            </div>
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Please follow
-                <a href="javascript:;">
-                  @example
-                </a>
-                for all future updates of us!
-                <a href="javascript:;">
-                  twitter.com/acme
-                </a>
-              </em>
-            </div>
-            <div class="tweet-box">
-              <i class="fa fa-twitter">
-              </i>
-              <em>
-                Please follow
-                <a href="javascript:;">
-                  @example
-                </a>
-                for all future updates of us!
-                <a href="javascript:;">
-                  twitter.com/acme
-                </a>
-              </em>
-            </div>
-          </div>
-        </div>
+        
         <div class="col-lg-3 col-sm-3">
           <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
             <h1>
-              Our Company
+              Secciones
             </h1>
             <ul class="page-footer-list">
 
@@ -308,7 +217,7 @@
           
           <div class="col-md-4">
             <div class="copyright">
-              <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
+              <p>&copy; Copyright - Servicios integrales de Informatica.</p>
             </div>
           </div>
         </div>
