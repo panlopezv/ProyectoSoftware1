@@ -27,7 +27,10 @@ Route::resource('controladorUsuario', 'ControladorUsuario');
 Route::get('nuevoTema', 'ControladorCategoria@getCategorias');
 Route::resource('controladorComentario', 'controladorComentario');
 Route::get('nuevotema', 'ControladorCategoria@getCategorias');
+
+//busquedas
 Route::resource('busquedas', 'ControladorBusqueda');
+Route::get('busqueda/{b}', 'ControladorBusqueda@buscar');
 Route::get('busqueda', 'ControladorBusqueda@index');
 
 Route::resource('controladorTema','ControladorTema');
