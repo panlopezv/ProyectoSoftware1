@@ -19,7 +19,12 @@ class ControladorTema extends Controller
      */
     public function index($idTema)
     {
-        $tema = Tema::find($idTema);
+        $tema = DB::table('tema')
+            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('tema.*', 'categoria.categoria')
+            ->where('tema.id',$idTema)
+            ->first();
+
         $comentarios = DB::table('comentario')
             ->join('usuario', 'usuario.id', '=', 'comentario.usuarioid')
             ->join('persona', 'persona.id', '=', 'usuario.personaid')

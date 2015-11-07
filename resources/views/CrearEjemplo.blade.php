@@ -5,30 +5,20 @@
 <link rel="stylesheet" type="text/css" href="lib/css/prettify.css"></link>
 <link rel="stylesheet" type="text/css" href="src/bootstrap-wysihtml5.css"></link>
 <style type="text/css" media="screen">
-	.btn.jumbo {
-		font-size: 20px;
-		font-weight: normal;
-		padding: 14px 24px;
-		margin-right: 10px;
-		-webkit-border-radius: 6px;
-		-moz-border-radius: 6px;
-		border-radius: 6px;
-	}
+  .btn.jumbo {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 14px 24px;
+    margin-right: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+  }
 </style>
 
 @endsection
 
 @section('script')
-<!--<script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
-<script src="{{asset('js/bootstrap-wysihtml5.js')}}"></script>-->
-<script src="lib/js/wysihtml5-0.3.0.js"></script>
-<script src="lib/js/jquery-1.7.2.min.js"></script>
-<script src="lib/js/prettify.js"></script>
-<script type="text/javascript" charset="utf-8">
-	$(prettyPrint);
-</script>
-
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script type="text/javascript">
   tinymce.init({
@@ -62,11 +52,11 @@
               </ul>
             </div>
             @endif
-            
+
             {!! Form::open(array('route' => 'controladorEjemplo.store', 'files' => true)) !!}
-            
+
             <div class="form-group">
-              {!! Form::text('temaid', "$temaid", array('class' => 'form-control', 'style' => 'display:none') ) !!}
+              {!! Form::text('temaid', "$tema->temaid", array('class' => 'form-control', 'style' => 'display:none') ) !!}
               {!! Form::label('titulo', 'Titulo') !!}
               {!! Form::text('titulo', null, array('class' => 'form-control', 'placeholder' => 'Titulo del ejemplo') ) !!}
             </div>
@@ -77,7 +67,7 @@
             </div>
 
             <div class="form-group">
-              {!! Form::label('archivo', 'Seleccione un archivo .java') !!}
+              {!! Form::label('archivo', 'Seleccione un archivo txt') !!}
               {!! Form::file('archivo'); !!}
             </div>
 
@@ -85,7 +75,7 @@
               <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
               <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
             </div>
-            
+
             {!! Form::close() !!}
 
           </div>
@@ -107,11 +97,20 @@
         <div class="col-lg-8 col-sm-8">
           <ol class="breadcrumb pull-right">
             <li>
-              <a href='/'>
+              <a href='..'>
                 Principal
               </a>
             </li>
-            
+            <li>
+              <a href={{ '../busqueda/categoria/'.$tema->categoriaid }}>
+                {{ $tema->categoria }}
+              </a>
+            </li>
+            <li>
+              <a href={{ '../temas/'.$tema->temaid }}>
+                {{ $tema->titulo }}
+              </a>
+            </li>
             <li class="active">
               Creando ejemplo
             </li>

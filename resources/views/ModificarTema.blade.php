@@ -19,16 +19,6 @@
 @endsection
 
 @section('script')
-<!--<script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
-<script src="{{asset('js/bootstrap-wysihtml5.js')}}"></script>-->
-<script src="lib/js/wysihtml5-0.3.0.js"></script>
-<script src="lib/js/jquery-1.7.2.min.js"></script>
-<script src="lib/js/prettify.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(prettyPrint);
-</script>
-
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script type="text/javascript">
   tinymce.init({
@@ -36,12 +26,9 @@
     toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
   });
 </script>
-
-
 @endsection
 
 @section('contenido')
-
 <!-- Text input-->     
 <div class="starter-template">
   <div class="container">
@@ -62,9 +49,9 @@
               </ul>
             </div>
             @endif
-            
+
             {!! Form::open(array('route' => 'controladorTema.store')) !!}
-            
+
             <div class="form-group">
               {!! Form::text('accion', "modificar", array('class' => 'form-control', 'style' => 'display:none') ) !!}
               {!! Form::text('tAnterior', "$tema->titulo", array('class' => 'form-control', 'style' => 'display:none') ) !!}
@@ -92,7 +79,7 @@
               <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
               <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
             </div>
-            
+
             {!! Form::close() !!}
 
           </div>
@@ -118,7 +105,7 @@
                 Principal
               </a>
             </li>
-            
+
             <li class="active">
               Modificando tema
             </li>

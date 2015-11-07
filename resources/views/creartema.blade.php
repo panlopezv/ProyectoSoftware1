@@ -18,16 +18,6 @@
 
 @endsection
 @section('script')
-<!--<script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
-<script src="{{asset('js/bootstrap-wysihtml5.js')}}"></script>-->
-<script src="lib/js/wysihtml5-0.3.0.js"></script>
-<script src="lib/js/jquery-1.7.2.min.js"></script>
-<script src="lib/js/prettify.js"></script>
-<script type="text/javascript" charset="utf-8">
-	$(prettyPrint);
-</script>
-
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script type="text/javascript">
   tinymce.init({

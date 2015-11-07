@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Ejemplo as Ejemplo;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -17,7 +17,12 @@ class ControladorEjemplo extends Controller
      */
     public function index($idEjemplo)
     {
-        $ejemplo = Ejemplo::find($idEjemplo);
+        $ejemplo = DB::table('ejemplo')
+            ->join('tema', 'tema.id', '=', 'ejemplo.temaid')
+            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('ejemplo.*', 'tema.id as temaid', 'tema.titulo', 'categoria.id as categoriaid', 'categoria.categoria')
+            ->where('ejemplo.id',$idEjemplo)
+            ->first();
         return view('VerEjemplo', compact('ejemplo'));
     }
 
@@ -43,17 +48,17 @@ class ControladorEjemplo extends Controller
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',
-            'archivo'        => 'required|mimes:java',
+            'archivo'        => 'required|mimes:txt',
         ],[
             'required' => 'El campo :attribute es obligatorio.',
-            'mimes' => 'El archivo debe tener extension .java.',
+            'mimes' => 'El archivo debe tener extension .txt.',
         ]);
 
         if ($validador->fails()) {
             return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
         }
         else {
-            $imageName = $request->input('titulo') . rand(11111,99999) . '.' . $request->file('archivo')->getClientOriginalExtension();
+            $imageName = str_replace( " " , "-" , $request->input('titulo')) . "_" . rand(11111,99999) . '.' . $request->file('archivo')->getClientOriginalExtension();
             ControladorEjemplo::insertarEjemplo($request->input('titulo'), $request->input('descripcion'), $imageName, $request->input('temaid'));
             $request->file('archivo')->move(base_path() . '/public/ejemplostema/', $imageName);
             return redirect('temas/'.$request->input('temaid'))->with('message', '¡Ejemplo añadido!'); ;
@@ -126,6 +131,11 @@ class ControladorEjemplo extends Controller
     }
 
     public function nuevoEjemplo($temaid){
-        return view('CrearEjemplo')->with('temaid', $temaid);
+        $tema = DB::table('tema')
+            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('tema.id as temaid', 'tema.titulo', 'categoria.id as categoriaid', 'categoria.categoria')
+            ->where('tema.id',$temaid)
+            ->first();
+        return view('CrearEjemplo', compact('tema'));
     }
 }

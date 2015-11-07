@@ -18,41 +18,18 @@
 
 @endsection
 
-@section('script')
-<!--<script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
-<script src="{{asset('js/bootstrap-wysihtml5.js')}}"></script>-->
-<script src="lib/js/wysihtml5-0.3.0.js"></script>
-<script src="lib/js/jquery-1.7.2.min.js"></script>
-<script src="lib/js/prettify.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(prettyPrint);
-</script>
-
-<script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-<script type="text/javascript">
-  tinymce.init({
-    selector : "#contenido",
-    toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
-  });
-</script>
-
-
-@endsection
-
 @section('contenido')
-
 <div class="container">
-
-
   <div class="col-xs-6 col-lg-3 sidebar-offcanvas" id="sidebar">
-    <div class="list-group">
+    <div class="list-group"> 
+      <h3>
+        <a>Ejemplos</a>
+      </h3>
       @foreach ($ejemplos as $ejemplo)
       <a href={{ '../ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
       @endforeach
     </div>
   </div><!--/.sidebar-offcanvas-->
-
   <div class="col-lg-8 col-sm-12">
     <h1>
       <a>{{ $tema->titulo }}</a>
@@ -66,15 +43,15 @@
         </cite>
       </small>
     </blockquote>
-
+    <form action={{ '../nuevoejemplo/'.$tema->id }} >
+      <input type="submit" class="btn btn-success btn-lg active" value="¡Aporta con un ejemplo!">
+    </form>
     <div class="media">
       <h3>
         Comentarios
       </h3>
       <hr>
-
-      @foreach ($comentarios as $comentario)
-      <hr>                
+      @foreach ($comentarios as $comentario)         
       <div class "media">
         <a class="pull-left" href="javascript:;">
           <img class="media-object" src="http://vignette3.wikia.nocookie.net/vsbattles/images/5/58/Rias_Gremory.png/revision/latest?cb=20150402181653"."/65x65" alt="">
@@ -89,11 +66,11 @@
           <p>{{ $comentario->contenido }}</p>
         </div>
       </div>
+      <hr>       
       @endforeach
-      <hr> 
-      <hr> <hr> 
+      <hr>
       <div class="post-comment">
-        <h3 class="skills">Hacer un comentario</h3>
+        <h3 class="skills">Haz un comentario</h3>
 
         @if ($errors->any())
         <div class="alert alert-info" role="alert">
@@ -105,19 +82,16 @@
           </ul>
         </div>
         @endif
-
         {!! Form::open(array('route' => 'controladorComentario.store')) !!}
         <div class="form-group">
           {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
           {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}
         </div>
-
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg active">Comentar</button>
         </div>
-
         {!! Form::close() !!}
-        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -139,7 +113,11 @@
               Principal
             </a>
           </li>
-          
+          <li>
+            <a href={{ '../busqueda/categoria/'.$tema->categoriaid }}>
+              {{ $tema->categoria }}
+            </a>
+          </li>
           <li class="active">
             Visualizando tema
           </li>
