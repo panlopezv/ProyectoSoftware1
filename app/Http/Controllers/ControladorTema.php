@@ -22,7 +22,8 @@ class ControladorTema extends Controller
         $tema = Tema::find($idTema);
         $comentarios = DB::table('comentario')
             ->join('usuario', 'usuario.id', '=', 'comentario.usuarioid')
-            ->select('comentario.*', 'usuario.usuario', 'usuario.avatar')
+            ->join('persona', 'persona.id', '=', 'usuario.personaid')
+            ->select('comentario.*', 'usuario.usuario', 'persona.ubicacionavatar')
             ->where('temaid',$idTema)
             ->get();
         $ejemplos = DB::table('ejemplo')->where('temaid',$idTema)->get();
