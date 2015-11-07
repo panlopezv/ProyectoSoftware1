@@ -40,7 +40,7 @@
 
 @endsection
 
-@section('nuevotema')
+@section('contenido')
 
 <!-- Text input-->     
 <div class="starter-template">

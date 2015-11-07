@@ -40,7 +40,7 @@
 
 @endsection
 
-@section('nuevotema')
+@section('contenido')
 
 <div class="container">
 

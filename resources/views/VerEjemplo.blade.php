@@ -40,7 +40,7 @@ tinymce.init({
 
 @endsection
 
-@section('nuevotema')
+@section('contenido')
       <div class="container">
         <div class="col-lg-8 col-sm-12">
           <h1>
