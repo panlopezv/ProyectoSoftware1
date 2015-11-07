@@ -107,7 +107,7 @@ tinymce.init({
     <div class="row">
       <div class="col-lg-4 col-sm-4">
         <h1>
-          Nuevo tema
+          Modificar tema
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
@@ -119,7 +119,7 @@ tinymce.init({
           </li>
           
           <li class="active">
-            Creando Tema
+            Modificando tema
           </li>
         </ol>
       </div>

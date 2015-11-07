@@ -118,7 +118,7 @@ tinymce.init({
           </li>
           
           <li class="active">
-            Creando Tema
+            Creando tema
           </li>
         </ol>
       </div>
