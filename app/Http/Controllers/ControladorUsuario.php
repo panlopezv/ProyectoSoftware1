@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Hash;
 
 class ControladorUsuario extends Controller
 {
@@ -55,13 +56,15 @@ class ControladorUsuario extends Controller
                         ->withErrors($validador -> errors())
                         ->withInput($request->all());
 
-        }else if ($usuario->contrasenya != $request->input('pass')){
+        }else if (Hash::check($request->input('pass'), $usuario->contrasenya)){
+            return redirect('inicio')
+                        ->withErrors($usuario->usuario);
+        }else {
             return redirect('iniciofallido')
                         ->withErrors('contraseña incorrecta')
                         ->withInput($request->all());
         }
 
-        return redirect('inicio');
     }
 
     /**

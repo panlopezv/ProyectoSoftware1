@@ -90,7 +90,7 @@ class ControladorPersona extends Controller
         $usuario = new Usuario;
         $usuario->usuario = $request->input('usuario');
         $usuario->correo = $request->input('correo');
-        $usuario->contrasenya = $request->input('contrasenia');
+        $usuario->contrasenya = bcrypt($request->input('contrasenia'));
         $usuario->personaid = $nuevaPersona->id;
         $usuario->tipousuarioid = 3;
         $usuario->save();
