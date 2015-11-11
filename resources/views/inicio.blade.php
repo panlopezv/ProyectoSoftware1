@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -64,23 +67,28 @@
 
               {!! Form::close() !!}
             </ul>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
-                Inicio <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Usuario">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                  </div>
-                  <button type="submit" class="btn btn-default">Enviar</button>
-                  <a href="registro">Nuevo Usuario</a></li>
-                </form>
-                <li><a href=""></a></li>
-
-              </ul>
-            </li>
+            
+              <?php
+                if (isset($_COOKIE['usuario'])){
+                  echo '<li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
+                  echo      $_COOKIE['usuario'];
+                  echo      '<b class="caret"></b>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <form class="navbar-form navbar-left" role="search">
+                              <button type="submit" class="btn btn-default">Salir</button>
+                              <a href="#">Nuevo Usuario</a></li>
+                            </form>
+                            <li><a href=""></a></li>
+                          </ul>
+                        </li>';
+                }else{
+                  echo '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
+                        inicio <b class="caret"></b>
+                        </a>';
+                }
+              ?>
           </ul>
         </div><!--/.nav-collapse -->
 

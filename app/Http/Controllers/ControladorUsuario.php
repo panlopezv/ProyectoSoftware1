@@ -57,8 +57,10 @@ class ControladorUsuario extends Controller
                         ->withInput($request->all());
 
         }else if (Hash::check($request->input('pass'), $usuario->contrasenya)){
-            return redirect('inicio')
-                        ->withErrors($usuario->usuario);
+            /*session_start();
+            $_SESSION['usuario'] = $usuario->usuario;*/
+            setcookie("usuario", $usuario->usuario); 
+            return redirect('/');
         }else {
             return redirect('iniciofallido')
                         ->withErrors('contraseña incorrecta')
