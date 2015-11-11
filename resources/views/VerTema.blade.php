@@ -34,7 +34,7 @@
     <h1>
       <a>{{ $tema->titulo }}</a>
     </h1>
-    <? echo $tema->contenido ?>
+    <?php echo $tema->contenido ?>
     <blockquote>
       <p>{{ $tema->referencia }}</p>
       <small>

@@ -21,7 +21,7 @@
             <a> {{ $ejemplo->titulo }}</a>
           </h1>
           <hr> 
-          {{ printf($ejemplo->descripcion) }}
+          <?php echo $ejemplo->descripcion ?>
           <hr>
           <form action={{ '/ejemplotema/'.$ejemplo->ubicacionarchivo }} >
             <input type="submit" class="btn btn-success btn-lg active" value="Descargar ejemplo">
