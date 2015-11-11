@@ -32,7 +32,7 @@ class ControladorBusqueda extends Controller
     public function store(Request $request)
     {
         if ($request->var >0) {
-            return redirect('busqueda/'.$request->busqueda);]
+            return redirect('busqueda/'.$request->busqueda);
         } else {
             return redirect('nuevotema');
         }
