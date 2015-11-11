@@ -48,19 +48,17 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="container">
-
-
             <div class="row">
               <div class="col-md-8">
                 <table class="table">
                   <tr>
                     <th >Categorias</th>
-                    <th>Cantidad de Categorias</th>
+                    <th>Cantidad de temas</th>
                   </tr>
                   @foreach ($categorias as $categoria)
                   <tr>
-                    <td><a href={{'categorias/'.$categoria->id}}>{{ $categoria->categoria }} 
-
+                    <td><a href={{'/ProyectoSoftware1/public/categorias/'.$categoria->id}}>{{ $categoria->categoria }}</a></td>
+                    <td>{{ $categoria->cantidadtemas }}</td>
                   </tr>
                   @endforeach
                 </table>
@@ -68,8 +66,6 @@
             </div>
           </div>
         </div>
-
-
         {!! $categorias->render() !!}
       </div>
     </div>
@@ -83,19 +79,16 @@
       <div class="row">
         <div class="col-lg-4 col-sm-4">
           <h1>
-           
              Categorias
-            
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='..'>
+            <a href='/ProyectoSoftware1/public'>
               Principal
             </a>
           </li>
-                    
           <li class="active">
             Categorias
           </li>

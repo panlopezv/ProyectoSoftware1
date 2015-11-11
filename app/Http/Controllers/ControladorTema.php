@@ -135,7 +135,11 @@ class ControladorTema extends Controller
      */
     public function edit($id)
     {
-        $tema = Tema::find($id);
+        $tema = DB::table('tema')
+            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('tema.*', 'categoria.categoria')
+            ->where('tema.id',$id)
+            ->first();
         //return view('ModificarTema')->with('tema', $tema);
         $categorias = Categoria::all()->lists('categoria','id');
         $categorias[''] = 'Categoria del tema';

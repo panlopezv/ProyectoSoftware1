@@ -20,11 +20,11 @@ class ControladorInicio extends Controller
      */
     public function index()
     {
-
-
-       $categorias = Categoria::all();
-       foreach ($categorias as $categoria) {
-        }
+       $categorias = DB::table('categoria')
+            ->join('tema', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('categoria.*', DB::raw('count(*) as cantidadtemas'))
+            ->groupBy('categoria.id')
+            ->get();
     return view('Inicio')->with('categorias', $categorias);
 }
     public function store(Request $request)

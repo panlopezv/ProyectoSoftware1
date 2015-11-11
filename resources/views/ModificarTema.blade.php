@@ -37,8 +37,7 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="panel-body">
-
-
+          
             @if ($errors->any())
             <div class="alert alert-info" role="alert">
               <p>Corregir los siguientes campos:</p>
@@ -101,11 +100,20 @@
         <div class="col-lg-8 col-sm-8">
           <ol class="breadcrumb pull-right">
             <li>
-              <a href='/'>
+              <a href='/ProyectoSoftware1/public'>
                 Principal
               </a>
             </li>
-
+            <li>
+              <a href='/ProyectoSoftware1/public/categorias'>
+                Categorias
+              </a>
+            </li>
+            <li>
+              <a href={{ '/ProyectoSoftware1/public/'.$tema->categoriaid }}>
+                {{ $tema->categoria }}
+              </a>
+            </li>
             <li class="active">
               Modificando tema
             </li>

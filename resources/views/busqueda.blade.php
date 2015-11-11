@@ -71,12 +71,7 @@
               </ul>
             </div>
           </div>
-
-
-
           <div class="container">
-
-
             <div class="row">
               <div class="col-md-8 ">
                 <table class="table">
@@ -86,7 +81,7 @@
                   </tr>
                   @foreach ($temas as $tema)
                   <tr>
-                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} </a>
+                    <td><a href={{'/ProyectoSoftware1/public/temas/'.$tema->id}}>{{ $tema->titulo }} </a>
                      <td>{{ $tema->fechapublicacion }}</td>
 
                   </tr>
@@ -117,7 +112,7 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/'>
+            <a href='/ProyectoSoftware1/public'>
               Principal
             </a>
           </li>

@@ -60,7 +60,7 @@ class ControladorEjemplo extends Controller
         else {
             $imageName = str_replace( " " , "-" , $request->input('titulo')) . "_" . rand(11111,99999) . '.' . $request->file('archivo')->getClientOriginalExtension();
             ControladorEjemplo::insertarEjemplo($request->input('titulo'), $request->input('descripcion'), $imageName, $request->input('temaid'));
-            $request->file('archivo')->move(base_path() . '/public/ejemplostema/', $imageName);
+            $request->file('archivo')->move(base_path() . '/public/ejemplotema/', $imageName);
             return redirect('temas/'.$request->input('temaid'))->with('message', '¡Ejemplo añadido!'); ;
         } 
     }
@@ -107,7 +107,6 @@ class ControladorEjemplo extends Controller
      */
     public function destroy($id)
     {
-        //
         $ejemplo = Ejemplo::find($id);
         $ejemplo->delete();
     }

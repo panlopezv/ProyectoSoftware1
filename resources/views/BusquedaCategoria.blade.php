@@ -59,9 +59,8 @@
                   </tr>
                   @foreach ($temas as $tema)
                   <tr>
-                    <td><a href={{'temas/'.$tema->id}}>{{ $tema->titulo }} 
+                    <td><a href={{'/ProyectoSoftware1/public/temas/'.$tema->id}}>{{ $tema->titulo }} 
                     <td>{{ $tema->fechapublicacion }}</td>
-
                   </tr>
                   @endforeach
                 </table>
@@ -69,8 +68,6 @@
             </div>
           </div>
         </div>
-
-
         {!! $temas->render() !!}
       </div>
     </div>
@@ -84,21 +81,19 @@
       <div class="row">
         <div class="col-lg-4 col-sm-4">
           <h1>
-           
              {{$categoria->categoria }}
-            
         </h1>
       </div>
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='..'>
+            <a href='/ProyectoSoftware1/public'>
               Principal
             </a>
           </li>
           
           <li >
-          <a href='../categorias'>
+          <a href='/ProyectoSoftware1/public/categorias'>
               Categorias
             </a>
             

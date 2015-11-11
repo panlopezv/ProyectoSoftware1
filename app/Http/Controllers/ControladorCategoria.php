@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Categoria as Categoria;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -16,11 +16,13 @@ class ControladorCategoria extends Controller
      */
     public function index()
     {
-           
-
-           $categorias = Categoria::paginate(5);
-           $categorias->setPath('categorias');
-         return view('VerCategorias')->with('categorias', $categorias);
+       $categorias = DB::table('categoria')
+            ->join('tema', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('categoria.*', DB::raw('count(*) as cantidadtemas'))
+            ->groupBy('categoria.id')
+            ->paginate(5);
+       $categorias->setPath('categorias');
+       return view('VerCategorias')->with('categorias', $categorias);
     }
 
     /**

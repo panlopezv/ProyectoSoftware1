@@ -8,7 +8,7 @@ class Categoria extends Model
 {
     //
     protected $table = 'categoria';
-    protected $fillable = ['categoria', 'nombreimagen']; 
+    protected $fillable = ['categoria', 'ubicacionimagen']; 
     public function tema()
     {
         return $this->hasMany('tema');
