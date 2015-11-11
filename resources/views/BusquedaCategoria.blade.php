@@ -59,7 +59,7 @@
                   </tr>
                   @foreach ($temas as $tema)
                   <tr>
-                    <td><a href={{'/ProyectoSoftware1/public/temas/'.$tema->id}}>{{ $tema->titulo }} 
+                    <td><a href={{'/temas/'.$tema->id}}>{{ $tema->titulo }} 
                     <td>{{ $tema->fechapublicacion }}</td>
                   </tr>
                   @endforeach
@@ -87,13 +87,13 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/ProyectoSoftware1/public'>
+            <a href='/'>
               Principal
             </a>
           </li>
           
           <li >
-          <a href='/ProyectoSoftware1/public/categorias'>
+          <a href='/categorias'>
               Categorias
             </a>
             

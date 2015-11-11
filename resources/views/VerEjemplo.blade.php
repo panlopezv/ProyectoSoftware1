@@ -23,7 +23,7 @@
           <hr> 
           {{ printf($ejemplo->descripcion) }}
           <hr>
-          <form action={{ '/ProyectoSoftware1/public/ejemplotema/'.$ejemplo->ubicacionarchivo }} >
+          <form action={{ '/ejemplotema/'.$ejemplo->ubicacionarchivo }} >
             <input type="submit" class="btn btn-success btn-lg active" value="Descargar ejemplo">
           </form>
         </div>
@@ -42,22 +42,22 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/ProyectoSoftware1/public'>
+            <a href='/'>
               Principal
             </a>
           </li>
           <li>
-            <a href='/ProyectoSoftware1/public/categorias'>
+            <a href='/categorias'>
               Categorias
             </a>
           </li>
           <li>
-            <a href={{ '/ProyectoSoftware1/public/categorias/'.$ejemplo->categoriaid }}>
+            <a href={{ '/categorias/'.$ejemplo->categoriaid }}>
               {{ $ejemplo->categoria }}
             </a>
           </li>
           <li>
-            <a href={{ '/ProyectoSoftware1/public/temas/'.$ejemplo->temaid }}>
+            <a href={{ '/temas/'.$ejemplo->temaid }}>
               {{ $ejemplo->titulo }}
             </a>
           </li>

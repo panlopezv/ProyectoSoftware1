@@ -26,7 +26,7 @@
         <a>Ejemplos</a>
       </h3>
       @foreach ($ejemplos as $ejemplo)
-      <a href={{ '/ProyectoSoftware1/public/ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
+      <a href={{ '/ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
       @endforeach
     </div>
   </div><!--/.sidebar-offcanvas-->
@@ -43,7 +43,7 @@
         </cite>
       </small>
     </blockquote>
-    <form action={{ '/ProyectoSoftware1/public/nuevoejemplo/'.$tema->id }} >
+    <form action={{ '/nuevoejemplo/'.$tema->id }} >
       <input type="submit" class="btn btn-success btn-lg active" value="¡Aporta con un ejemplo!">
     </form>
     <div class="media">
@@ -109,17 +109,17 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/ProyectoSoftware1/public'>
+            <a href='/'>
               Principal
             </a>
           </li>
           <li>
-            <a href='/ProyectoSoftware1/public/categorias'>
+            <a href='/categorias'>
               Categorias
             </a>
           </li>
           <li>
-            <a href={{ '/ProyectoSoftware1/public/categorias/'.$tema->categoriaid }}>
+            <a href={{ '/categorias/'.$tema->categoriaid }}>
               {{ $tema->categoria }}
             </a>
           </li>

@@ -100,17 +100,17 @@
         <div class="col-lg-8 col-sm-8">
           <ol class="breadcrumb pull-right">
             <li>
-              <a href='/ProyectoSoftware1/public'>
+              <a href='/'>
                 Principal
               </a>
             </li>
             <li>
-              <a href='/ProyectoSoftware1/public/categorias'>
+              <a href='/categorias'>
                 Categorias
               </a>
             </li>
             <li>
-              <a href={{ '/ProyectoSoftware1/public/'.$tema->categoriaid }}>
+              <a href={{ '/categorias/'.$tema->categoriaid }}>
                 {{ $tema->categoria }}
               </a>
             </li>

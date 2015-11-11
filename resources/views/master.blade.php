@@ -36,12 +36,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/ProyectoSoftware1/public">Prograpedia</a>
+          <a class="navbar-brand" href="/">Prograpedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="quienesSomos">Quienes Somos</a></li>
-            <li><a href="contactanos">Contactanos</a></li>
+            <li ><a href="/acercade">Quienes Somos</a></li>
+            <li><a href="/contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav">
@@ -74,7 +74,7 @@
                       <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
                     </div>
                     <button type="submit" class="btn btn-default">Enviar</button>
-                    <a href="/ProyectoSoftware1/public/registro">Nuevo Usuario</a>
+                    <a href="/registro">Nuevo Usuario</a>
                   </li>
                 </form>
               </ul>
@@ -120,7 +120,7 @@
                   </div>
 
                   <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-                  <a href="registro"> Nuevo Usuario</a>    
+                  <a href="/registro"> Nuevo Usuario</a>    
 
                   {!! Form::close() !!}
 
@@ -178,25 +178,24 @@
             Secciones
           </h1>
           <ul class="page-footer-list">
-
             <li>
               <i class="fa fa-angle-right">
               </i>
-              <a href="/ProyectoSoftware1/public/acercade">
+              <a href="/acercade">
                 Quienes Somos
               </a>
             </li>
             <li>
               <i class="fa fa-angle-right">
               </i>
-              <a href="/ProyectoSoftware1/public/categorias">
+              <a href="/categorias">
                 Categorias
               </a>
             </li>
             <li>
               <i class="fa fa-angle-right">
               </i>
-              <a href="/ProyectoSoftware1/public/perfil">
+              <a href="/perfil">
                 Perfil
               </a>
             </ul>
@@ -210,7 +209,6 @@
   <footer class="footer-small">
     <div class="container">
       <div class="row">
-
         <div class="col-md-4">
           <div class="copyright">
             <p>&copy; Copyright - Servicios integrales de Informatica.</p>

@@ -57,7 +57,7 @@
                   </tr>
                   @foreach ($categorias as $categoria)
                   <tr>
-                    <td><a href={{'/ProyectoSoftware1/public/categorias/'.$categoria->id}}>{{ $categoria->categoria }}</a></td>
+                    <td><a href={{'/categorias/'.$categoria->id}}>{{ $categoria->categoria }}</a></td>
                     <td>{{ $categoria->cantidadtemas }}</td>
                   </tr>
                   @endforeach
@@ -85,7 +85,7 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='/ProyectoSoftware1/public'>
+            <a href='/'>
               Principal
             </a>
           </li>
