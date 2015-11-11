@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+/**
+ * ControladorTipoUsuario.php - Clase que sirve para obtener y enviar informacion de la entidad TipoUsuario a la base de datos.
+ * @author panlopezv
+ */
 class ControladorTipoUsuario extends Controller
 {
     /**

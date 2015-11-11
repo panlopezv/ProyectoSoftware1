@@ -8,33 +8,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * ControladorComentario.php - Clase que sirve para obtener y enviar informacion de la entidad Comentario a la base de datos.
+ * @author panlopezv
+ */
 class ControladorComentario extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Guarda una nuevo comentario en el tema actual en la base de datos.
+     * @param  Contenido y temaid del nuevo tema a crear. $request
+     * @return Si los datos son validos guarda el tema y redirige al tema comentado, sino redirige a la vista anterior con los errores correspondientes.
      */
     public function store(Request $request)
     {
@@ -54,53 +37,16 @@ class ControladorComentario extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
+     * Elimina una categoria en especifico de la base de datos.
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
         $comentario = Comentario::find($id);
         $comentario->delete();
     }
-
-
+    
     /**
      * Crea un objeto Comentario y lo almacena en la base de datos.
      * @param String contenido;
@@ -109,7 +55,6 @@ class ControladorComentario extends Controller
      */
     public function insertarComentario($cContenido, $cTemaID, $cUsuarioID)
     {
-        //
         $nueva = new Comentario;
         $nueva->contenido = $cContenido;
         $nueva->temaid = $cTemaID;

@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;;
 use Illuminate\Database\Eloquent\Collection;
 
+/**
+ * ControladorInicio.php
+ * @author panlopezv
+ * @author modm12
+ */
 class ControladorInicio extends Controller
 {
     /**

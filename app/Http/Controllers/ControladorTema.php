@@ -10,12 +10,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * ControladorTema.php - Clase que sirve para obtener y enviar informacion de la entidad Tema a la base de datos.
+ * @author panlopezv
+ */
 class ControladorTema extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Obtiene un tema en especifico y los comentarios, ejemplos y categoria que posee.
+     * @param int idTema
+     * @return vista VerTema con $tema, $comentarios, $ejemplos.
      */
     public function index($idTema)
     {
@@ -32,26 +36,23 @@ class ControladorTema extends Controller
             ->where('temaid',$idTema)
             ->get();
         $ejemplos = DB::table('ejemplo')->where('temaid',$idTema)->get();
-
-        //return view('tema')->with('tema', $tema);
         return view('VerTema', compact('tema', 'comentarios', 'ejemplos'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Muestra el formulario para crear un tema.
+     * @return vista CrearTema
      */
-    public function create()
-    {
-        //
+    public function nuevoTema(){
+        $categorias = Categoria::all()->lists('categoria','id');
+        $categorias[''] = 'Categoria del tema';
+        return view('CrearTema')->with('categorias', $categorias);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Guarda nuevo tema en la base de datos.
+     * @param  Datos del nuevo tema a crear. $request
+     * @return Si los datos son validos guarda el tema y redirige a la vista del tema, sino redirige a la vista anterior con los errores correspondientes.
      */
     public function store(Request $request)
     {
@@ -117,19 +118,7 @@ class ControladorTema extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
+     * Muestra la vista para modificar un tema en especifico.
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -147,25 +136,12 @@ class ControladorTema extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
+     * Elimina un tema en especifico de la base de datos.
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
         $tema = Tema::find($id);
         $tema->delete();
     }
@@ -180,7 +156,6 @@ class ControladorTema extends Controller
      */
     public function insertarTema($tTitulo, $tContenido, $tReferencia, $cID, $uID)
     {
-        //
         $nueva = new Tema;
         $nueva->titulo = $tTitulo;
         $nueva->contenido = $tContenido;
@@ -189,11 +164,5 @@ class ControladorTema extends Controller
         $nueva->categoriaid = $cID;
         $nueva->usuarioid = $uID;
         $nueva->save();
-    }
-
-    public function nuevoTema(){
-        $categorias = Categoria::all()->lists('categoria','id');
-        $categorias[''] = 'Categoria del tema';
-        return view('CrearTema')->with('categorias', $categorias);
     }
 }
