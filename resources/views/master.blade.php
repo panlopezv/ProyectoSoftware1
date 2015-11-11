@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -45,8 +44,6 @@
             <li><a href="contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-
-
             <ul class="nav navbar-nav">
               {!! Form::open(array('route' => 'busquedas.store')) !!}
 
@@ -61,21 +58,15 @@
                 </div>
               </div>
 
-
-
-
               {!! Form::close() !!}
             </ul>
             <ul class="nav navbar-nav">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle">
                 </a>
-
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal">
-                  Inicio <b class="caret"></b>
-                </a>
+                <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal"> Inicio <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <form class="navbar-form navbar-left" role="search">
                     <div class="form-group">
@@ -92,12 +83,11 @@
           </li>
         </ul>
       </div><!--/.nav-collapse -->
-
     </div>
   </nav>
+
   @yield('navegacion') 
   @yield('contenido')
-
 
   <!-- /.container -->
 </div>
@@ -105,15 +95,13 @@
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class ="col-md-6">
-      <div class="modal-content">
-
+      <div class="modal-content">    
         <div class="modal-header" align="center">
           <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </div>
-
         <!-- Begin # DIV Form -->
         <div id="div-forms">
           <div class ="row">
@@ -122,7 +110,6 @@
                 <div class="panel-body">
 
                   {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
-
 
                   <div class="form-group">
                     {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
@@ -136,16 +123,17 @@
                   <a href="registro"> Nuevo Usuario</a>    
 
                   {!! Form::close() !!}
+
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <!--footer start-->
 <footer class="footer">
   <div class="container">
@@ -211,14 +199,10 @@
               <a href="/ProyectoSoftware1/public/perfil">
                 Perfil
               </a>
-
-
             </ul>
           </div>
         </div>
-
       </div>
-
     </div>
   </footer>
   <!-- footer end -->
@@ -236,13 +220,10 @@
     </div>
   </footer>
   <!--small footer end-->
-
-
 <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   @yield('script') 
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="{{asset('js/bootstrap.min.js')}}"></script>
   <script src="{{asset('js/docs.min.js')}}"></script>
