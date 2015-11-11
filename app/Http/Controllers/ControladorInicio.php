@@ -21,20 +21,16 @@ class ControladorInicio extends Controller
     public function index()
     {
        $categorias = DB::table('categoria')
-            ->join('tema', 'categoria.id', '=', 'tema.categoriaid')
-            ->select('categoria.*', DB::raw('count(*) as cantidadtemas'))
+            ->leftJoin('tema', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('categoria.*', DB::raw('count(tema.categoriaid) as cantidadtemas'))
             ->groupBy('categoria.id')
             ->get();
     return view('Inicio')->with('categorias', $categorias);
-}
+    }
+    
     public function store(Request $request)
     {
 
 
     }
-
-
-
-
-
 }

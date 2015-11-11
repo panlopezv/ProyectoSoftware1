@@ -115,7 +115,7 @@
         </a>
       </div>
       <div id="margen">
-        <h1>Categorias</h1>
+        <h1 class = "page-header">Categorias</h1>
         </div>
 
       <div class="row" >
@@ -125,14 +125,14 @@
         <div class="col-xs-12 col-sm-6    col-lg-2" >
           <div id="bljaIMGte">
 
-            <img src={{'images/'.$categoria->nombreimagen}} />
+            <img src={{'imagencategoria/'.$categoria->ubicacionimagen}} />
 
             <div class="bljaIMGtex" style="color:#000000;">
              <div class="uno">
                <h3><b>{{$categoria->categoria}} </b></h3>
              </div>
              <div class="dos">
-               <a href={{'categorias/'.$categoria->id}}>Temas<span class="badge">3</span></a>
+               <a href={{'categorias/'.$categoria->id}}>Temas<span class="badge">{{ $categoria->cantidadtemas }}</span></a>
              </div>
            </div>
          </div>

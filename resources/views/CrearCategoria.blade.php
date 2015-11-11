@@ -1,4 +1,4 @@
-@extends('Master')
+@extends('master')
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
@@ -17,21 +17,12 @@
 </style>
 
 @endsection
-@section('script')
-<!--<script src="{{asset('js/wysihtml5-0.3.0.js')}}"></script>
-<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
-<script src="{{asset('js/bootstrap-wysihtml5.js')}}"></script>-->
-<script src="lib/js/wysihtml5-0.3.0.js"></script>
-<script src="lib/js/jquery-1.7.2.min.js"></script>
-<script src="lib/js/prettify.js"></script>
-<script type="text/javascript" charset="utf-8">
-  $(prettyPrint);
-</script>
 
+@section('script')
 <script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script type="text/javascript">
   tinymce.init({
-    selector : "#contenido",
+    selector : "#descripcion",
     toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
   });
 </script>
@@ -49,8 +40,6 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="panel-body">
-
-
             @if ($errors->any())
             <div class="alert alert-info" role="alert">
               <p>Corregir los siguientes campos:</p>
@@ -61,25 +50,17 @@
               </ul>
             </div>
             @endif
-            
-            {!! Form::open(array('route' => 'controladorTema.store')) !!}
-            
+
+            {!! Form::open(array('route' => 'controladorCategoria.store', 'files' => true)) !!}
 
             <div class="form-group">
-              {!! Form::text('accion', "crear", array('class' => 'form-control', 'style' => 'display:none') ) !!}
-              {!! Form::label('titulo', 'Titulo') !!}
-              {!! Form::text('titulo', null, array('class' => 'form-control', 'placeholder' => 'Titulo del tema') ) !!}
-            </div>
-
-
-            <div class="form-group">
-              {!! Form::label('contenido', 'Contenido') !!}
-              {!! Form::textarea('contenido', null, array('class' => 'form-control', 'placeholder' => 'Contenido del tema', 'name' => 'contenido')) !!}
+              {!! Form::label('categoria', 'Categoria') !!}
+              {!! Form::text('categoria', null, array('class' => 'form-control', 'placeholder' => 'Nombre de la categoria') ) !!}
             </div>
 
             <div class="form-group">
-              {!! Form::label('referencia', 'Referencia') !!}
-              {!! Form::text('referencia', null, array('class' => 'form-control', 'placeholder' => 'Referencia del tema') ) !!}
+              {!! Form::label('imagen', 'Seleccione una imagen') !!}
+              {!! Form::file('imagen'); !!}
             </div>
 
             <div class="form-group">
@@ -94,8 +75,7 @@
       </div>
     </div>
   </div>
-
-@endsection
+  @endsection
 
   @section('navegacion')
   <div class="navegacion">
@@ -103,19 +83,23 @@
       <div class="row">
         <div class="col-lg-4 col-sm-4">
           <h1>
-            Nueva Categoria
+            Nueva categoria
           </h1>
         </div>
         <div class="col-lg-8 col-sm-8">
           <ol class="breadcrumb pull-right">
             <li>
-              <a href='..'>
+              <a href='/ProyectoSoftware1/public'>
                 Principal
               </a>
             </li>
-            
+            <li>
+              <a href='/ProyectoSoftware1/public/categorias'>
+                Categorias
+              </a>
+            </li>
             <li class="active">
-              Nueva Categoria
+              Creando categoria
             </li>
           </ol>
         </div>
@@ -123,4 +107,3 @@
     </div>
   </div>
   @endsection
-

@@ -44,7 +44,6 @@ class ControladorEjemplo extends Controller
      */
     public function store(Request $request)
     {
-
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',

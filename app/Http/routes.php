@@ -22,8 +22,9 @@ Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
 //categoria
+Route::resource('controladorCategoria','ControladorCategoria');
 Route::resource('controladorcategoria','ControladorCategoria');
-//Route::get('nuevacategoria','ControladorCategoria@index');
+Route::get('nuevacategoria','ControladorCategoria@nuevaCategoria');
 Route::get('categorias', 'ControladorCategoria@index');
 Route::get('categorias/{b}', 'ControladorBusqueda@buscarCategoria');
 
