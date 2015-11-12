@@ -39,10 +39,12 @@ class ControladorPerfil extends Controller
     */
     public function mostrarEscritores()
     {
+        $usuarios = DB::table('persona')
             ->join('usuario', 'usuario.personaid', '=', 'persona.id')
             ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipousuarioid')
             ->select('persona.*', 'tipousuario.tipo')
             ->get();
+      return view('PerfilEscritores',  compact('usuarios'));
     }
 
     /**
