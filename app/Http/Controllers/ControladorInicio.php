@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;;
 use Illuminate\Database\Eloquent\Collection;
 
+/**
+ * ControladorInicio.php
+ * @author panlopezv
+ * @author modm12
+ */
 class ControladorInicio extends Controller
 {
     /**
@@ -20,21 +25,17 @@ class ControladorInicio extends Controller
      */
     public function index()
     {
-
-
-       $categorias = Categoria::all();
-       foreach ($categorias as $categoria) {
-        }
+       $categorias = DB::table('categoria')
+            ->leftJoin('tema', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('categoria.*', DB::raw('count(tema.categoriaid) as cantidadtemas'))
+            ->groupBy('categoria.id')
+            ->get();
     return view('Inicio')->with('categorias', $categorias);
-}
+    }
+    
     public function store(Request $request)
     {
 
 
     }
-
-
-
-
-
 }

@@ -1,5 +1,7 @@
 /vendor
 /node_modules
-/public/ejemplostema
+/public/ejemplotema
+/public/imagenpersona
+/public/imagencategoria
 Homestead.yaml
 Homestead.json

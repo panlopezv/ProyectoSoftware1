@@ -40,7 +40,6 @@
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="panel-body">
 
-
             @if ($errors->any())
             <div class="alert alert-info" role="alert">
               <p>Corregir los siguientes campos:</p>
@@ -106,7 +105,6 @@
                 Principal
               </a>
             </li>
-            
             <li class="active">
               Creando tema
             </li>

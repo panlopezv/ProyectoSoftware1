@@ -21,9 +21,9 @@
             <a> {{ $ejemplo->titulo }}</a>
           </h1>
           <hr> 
-          {{ printf($ejemplo->descripcion) }}
+          <?php echo $ejemplo->descripcion ?>
           <hr>
-          <form action={{ '../ejemplostema/'.$ejemplo->ubicacionarchivo }} >
+          <form action={{ '/ejemplotema/'.$ejemplo->ubicacionarchivo }} >
             <input type="submit" class="btn btn-success btn-lg active" value="Descargar ejemplo">
           </form>
         </div>
@@ -42,17 +42,22 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='..'>
+            <a href='/'>
               Principal
             </a>
           </li>
           <li>
-            <a href={{ '../busqueda/categoria/'.$ejemplo->categoriaid }}>
+            <a href='/categorias'>
+              Categorias
+            </a>
+          </li>
+          <li>
+            <a href={{ '/categorias/'.$ejemplo->categoriaid }}>
               {{ $ejemplo->categoria }}
             </a>
           </li>
           <li>
-            <a href={{ '../temas/'.$ejemplo->temaid }}>
+            <a href={{ '/temas/'.$ejemplo->temaid }}>
               {{ $ejemplo->titulo }}
             </a>
           </li>

@@ -26,7 +26,7 @@
         <a>Ejemplos</a>
       </h3>
       @foreach ($ejemplos as $ejemplo)
-      <a href={{ '../ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
+      <a href={{ '/ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
       @endforeach
     </div>
   </div><!--/.sidebar-offcanvas-->
@@ -34,7 +34,7 @@
     <h1>
       <a>{{ $tema->titulo }}</a>
     </h1>
-    <? echo $tema->contenido ?>
+    <?php echo $tema->contenido ?>
     <blockquote>
       <p>{{ $tema->referencia }}</p>
       <small>
@@ -43,7 +43,7 @@
         </cite>
       </small>
     </blockquote>
-    <form action={{ '../nuevoejemplo/'.$tema->id }} >
+    <form action={{ '/nuevoejemplo/'.$tema->id }} >
       <input type="submit" class="btn btn-success btn-lg active" value="¡Aporta con un ejemplo!">
     </form>
     <div class="media">
@@ -109,12 +109,17 @@
       <div class="col-lg-8 col-sm-8">
         <ol class="breadcrumb pull-right">
           <li>
-            <a href='..'>
+            <a href='/'>
               Principal
             </a>
           </li>
           <li>
-            <a href={{ '../busqueda/categoria/'.$tema->categoriaid }}>
+            <a href='/categorias'>
+              Categorias
+            </a>
+          </li>
+          <li>
+            <a href={{ '/categorias/'.$tema->categoriaid }}>
               {{ $tema->categoria }}
             </a>
           </li>

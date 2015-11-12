@@ -40,8 +40,6 @@
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="panel-body">
-
-
             @if ($errors->any())
             <div class="alert alert-info" role="alert">
               <p>Corregir los siguientes campos:</p>
@@ -75,7 +73,7 @@
               <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
               <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
             </div>
-
+            
             {!! Form::close() !!}
 
           </div>
@@ -97,17 +95,22 @@
         <div class="col-lg-8 col-sm-8">
           <ol class="breadcrumb pull-right">
             <li>
-              <a href='..'>
+              <a href='/'>
                 Principal
               </a>
             </li>
             <li>
-              <a href={{ '../busqueda/categoria/'.$tema->categoriaid }}>
+              <a href='/categorias'>
+                Categorias
+              </a>
+            </li>
+            <li>
+              <a href={{ '/categorias/'.$tema->categoriaid }}>
                 {{ $tema->categoria }}
               </a>
             </li>
             <li>
-              <a href={{ '../temas/'.$tema->temaid }}>
+              <a href={{ '/temas/'.$tema->temaid }}>
                 {{ $tema->titulo }}
               </a>
             </li>

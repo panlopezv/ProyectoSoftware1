@@ -8,12 +8,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * ControladorEjemplo.php - Clase que sirve para obtener y enviar informacion de la entidad Ejemplo a la base de datos.
+ * @author panlopezv
+ */
 class ControladorEjemplo extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Obtiene un ejemplo en especifico y el tema, categoria al que pertenece.
+     * @param int idEjemplo
+     * @return vista VerEjemplo con $ejemplo.
      */
     public function index($idEjemplo)
     {
@@ -27,24 +31,26 @@ class ControladorEjemplo extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Muestra el formulario para crear un ejemplo del tema con el identificador recibido.
+     * @param int temaid
+     * @return vista CrearCategoria
      */
-    public function create()
-    {
-        //
+    public function nuevoEjemplo($temaid){
+        $tema = DB::table('tema')
+            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
+            ->select('tema.id as temaid', 'tema.titulo', 'categoria.id as categoriaid', 'categoria.categoria')
+            ->where('tema.id',$temaid)
+            ->first();
+        return view('CrearEjemplo', compact('tema'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Guarda nuevo ejemplo en la base de datos.
+     * @param  Datos del nuevo ejemplo a crear. $request
+     * @return Si los datos son validos guarda el ejemplo y redirige a la vista del tema, sino redirige a la vista anterior con los errores correspondientes.
      */
     public function store(Request $request)
     {
-
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',
@@ -60,54 +66,18 @@ class ControladorEjemplo extends Controller
         else {
             $imageName = str_replace( " " , "-" , $request->input('titulo')) . "_" . rand(11111,99999) . '.' . $request->file('archivo')->getClientOriginalExtension();
             ControladorEjemplo::insertarEjemplo($request->input('titulo'), $request->input('descripcion'), $imageName, $request->input('temaid'));
-            $request->file('archivo')->move(base_path() . '/public/ejemplostema/', $imageName);
+            $request->file('archivo')->move(base_path() . '/public/ejemplotema/', $imageName);
             return redirect('temas/'.$request->input('temaid'))->with('message', '¡Ejemplo añadido!'); ;
         } 
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
+     * Elimina un ejemplo en especifico de la base de datos.
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
         $ejemplo = Ejemplo::find($id);
         $ejemplo->delete();
     }
@@ -121,21 +91,11 @@ class ControladorEjemplo extends Controller
      */
     public function insertarEjemplo($eTitulo, $eDescripcion, $ubicacion, $tID)
     {
-        //
         $nueva = new Ejemplo;
         $nueva->titulo = $eTitulo;
         $nueva->descripcion = $eDescripcion;
         $nueva->ubicacionarchivo = $ubicacion;
         $nueva->temaid = $tID;
         $nueva->save();
-    }
-
-    public function nuevoEjemplo($temaid){
-        $tema = DB::table('tema')
-            ->join('categoria', 'categoria.id', '=', 'tema.categoriaid')
-            ->select('tema.id as temaid', 'tema.titulo', 'categoria.id as categoriaid', 'categoria.categoria')
-            ->where('tema.id',$temaid)
-            ->first();
-        return view('CrearEjemplo', compact('tema'));
     }
 }
