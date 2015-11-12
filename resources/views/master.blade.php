@@ -60,26 +60,26 @@
 
               {!! Form::close() !!}
             </ul>
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
-                </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal"> Inicio <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Usuario">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-default">Enviar</button>
-                    <a href="/registro">Nuevo Usuario</a>
-                  </li>
-                </form>
-              </ul>
-
-            </ul>
+            <?php
+                if (isset($_COOKIE['usuario'])){
+                  echo '<li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
+                  echo      $_COOKIE['usuario'];
+                  echo      '<b class="caret"></b>
+                          <ul class="dropdown-menu">
+                            <form class="navbar-form navbar-left" role="search">
+                              <a href="/cerrarSesion">Cerrar sesion</a></li>
+                            </form>
+                            <li><a href=""></a></li>
+                          </ul>';
+                }else{
+                  echo '<li>
+                          <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
+                            inicio <b class="caret"></b>
+                          </a>
+                        </li>';
+                }
+              ?>
           </li>
         </ul>
       </div><!--/.nav-collapse -->
@@ -88,13 +88,14 @@
 
   @yield('navegacion') 
   @yield('contenido')
+  @yield('iniciofallido')
 
   <!-- /.container -->
 </div>
 </div>
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
-    <div class ="col-md-6">
+    <div class ="col-md-7 margeniz">
       <div class="modal-content">    
         <div class="modal-header" align="center">
           <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
@@ -109,14 +110,14 @@
               <div class="panel panel-default">
                 <div class="panel-body">
 
-                  {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
+                  {!! Form::open(array('route' => 'sesion.store')) !!}
 
                   <div class="form-group">
-                    {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
+                    {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario') ) !!}
                   </div>
 
                   <div class="form-group">
-                    {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'contraseña') ) !!}
+                    {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'Contraseña') ) !!}
                   </div>
 
                   <button type="submit" class="btn btn-primary">Iniciar Sesion</button>

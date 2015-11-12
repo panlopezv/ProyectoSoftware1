@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario as Usuario;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Categoria as Categoria;
+use App\Tema as Tema;
 use DB;
 use Hash;
 
-class ControladorUsuario extends Controller
+
+class ControladorSesion extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +42,11 @@ class ControladorUsuario extends Controller
      */
     public function store(Request $request)
     {
-
+        if (isset($_COOKIE['usuario'])){
+            return ControladorSesion::cerrarSesion();
+        }else{
+            return ControladorSesion::inicioSesion($request);
+        }
     }
 
     /**
@@ -86,24 +92,40 @@ class ControladorUsuario extends Controller
     public function destroy($id)
     {
         //
-        $usuario = Usuario::find($id);
-        $usuario->delete();
     }
 
-    /**
-     * Crea un objeto Usuario y lo almacena en la base de datos.
-     * @param String usuario;
-     * @param String correo;
-     * @param String contrasenya;
-     */
-    public function insertarUsuario($uUsuario, $uCorreo, $uContrasenya)
-    {
-        //
-        $nueva = new Usuario;
-        $nueva->usuario = $uUsuario;
-        $nueva->correo = $uCorreo;
-        $nueva->contrasenya = $uContrasenya;
-        $nueva->save();
+    public function inicioSesion(Request $request){
+        $validador = Validator::make($request->all(), [
+            'usuario'        => 'required|exists:usuario,usuario',
+            'pass'           => 'required',
+        ],[
+            'required'  => 'ingrese su :attribute.',
+            'exists'    => ':attribute incorrecto'
+        ]);
+
+        $usuario = DB::table('usuario')->where('usuario',$request->input('usuario'))->first();
+
+
+        if ($validador->fails()) {
+            return redirect('iniciofallido')
+                        ->withErrors($validador -> errors())
+                        ->withInput($request->all());
+
+        }else if (Hash::check($request->input('pass'), $usuario->contrasenya)){
+            setcookie("id", $usuario->id);
+            setcookie("usuario", $usuario->usuario);
+            return redirect("/");
+        }else {
+            return redirect('iniciofallido')
+                        ->withErrors('Usuario o contraseña incorrecta')
+                        ->withInput($request->all());
+        }
     }
 
+    
+    public function cerrarSesion(){
+        setcookie("id", "");
+        setcookie("usuario", "");
+        return redirect("/");
+    }
 }

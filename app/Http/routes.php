@@ -45,14 +45,18 @@ Route::resource('controladorEjemplo','ControladorEjemplo');
 Route::get('nuevoejemplo/{temaid}', 'ControladorEjemplo@nuevoEjemplo');
 Route::get('ejemplos/{idEjemplo}', 'ControladorEjemplo@index');
 
+//sesion
+Route::resource('sesion','ControladorSesion');
+Route::get('cerrarSesion', 'ControladorSesion@cerrarSesion');
+
 Route::get('registro', function () {
-    return view('registro');
+    return view('Registro');
 });
 Route::get('iniciofallido', function () {
-    return view('iniciofallido');
+    return view('InicioFallido');
 });
 Route::get('inicio', function () {
-    return view('inicio');
+    return view('Inicio');
 });
 
 Route::get('prueba', function () {

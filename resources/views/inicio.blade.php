@@ -63,24 +63,29 @@
               </div>
 
               {!! Form::close() !!}
-            </ul>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
-                Inicio <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Usuario">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                  </div>
-                  <button type="submit" class="btn btn-default">Enviar</button>
-                  <a href="/registro">Nuevo Usuario</a></li>
-                </form>
-                <li><a href=""></a></li>
+            </ul>   
 
-              </ul>
-            </li>
+            <?php
+                if (isset($_COOKIE['usuario'])){
+                  echo '<li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
+                  echo      $_COOKIE['usuario'];
+                  echo      '<b class="caret"></b>
+                          <ul class="dropdown-menu">
+                            <form class="navbar-form navbar-left" role="search">
+                              <a href="/cerrarSesion">Cerrar sesion</a></li>
+                            </form>
+                            <li><a href=""></a></li>
+                          </ul>';
+                }else{
+                  echo '<li>
+                          <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
+                            inicio <b class="caret"></b>
+                          </a>
+                        </li>';
+                }
+              ?>
+
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -139,59 +144,51 @@
        </div>
 
         @endforeach
-        
-    
-       
 
-
-      
-    </div>
+      </div>
     <!-- /.container -->
   </div>
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-    <div class ="col-md-6">
-      <div class="modal-content">
-        
-          <div class="modal-header" align="center">
-            <img class="img-circle" id="img_logo" src="images/logo.jpg">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            </button>
-          </div>
+  <div class="modal-dialog">
+    <div class ="col-md-7 margeniz">
+      <div class="modal-content">    
+        <div class="modal-header" align="center">
+          <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </div>
+        <!-- Begin # DIV Form -->
+        <div id="div-forms">
+          <div class ="row">
+            <div class ="col-md-12 ">
+              <div class="panel panel-default">
+                <div class="panel-body">
 
-          <!-- Begin # DIV Form -->
-          <div id="div-forms">
-                <div class ="row">
-                  <div class ="col-md-12 ">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
+                  {!! Form::open(array('route' => 'sesion.store')) !!}
 
-                        {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
-                           
-
-                          <div class="form-group">
-                            {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
-                          </div>
-
-                          <div class="form-group">
-                            {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'contraseña') ) !!}
-                          </div>
-
-                          <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-                          <a href="/registro"> Nuevo Usuario</a>    
-
-                        {!! Form::close() !!}
-                      </div>
+                  <div class="form-group">
+                    {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario') ) !!}
                   </div>
+
+                  <div class="form-group">
+                    {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'Contraseña') ) !!}
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                  <a href="/registro"> Nuevo Usuario</a>    
+
+                  {!! Form::close() !!}
+
                 </div>
               </div>
-
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <footer class="footer">
     <div class="container">
