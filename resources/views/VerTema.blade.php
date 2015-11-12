@@ -29,8 +29,19 @@
       <a href={{ '/ejemplos/'.$ejemplo->id }} class="list-group-item">{{ $ejemplo->titulo }}</a>
       @endforeach
     </div>
-  </div><!--/.sidebar-offcanvas-->
+  </div><!--/.sidebar-offcanvas-->  
   <div class="col-lg-8 col-sm-12 col-xs-12">
+    <?php 
+      if(isset($mensaje)==true){
+        echo '<div class = "alert alert-success alert-dismissable">
+        <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
+        &times;
+        </button>';
+        echo $mensaje;
+        echo '</div>';
+      }
+    ?>
+
     <h1>
       <a>{{ $tema->titulo }}</a>
     </h1>
