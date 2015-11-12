@@ -33,6 +33,20 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        </div>
+        </nav>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -42,9 +56,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+
+          
           <a class="navbar-brand" href="/">Prograpedia</a>
-          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a></a>
+          <div class="navbar-brand">
+        <a href="#menu-toggle" class="btn btn-default btn-xs" id="menu-toggle"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
         </div>
+          
+        </div>
+
         <div id="navbar" class="collapse navbar-collapse">
          
 
