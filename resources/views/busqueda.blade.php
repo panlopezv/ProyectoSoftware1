@@ -41,59 +41,39 @@
 @section('contenido')
 
 <!-- Text input-->     
-<div class="starter-template">
-  <div class="container">
-    <div class ="row">
-      <div class ="col-md-8 col-md-offset-1">
-        <div class="panel panel-default">
-          <!--<div class="panel-heading">Nuevo tema.</div>-->
-          <div class="container">
-            <div class="row">
-
-              <ul class="nav navbar-nav">
-                {!! Form::open(array('route' => 'busquedas.store')) !!}
-
-                <div class="navbar-form navbar-left col-md-8 col-md-offset-1" role="search">
-                  <div class="form-group">
-
-                    {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                    {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-
-                  </div>
-                </div>
-
-                {!! Form::close() !!}
-              </ul>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8">
-                <table class="table">
-                  <tr>
-                    <th >Titulo</th>
-                    <th>Fecha</th>
-                  </tr>
-                  @foreach ($temas as $tema)
-                  <tr>
-                    <td><a href={{'/temas/'.$tema->id}}>{{ $tema->titulo }} </a>
-                    <td>{{ $tema->fechapublicacion }}</td>
-                  </tr>
-                  @endforeach
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="espacio">
+ <div class="row">
+ <div class ="col-md-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+    <div class="panel panel-default">
+      <!--<div class="panel-heading">Nuevo tema.</div>-->
 
 
-          {!! $temas->render() !!}
+
+
+      <div class="table-responsive">   
+        <table class="table">
+          <tr>
+            <th >Titulo</th>
+            <th>Fecha</th>
+          </tr>
+          @foreach ($temas as $tema)
+          <tr>
+            <td><a href={{'/temas/'.$tema->id}}>{{ $tema->titulo }} </a>
+              <td>{{ $tema->fechapublicacion }}</td>
+            </tr>
+            @endforeach
+          </table>
         </div>
       </div>
     </div>
+
+
+
+    {!! $temas->render() !!}
   </div>
+</div>
+
+
   @endsection
 
   @section('navegacion')

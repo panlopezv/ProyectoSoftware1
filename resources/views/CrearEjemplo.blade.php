@@ -33,10 +33,9 @@
 @section('contenido')
 
 <!-- Text input-->     
-<div class="starter-template">
-  <div class="container">
-    <div class ="row">
-      <div class ="col-md-8 col-md-offset-1">
+<div class="espacio">
+ <div class="row">
+      <div class ="col-md-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-0">
         <div class="panel panel-default">
           <!--<div class="panel-heading">Nuevo tema.</div>-->
           <div class="panel-body">
@@ -71,7 +70,7 @@
 
             <div class="form-group">
               <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
-              <button type="reset" class="btn btn-danger btn-lg active">Cancelar</button>
+              <button type="reset" class="btn btn-danger btn-lg active">Limpiar</button>
             </div>
             
             {!! Form::close() !!}
