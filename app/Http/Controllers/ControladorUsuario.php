@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Usuario as Usuario;
+use App\Persona as Persona;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -45,13 +46,13 @@ class ControladorUsuario extends Controller
 
         $validator = Validator::make($request->all(), [
             'usuario'       => 'required|unique:usuario',
-            'correo'        => 'required',
+            'correo'        => 'required|unique:usuario',
             'contrasenia'   => 'required|max:16|min:8',
         ],[
             'required'  => 'Ingrese su :attribute.',
-            'unique'    => 'ya existe el usuario',
+            'unique'    => 'ya existe el :attribute.',
             'min'       => 'La contraseña debe tener como minimo 8 caracteres.',
-            'max'       => 'La contraseña debe tener como maximo 16 caracteres.'
+            'max'       => 'La contraseña debe tener como maximo 16 caracteres.',
         ]);
 
         if ($validator->fails()) {
@@ -87,7 +88,7 @@ class ControladorUsuario extends Controller
         setcookie("id", $usuario->id);
         setcookie("usuario", $usuario->usuario);
 
-        return redirect('CompletarInformacion');
+        return redirect('/');
     }
 
     /**

@@ -64,7 +64,7 @@
                 @endif
               
 
-              {!! Form::open(array('route' => 'controladorPersona.store')) !!}
+              {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
                  
                 <div class="form-group">
                   {!! Form::label('usuario', 'Usuario') !!}
