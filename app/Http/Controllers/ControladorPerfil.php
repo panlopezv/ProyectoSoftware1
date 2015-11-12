@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;;
 use Illuminate\Database\Eloquent\Collection;
 
-class ControladorBusqueda extends Controller
+class ControladorPerfil extends Controller
 {
     /**
      * Show all of the users for the application.
@@ -22,9 +22,8 @@ class ControladorBusqueda extends Controller
     {
            
 
-           $temas = Tema::paginate(5);
-           $temas->setPath('busqueda');
-         return view('busqueda')->with('temas', $temas);
+           
+         return view('PerfilPrincipal');
     }
     public function store(Request $request)
     {
@@ -38,21 +37,57 @@ class ControladorBusqueda extends Controller
             
   
     }
-    public function buscar($b)
-    {
-             $temas = Tema::where('titulo', 'like', '%'.$b.'%')->paginate(5);
-           $temas->setPath($b);
-         return view('busqueda')->with('temas', $temas);
-  
-    }
-    public function buscarCategoria($b)
-    {        $categoria= Categoria::find($b);
 
-             $temas = Tema::where('categoriaid',$b)->paginate(1);
-           $temas->setPath($b);
-         return view('BusquedaCategoria', compact('temas','categoria'));
-  
+    /**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */
+    public function mostrarEscritores()
+    {
+           
+
+           
+         return view('PerfilEscritores');
     }
+    /**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */
+    public function mostrarTemas()
+    {
+
+
+
+       return view('PerfilTemas');
+   }
+   /**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */
+   public function nuevoTema()
+   {
+
+       $categorias = Categoria::all()->lists('categoria','id');
+       $categorias[''] = 'Categoria del tema';
+       return view('PerfilNuevoTema')->with('categorias', $categorias);
+
+   }
+    /**
+     * Show all of the users for the application.
+     *
+     * @return Response
+     */
+   public function nuevaCategoria()
+   {
+       return view('PerfilNuevaCategoria');
+
+   }
+
+
+    
 
 
 

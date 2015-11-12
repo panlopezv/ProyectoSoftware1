@@ -26,81 +26,114 @@
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <!--[endif]-->
+  <!--[endif
+ <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a></a>
+     
+  ]-->
 </head>
 
 <body>
-
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Navegacion/span>
+          <span class="sr-only">Navegacion</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">Prograpedia</a>
+          <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href="quienesSomos">Quienes Somos</a></li>
-            <li><a href="contactanos">Contactanos</a></li>
-          </ul>
+         
+
+          {!! Form::open(array('route' => 'busquedas.store')) !!}
+
+          <div class="navbar-form navbar-left" role="search">
+
+
+            <div class="input-group input-group-sm">
+
+              {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+              {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+              <span class="input-group-btn">
+
+              <button type="sumbit" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </span>
+            </div>
+
+          </div>
+
+          {!! Form::close() !!}
+          
           <ul class="nav navbar-nav navbar-right">
-            
 
-            <ul class="nav navbar-nav">
-              {!! Form::open(array('route' => 'busquedas.store')) !!}
-
-              <div class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                 
-                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-                  
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                  
-                </div>
-              </div>
-
-
-
-              
-              {!! Form::close() !!}
-            </ul>
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
-                </a>
-                
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal">
-                  Inicio <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <form class="navbar-form navbar-left" role="search">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Usuario">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                  </div>
-                  <button type="submit" class="btn btn-default">Enviar</button>
-                  <a href="registro">Nuevo Usuario</a>
-                </li>
-              </form>
+         <li ><a href="/acercade">Quienes Somos</a></li>
+            <li><a href="/contactanos">Contactanos</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Inicio <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Perfil</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header"></li>
+                <li><a href="#">Salir</a></li>
               </ul>
+            </li>
+           
 
             </ul>
-          </li>
-          </ul>
-        </div><!--/.nav-collapse -->
+          
+     
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+<!-- Barra lateral  -->
+  <div id="wrapper">
+    <div class="espacio">
 
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+
+
+          </li>
+          <li>
+            <a href="#"></a>
+          </li>
+          <li >
+            <a href="/perfil">Perfil</a>
+          </li>
+          <li>
+            <a href="/perfil/escritores">Escritores</a>
+          </li>
+          
+          <li>
+            <a href="/perfil/temas">Temas</a>
+          </li>
+          <ul class="nav nav-sidebar">
+
+            <li>
+              <a href="/perfil/nuevacategoria">Nueva Categoria</a>
+            </li>
+            <li>
+              <a href="/perfil/nuevotema">Tema Nuevo</a>
+            </li>
+
+          </ul>
+          <li>
+            <a href="/">Salir</a>
+          </li>
+
+        </ul>
       </div>
-    </nav>
+    </div>
+  </div>
+
+         
     @yield('navegacion') 
     @yield('contenido')
-    @yield('contenido2')
     
     
     <!-- /.container -->
@@ -156,11 +189,23 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     @yield('script') 
+
+
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/docs.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
+       <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+      <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
   </body>
   </html>

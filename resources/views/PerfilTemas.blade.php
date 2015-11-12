@@ -1,9 +1,9 @@
 @extends('Master2')
 
 @section('css')
- <link href="css/simple-sidebar.css" rel="stylesheet">
+<link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet" type="text/css">
 
-<link href="css/style2.css" rel="stylesheet">
+<link href="{{asset('css/style2.css')}}" rel="stylesheet" type="text/css">
 
 
 @endsection
@@ -18,27 +18,15 @@
 @section('contenido')
 
 
-
-
 <div class="row">
   <div id="page-content-wrapper">
     <div class="container-fluid2">
-      <div class="col-md-3 col-xs-12  col-md-offset-5 col-sm-offset-2 col-xl-offset-1">
-        <div class="thumbnail">
-          <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
-          <h3 class="text-center">Miguel Diaz</h3>
-          <h5 class="text-center">12/01/1993</h5>
-          <h6 class="text-center">Hombre</h6>
-        </div>
-
-      </div>
+      
       <br/>
       <div class="col-md-8 col-xs-12  col-md-offset-2 col-sm-offset-2 col-xl-offset-1">
-        <h1>Mis Temas</h1>
+        <h1>Temas</h1>
         <section class="panel panel-default">
-          <header class="panel-heading">
-            Temas
-          </header>
+         
           <div class="panel-body table-responsive">
             <table class="table table-hover">
               <thead>

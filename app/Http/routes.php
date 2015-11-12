@@ -21,6 +21,14 @@ Route::get('personas/{id}', 'ControladorPersona@index2');
 Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
+//perfil
+Route::get('perfil','ControladorPerfil@index');
+Route::get('perfil/escritores','ControladorPerfil@mostrarEscritores');
+Route::get('perfil/temas','ControladorPerfil@mostrarTemas');
+Route::get('perfil/nuevotema','ControladorPerfil@nuevoTema');
+Route::get('perfil/nuevacategoria','ControladorPerfil@nuevaCategoria');
+
+
 //categoria
 Route::resource('controladorCategoria','ControladorCategoria');
 Route::resource('controladorcategoria','ControladorCategoria');
