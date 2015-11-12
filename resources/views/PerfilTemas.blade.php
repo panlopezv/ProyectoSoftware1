@@ -2,22 +2,13 @@
 
 @section('css')
 <link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet" type="text/css">
-
 <link href="{{asset('css/style2.css')}}" rel="stylesheet" type="text/css">
-
-
 @endsection
 @section('script')
-
-
-
-
 
 @endsection
 
 @section('contenido')
-
-
 <div class="row">
   <div id="page-content-wrapper">
     <div class="container-fluid2">
@@ -33,42 +24,51 @@
                 <tr>
                   <th>#</th>
                   <th>Titulo</th>
-                  <!-- <th>Client</th> -->
+                  <th>Autor</th>
                   <th>Fecha</th>
-                  <!-- <th>Price</th> -->
                   <th>Visitas</th>
                   <th>Comentarios</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Facebook</td>
-                  <!-- <td>Steve</td> -->
-                  <td>10/10/2014</td>
-                  <!-- <td>$1500</td> -->
-                  <td><span class="label label-danger">in progress</span></td>
-                  <td><span class="badge badge-info">50%</span></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Twitter</td>
-                  <!-- <td>Darren</td> -->
-                  <td>10/8/2014</td>
-                  <!-- <td>$1500</td> -->
-                  <td><span class="label label-success">completed</span></td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Google</td>
-                  <!-- <td>Nick</td> -->
-                  <td>10/12/2014</td>
-                  <!-- <td>$2000</td> -->
-                  <td><span class="label label-warning">in progress</span></td>
-                  <td><span class="badge badge-warning">75%</span></td>
-                </tr>
-
+                <?php
+                  foreach ($temas as $tema){
+					echo '<tr>
+					  <td>';
+					echo $tema->id;
+					echo '</td>
+					  <td>';
+						echo $tema->titulo;
+						echo '</td>
+					  <td>';
+						echo $tema->usuario;
+						echo '</td>
+					  <td>';
+					echo $tema->fechapublicacion;
+					if($tema->visitas <> Null){
+					echo '</td>
+					  <td><span class="label label-info">';
+					echo $tema->visitas;
+					}
+					else{
+					echo '</td>
+					  <td><span class="label label-warning">';
+					echo 0;
+					}
+					if($tema->cantidadcomentarios > Null){
+					echo '</span></td>
+					    <td><span class="badge badge-info">';
+					echo $tema->cantidadcomentarios;
+					}
+					else{
+					echo '</span></td>
+					    <td><span class="badge badge-warning">';
+					echo $tema->cantidadcomentarios;
+					}                  
+					echo '</span></td>
+					</tr>';
+					}
+                ?>
               </tbody>
             </table>
           </div>
@@ -76,12 +76,7 @@
       </div>
     </div>
   </div>
-
-
 </div>
-
-
-
 @endsection
 
 

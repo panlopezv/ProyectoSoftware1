@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../../../../Users/modm_/Documents/Ingenieria de Software/bootstrap-3.3.5/docs/favicon.ico">
 
-  <title>Prograpedia</title>
+  <title>PrograPedia</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}"/>
@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Prograpedia</a>
+          <a class="navbar-brand" href="/">PrograPedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
          

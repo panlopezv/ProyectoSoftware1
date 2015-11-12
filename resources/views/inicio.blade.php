@@ -35,37 +35,38 @@
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Navegacion/span>
+          <span class="sr-only">Navegacion</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">PrograPedia</a>
+          <a class="navbar-brand" href="/">PrograPedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+         
+
+          {!! Form::open(array('route' => 'busquedas.store')) !!}
+
+          <div class="navbar-form navbar-left" role="search">
+
+
+            <div class="input-group input-group-sm">
+
+              {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+              {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+              <span class="input-group-btn">
+
+              <button type="sumbit" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </span>
+            </div>
+
+          </div>
+
+          {!! Form::close() !!}
+          
+          <ul class="nav navbar-nav navbar-right">
             <li ><a href="/acercade">Quienes Somos</a></li>
             <li><a href="/contactanos">Contactanos</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav">
-              {!! Form::open(array('route' => 'busquedas.store')) !!}
-
-              <div class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                 
-                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-                  
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                  
-                </div>
-              </div>
-
-              {!! Form::close() !!}
-            </ul>   
-
-            <ul class="nav navbar-nav navbar-right" >
             <?php
                 if (isset($_COOKIE['usuario'])){
                   echo '<li class="dropdown">
@@ -90,12 +91,11 @@
            
 
             </ul>
-
-          </ul>
-        </div><!--/.nav-collapse -->
-
-      </div>
-    </nav>
+          
+     
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
     <div class="starter-template">
 
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">

@@ -39,7 +39,7 @@
       <h3>Pablo Andres Lopez Velasquez
         <small>Director, Analista, Programador</small>
       </h3>
-      <p>Estudiante Universitario .</p>
+      <p>Estudiante Universitario, entusiasta de la tecnologia y de la buena musica. Nacido en la ciudad de Quetzaltenango, Quetzaltenango y criado en San Pedro Sacatepequez, San Marcos, su mayor habilidad es analizar y solucionar problemas.</p>
     </div>
 
     <div class="col-lg-4 col-sm-6 text-center">
@@ -47,8 +47,8 @@
       <h3>Miguel Orlando Diaz Muñoz
         <small>Diseño Grafico, Programador</small>
       </h3>
-      <p>Estudiante Universitario, su pasatiempo son la musica y los videojueos, provenientte de la ciudad de Malacatan San Marcos de Guatemala, desde muy temprana edad se dedico al diseño grafico, su mayor habilidad es aportar
-      un analisis ma enfoncado a lo grafico. </p>
+      <p>Estudiante Universitario, su pasatiempo son la musica y los videojueos, proveniente de la ciudad de Malacatan, San Marcos, desde muy temprana edad se dedico al diseño grafico, su mayor habilidad es aportar
+      un analisis mas enfoncado a lo grafico. </p>
     </div>
     
     <div class="col-lg-4 col-sm-6 text-center">
@@ -56,7 +56,7 @@
       <h3>Cristian Daniel Flores Puac
         <small>Analista, Programador</small>
       </h3>
-      <p>Estudiante Universitario</p>
+      <p>Estudiante Universitario, amante del reggaetoon y de la cultura asiatica. Nacido y criado en Quetzaltenango, Quetzaltenango, su mayor habilidad es crear problemas.</p>
     </div>
 
   </div>

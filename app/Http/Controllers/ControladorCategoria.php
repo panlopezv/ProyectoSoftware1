@@ -44,24 +44,29 @@ class ControladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-        $validador = Validator::make($request->all(),[
-            'categoria'        => 'required|unique:categoria',
-            'imagen'        => 'required|mimes:jpg,jpeg,bmp,png',
-        ],[
-            'required' => 'El campo :attribute es obligatorio.',
-            'mimes' => 'La imagen debe tener extension: .jpg, .jpeg, .bmp o .png.',
-            'unique' => 'El campo :attribute ya existe en la base de datos.',
-        ]);
+        if(isset($_COOKIE['id'])){
+            $validador = Validator::make($request->all(),[
+                'categoria'        => 'required|unique:categoria',
+                'imagen'        => 'required|mimes:jpg,jpeg,bmp,png',
+            ],[
+                'required' => 'El campo :attribute es obligatorio.',
+                'mimes' => 'La imagen debe tener extension: .jpg, .jpeg, .bmp o .png.',
+                'unique' => 'El campo :attribute ya existe en la base de datos.',
+            ]);
 
-        if ($validador->fails()) {
-            return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
+            if ($validador->fails()) {
+                return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
+            }
+            else {
+                $imageName = str_replace( " " , "-" , $request->input('categoria'))  . "_" . rand(11111,99999) . '.' . $request->file('imagen')->getClientOriginalExtension();  // El nombre de la imagen se sustituye por el nombre de la categoria + un numero aleatorio entre 11111 y 99999.
+                ControladorCategoria::insertarCategoria($request->input('categoria'), $imageName);
+                $request->file('imagen')->move(base_path() . '/public/imagencategoria/', $imageName);   //Se copia la imagen seleccionada a la carpeta imagencatgoria en el servidor.
+                return redirect('categorias');
+            }
         }
         else {
-            $imageName = str_replace( " " , "-" , $request->input('categoria'))  . "_" . rand(11111,99999) . '.' . $request->file('imagen')->getClientOriginalExtension();  // El nombre de la imagen se sustituye por el nombre de la categoria + un numero aleatorio entre 11111 y 99999.
-            ControladorCategoria::insertarCategoria($request->input('categoria'), $imageName);
-            $request->file('imagen')->move(base_path() . '/public/imagencategoria/', $imageName);   //Se copia la imagen seleccionada a la carpeta imagencatgoria en el servidor.
-            return redirect('categorias');
-        } 
+            return redirect('iniciofallido');
+        }
     }
 
     /**

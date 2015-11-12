@@ -43,7 +43,7 @@ Route::get('busqueda', 'ControladorBusqueda@index');
 
 //temas
 Route::resource('controladorTema','ControladorTema');
-Route::resource('controladorComentario', 'controladorComentario');
+Route::resource('controladorComentario', 'ControladorComentario');
 Route::get('nuevotema', 'ControladorTema@nuevoTema');
 Route::get('temas/{idTema}', 'ControladorTema@index');
 Route::get('temas/modificar/{id}', 'ControladorTema@edit');

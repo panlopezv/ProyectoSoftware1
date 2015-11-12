@@ -29,6 +29,7 @@ class ControladorPerfil extends Controller
                 ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
                 ->select('tema.*', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
                 ->groupBy('tema.id')
+                ->where('tema.usuarioid', $_COOKIE['id'])
                 ->get();
             return view('PerfilPrincipal', compact('persona', 'temas'));
         }
@@ -68,7 +69,13 @@ class ControladorPerfil extends Controller
     */
     public function mostrarTemas()
     {
-      return view('PerfilTemas');
+        $temas = DB::table('tema')
+            ->join('usuario', 'tema.usuarioid', '=', 'usuario.id')
+            ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
+            ->select('tema.*', 'usuario.usuario', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
+            ->groupBy('tema.id')
+            ->get();
+        return view('PerfilTemas', compact('temas'));
     }
 
     /**

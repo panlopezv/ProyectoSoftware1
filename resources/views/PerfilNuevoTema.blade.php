@@ -8,11 +8,13 @@
 
 @endsection
 @section('script')
-
-
-
-
-
+<script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script type="text/javascript">
+  tinymce.init({
+    selector : "#contenido",
+    toolbar : "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
+  });
+</script>
 @endsection
 
 @section('contenido')

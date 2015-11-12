@@ -2,25 +2,14 @@
 
 @section('css')
  <link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet" type="text/css">
-
 <link href="{{asset('css/style2.css')}}" rel="stylesheet" type="text/css">
-
-
 @endsection
+
 @section('script')
-
-
-
-
 
 @endsection
 
 @section('contenido')
-
-
-
-
-
 <div class="row">
   <div id="page-content-wrapper">
     <div class="container-fluid2">
@@ -64,10 +53,10 @@
             </ul>
             <div class="panel-footer bg-white">
               <!-- <span class="pull-right badge badge-info">32</span> -->
-              <button class="btn btn-primary btn-addon btn-sm">
+              <!--<button class="btn btn-primary btn-addon btn-sm">
                 <i class="fa fa-plus"></i>
                 Add Teammate
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
