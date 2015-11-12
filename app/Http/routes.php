@@ -55,6 +55,7 @@ Route::get('ejemplos/{idEjemplo}', 'ControladorEjemplo@index');
 
 //sesion
 Route::resource('sesion','ControladorSesion');
+Route::resource('actualizar','ControladorActualizar');
 Route::get('cerrarSesion', 'ControladorSesion@cerrarSesion');
 
 Route::get('registro', function () {

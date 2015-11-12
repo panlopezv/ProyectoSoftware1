@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class ControladorPersona extends Controller
 {
@@ -19,7 +20,6 @@ class ControladorPersona extends Controller
      */
     public function index()
     {
-        //Persona::all()->where('nombres', 'Popo');
         $personas = Persona::all()->where('nombres', 'mike');
         $personas=$personas::paginate(5);
         $personas->setPath('personas');
@@ -50,34 +50,36 @@ class ControladorPersona extends Controller
      */
     public function store(Request $request)
     {
-        $con1 = $request->Input('contrasenia');
-        $con2 = $request->Input('conContrasenia');
 
         $validator = Validator::make($request->all(), [
             'nombre'        => 'required',
             'apellido'      => 'required',
-            'sexo'          => 'required'
+            'sexo'          => 'required',
+            'fechaNacimiento' => 'required'
         ],[
             'required' => 'Ingrese su :attribute.',
-            'unique' => 'ya existe el usuario',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
-                        ->withErrors($validator -> errors())
+                        ->withErrors($validator -> errors());
 
         }
 
+    
+        $imageName = str_replace( " " , "-" , $_COOKIE['usuario']) . "_" . rand(11111,99999) . '.' . $request->file('avatar')->getClientOriginalExtension();
+        
+        $request->file('avatar')->move(base_path() . '/public/imagenpersona/', $imageName);
         $usuario = DB::table('usuario')->where('id',$_COOKIE['id'])->first();
-        $persona = Persona::find($usuario->personaid;);
+        $persona = Persona::find($usuario->personaid);
         $persona->nombres = $request->input('nombre');
         $persona->apellidos = $request->input('apellido');
         $persona->fechanacimiento = $request->input('fechaNacimiento');
-        $persona->ubicacionavatar = $request->input('avatar');
+        $persona->ubicacionavatar = $imageName;
         $persona->sexo = $request->input('sexo');
         $persona->save();
 
-        return redirect('/Perfil');
+        return redirect('/');
     }
 
     /**
