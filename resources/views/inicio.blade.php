@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php
-    session_start();
-?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -47,8 +44,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li ><a href="quienesSomos">Quienes Somos</a></li>
-            <li><a href="contactanos">Contactanos</a></li>
+            <li ><a href="/acercade">Quienes Somos</a></li>
+            <li><a href="/contactanos">Contactanos</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav">
@@ -67,28 +64,23 @@
 
               {!! Form::close() !!}
             </ul>
-            
-              <?php
-                if (isset($_COOKIE['usuario'])){
-                  echo '<li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
-                  echo      $_COOKIE['usuario'];
-                  echo      '<b class="caret"></b>
-                          </a>
-                          <ul class="dropdown-menu">
-                            <form class="navbar-form navbar-left" role="search">
-                              <button type="submit" class="btn btn-default">Salir</button>
-                              <a href="#">Nuevo Usuario</a></li>
-                            </form>
-                            <li><a href=""></a></li>
-                          </ul>
-                        </li>';
-                }else{
-                  echo '<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
-                        inicio <b class="caret"></b>
-                        </a>';
-                }
-              ?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
+                Inicio <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Usuario">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                  </div>
+                  <button type="submit" class="btn btn-default">Enviar</button>
+                  <a href="/registro">Nuevo Usuario</a></li>
+                </form>
+                <li><a href=""></a></li>
+
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
 
@@ -123,7 +115,7 @@
         </a>
       </div>
       <div id="margen">
-        <h1>Categorias</h1>
+        <h1 class = "page-header">Categorias</h1>
         </div>
 
       <div class="row" >
@@ -133,14 +125,14 @@
         <div class="col-xs-12 col-sm-6    col-lg-2" >
           <div id="bljaIMGte">
 
-            <img src={{'images/'.$categoria->nombreimagen}} />
+            <img src={{'imagencategoria/'.$categoria->ubicacionimagen}} />
 
             <div class="bljaIMGtex" style="color:#000000;">
              <div class="uno">
                <h3><b>{{$categoria->categoria}} </b></h3>
              </div>
              <div class="dos">
-               <a href={{'categorias/'.$categoria->id}}>Temas<span class="badge">3</span></a>
+               <a href={{'/categorias/'.$categoria->id}}>Temas<span class="badge">{{ $categoria->cantidadtemas }}</span></a>
              </div>
            </div>
          </div>
@@ -187,7 +179,7 @@
                           </div>
 
                           <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-                          <a href="registro"> Nuevo Usuario</a>    
+                          <a href="/registro"> Nuevo Usuario</a>    
 
                         {!! Form::close() !!}
                       </div>
@@ -215,29 +207,24 @@
             <p>
               <i class="fa fa-home pr-10">
               </i>
-              Guatemala
-            </p>
-            <p>
-              <i class="fa fa-globe pr-10">
-              </i>
-              Xela
+              Quetzaltenango, Guatemala
             </p>
             <p>
               <i class="fa fa-mobile pr-10">
               </i>
-              Mobile : 55173357
+              Celular : (502) 5517-3357
             </p>
             <p>
               <i class="fa fa-phone pr-10">
               </i>
-              Phone : (123) 456-7890
+              Telefono : (502) 7761-0801
             </p>
             <p>
               <i class="fa fa-envelope pr-10">
               </i>
-              Email :
+              Correo electronico:
               <a href="javascript:;">
-                soporte@prograpedia.com
+                soporteprograpedia@gmail.com
               </a>
             </p>
           </address>
@@ -248,30 +235,27 @@
             <h1>
               Secciones
             </h1>
-            <ul class="page-footer-list">
-
+            <ul class="page-footer-list">  
               <li>
                 <i class="fa fa-angle-right">
                 </i>
-                <a href="about.html">
+                <a href="/acercade">
                   Quienes Somos
                 </a>
               </li>
               <li>
                 <i class="fa fa-angle-right">
                 </i>
-                <a href="service.html">
+                <a href="/categorias">
                   Categorias
                 </a>
               </li>
               <li>
                 <i class="fa fa-angle-right">
                 </i>
-                <a href="privacy-policy.html">
+                <a href="/perfil">
                   Perfil
                 </a>
-                
-
               </ul>
             </div>
           </div>
@@ -288,7 +272,7 @@
           
           <div class="col-md-4">
             <div class="copyright">
-              <p>&copy; Copyright - Soluciones integrales para Sistemas.</p>
+              <p>&copy; Copyright - Servicios integrales de Informatica.</p>
             </div>
           </div>
         </div>
