@@ -51,6 +51,8 @@ class ControladorEjemplo extends Controller
      */
     public function store(Request $request)
     {
+    if(isset($_COOKIE['id'])){
+
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',
@@ -69,6 +71,10 @@ class ControladorEjemplo extends Controller
             $request->file('archivo')->move(base_path() . '/public/ejemplotema/', $imageName);
             return redirect('temas/'.$request->input('temaid'))->with('message', '¡Ejemplo añadido!'); ;
         } 
+    }
+    else{
+        return redirect('/iniciofallido'); 
+    }
     }
 
     /**

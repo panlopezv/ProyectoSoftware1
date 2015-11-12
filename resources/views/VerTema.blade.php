@@ -32,14 +32,14 @@
   </div><!--/.sidebar-offcanvas-->  
   <div class="col-lg-8 col-sm-12 col-xs-12">
     <?php 
-      if(isset($mensaje)==true){
-        echo '<div class = "alert alert-success alert-dismissable">
-        <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
+    if(isset($mensaje)==true){
+      echo '<div class = "alert alert-success alert-dismissable">
+      <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">
         &times;
-        </button>';
-        echo $mensaje;
-        echo '</div>';
-      }
+      </button>';
+      echo $mensaje;
+      echo '</div>';
+    }
     ?>
 
     <h1>
@@ -54,57 +54,66 @@
         </cite>
       </small>
     </blockquote>
-    <form action={{ '/nuevoejemplo/'.$tema->id }} >
-      <input type="submit" class="btn btn-success btn-lg active" value="¡Aporta con un ejemplo!">
-    </form>
-    <div class="media">
-      <h3>
-        Comentarios
-      </h3>
-      <hr>
-      @foreach ($comentarios as $comentario)         
-      <div class "media">
-        <a class="pull-left" href="javascript:;">
-          <img class="media-object" src="http://vignette3.wikia.nocookie.net/vsbattles/images/5/58/Rias_Gremory.png/revision/latest?cb=20150402181653"."/65x65" alt="">
-        </a>
-        <div class="media-body">
-          <h4 class="media-heading">
+    <?php
+    if(isset($_COOKIE['id'])){
+      echo '<form action= "/nuevoejemplo/';
+      echo $tema->id;
+      echo '" >';
+    }
+    else{
+      echo '<form action= "/iniciofallido" >';
+    }
+    ?>
+    <input type="submit" class="btn btn-success btn-lg active" value="¡Aporta con un ejemplo!">
+  </form>
+  <div class="media">
+    <h3>
+      Comentarios
+    </h3>
+    <hr>
+    @foreach ($comentarios as $comentario)         
+    <div class "media">
+      <a class="pull-left" href="javascript:;">
+        <img class="media-object" src={{ "/imagenpersona/".$comentario->ubicacionavatar }} alt="">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">
 
-            {{ $comentario->usuario }}
-            <span>|</span>
-            <span>{{ $comentario->fecha }}</span>
-          </h4>
-          <p>{{ $comentario->contenido }}</p>
-        </div>
-      </div>
-      <hr>       
-      @endforeach
-      <hr>
-      <div class="post-comment">
-        <h3 class="skills">Haz un comentario</h3>
-
-        @if ($errors->any())
-        <div class="alert alert-info" role="alert">
-          <p>Corregir los siguientes campos:</p>
-          <ul>
-            @foreach($errors->all() as $error)
-            <li>{!! $error !!}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
-        {!! Form::open(array('route' => 'controladorComentario.store')) !!}
-        <div class="form-group">
-          {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
-          {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success btn-lg active">Comentar</button>
-        </div>
-        {!! Form::close() !!}
+          {{ $comentario->usuario }}
+          <span>|</span>
+          <span>{{ $comentario->fecha }}</span>
+        </h4>
+        <p>{{ $comentario->contenido }}</p>
       </div>
     </div>
+    <hr>       
+    @endforeach
+    <hr>
+    <div class="post-comment">
+      <h3 class="skills">Haz un comentario</h3>
+
+      @if ($errors->any())
+      <div class="alert alert-info" role="alert">
+        <p>Corregir los siguientes campos:</p>
+        <ul>
+          @foreach($errors->all() as $error)
+          <li>{!! $error !!}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      {!! Form::open(array('route' => 'controladorComentario.store')) !!}
+      <div class="form-group">
+        {!! Form::text('temaid', "$tema->id", array('class' => 'form-control', 'style' => 'display:none') ) !!}
+        {!! Form::textarea('comentario', null, array('class' => 'form-control', 'placeholder' => 'Escribir un comentario...') ) !!}
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg active">Comentar</button>
+      </div>
+      {!! Form::close() !!}
+    </div>
   </div>
+</div>
 </div>
 @endsection
 

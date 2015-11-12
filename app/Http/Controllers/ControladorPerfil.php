@@ -20,12 +20,21 @@ class ControladorPerfil extends Controller
     */
     public function index()
     {
-        $usuario = DB::table('usuario')
-            ->join('persona', 'persona.id', '=', 'usuario.personaid')
-            ->join('temas', 'tipousuario.id', '=', 'usuario.tipousuarioid')
-            ->select('persona.*', 'tipousuario.tipo')
-            ->get();
-      return view('PerfilPrincipal');
+        if (isset($_COOKIE['id'])){
+            $persona = DB::table('persona')
+                ->join('usuario', 'persona.id', '=', 'usuario.personaid')
+                ->where('usuario.id', $_COOKIE['id'])
+                ->first();
+            $temas = DB::table('tema')
+                ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
+                ->select('tema.*', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
+                ->groupBy('tema.id')
+                ->get();
+            return view('PerfilPrincipal', compact('persona', 'temas'));
+        }
+        else{
+            return view('iniciofallido');
+        }
     }
 
     public function store(Request $request)

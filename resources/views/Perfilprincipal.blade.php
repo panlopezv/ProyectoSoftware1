@@ -26,10 +26,26 @@
       <div class="col-md-3 col-xs-12  col-md-offset-5 col-sm-offset-2 col-xl-offset-1">
         
         <div class="thumbnail">
-          <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
-          <h3 class="text-center">Miguel Diaz</h3>
-          <h5 class="text-center">12/01/1993</h5>
-          <h6 class="text-center">Hombre</h6>
+          <?php
+            if($persona->ubicacionavatar <> Null){
+               echo '<img class="img-circle" id="img_logo" src="/imagenpersona/';
+               echo $persona->ubicacionavatar;
+               echo '">';
+            } 
+            else{
+               echo '<img class="img-circle" id="img_logo" src="/images/logo.jpg">';
+            }
+          ?>
+          <h3 class="text-center">{{ $persona->nombres.' '.$persona->apellidos }}</h3>
+          <h5 class="text-center">{{ $persona->fechanacimiento }}</h5>
+          <?php
+            if($persona->sexo == true){
+              echo '<h6 class="text-center">Hombre</h6>';
+            } 
+            else{
+              echo '<h6 class="text-center">Mujer</h6>';
+            }
+          ?>
         </div>
 
       </div>
@@ -54,34 +70,42 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Facebook</td>
-                  <!-- <td>Steve</td> -->
-                  <td>10/10/2014</td>
-                  <!-- <td>$1500</td> -->
-                  <td><span class="label label-danger">in progress</span></td>
-                  <td><span class="badge badge-info">50%</span></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Twitter</td>
-                  <!-- <td>Darren</td> -->
-                  <td>10/8/2014</td>
-                  <!-- <td>$1500</td> -->
-                  <td><span class="label label-success">completed</span></td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Google</td>
-                  <!-- <td>Nick</td> -->
-                  <td>10/12/2014</td>
-                  <!-- <td>$2000</td> -->
-                  <td><span class="label label-warning">in progress</span></td>
-                  <td><span class="badge badge-warning">75%</span></td>
-                </tr>
+                <?php
+                  foreach ($temas as $tema){
 
+                  echo '<tr>
+                      <td>';
+                  echo $tema->id;
+                  echo '</td>
+                      <td>';
+                  echo $tema->titulo;
+                  echo '</td>
+                      <td>';
+                  echo $tema->fechapublicacion;
+                  if($tema->visitas <> Null){
+                    echo '</td>
+                      <td><span class="label label-info">';
+                    echo $tema->visitas;
+                  }
+                  else{
+                    echo '</td>
+                      <td><span class="label label-warning">';
+                    echo 0;
+                  }
+                  if($tema->cantidadcomentarios > Null){
+                    echo '</span></td>
+                        <td><span class="badge badge-info">';
+                    echo $tema->cantidadcomentarios;
+                  }
+                  else{
+                    echo '</span></td>
+                        <td><span class="badge badge-warning">';
+                    echo $tema->cantidadcomentarios;
+                  }                  
+                  echo '</span></td>
+                    </tr>';
+                  }
+                ?>
               </tbody>
             </table>
           </div>

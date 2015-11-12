@@ -39,10 +39,10 @@
                 foreach ($usuarios as $usuario){
 
                 echo '<li class="list-group-item">
-                  <a><img src="/public/imagenpersona/".';
+                  <a><img src="/imagenpersona/';
                   echo $usuario->ubicacionavatar;
                   if($usuario->tipo == 'Administrador'){
-                  echo ' width="50" height="50"></a>
+                  echo '" width="50" height="50"></a>
                   <span class="pull-right label label-danger inline m-t-15"> ';
                   }
                   else if($usuario->tipo == 'Escritor'){
