@@ -57,7 +57,10 @@ Route::get('ejemplos/{idEjemplo}', 'ControladorEjemplo@index');
 Route::resource('sesion','ControladorSesion');
 Route::resource('actualizar','ControladorActualizar');
 Route::get('cerrarSesion', 'ControladorSesion@cerrarSesion');
-
+//contactanos
+Route::get('inicio', function () {
+    return view('Inicio');
+});
 Route::get('registro', function () {
     return view('Registro');
 });
@@ -73,8 +76,8 @@ Route::get('CompletarInformacion', function () {
     return view('CompletarInformacion');
 });
 
-Route::get('inicio', function () {
-    return view('Inicio');
+Route::get('acercade', function () {
+    return view('QuienesSomos');
 });
 
 Route::get('prueba', function () {
