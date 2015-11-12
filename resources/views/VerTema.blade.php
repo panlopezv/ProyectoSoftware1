@@ -30,7 +30,7 @@
       @endforeach
     </div>
   </div><!--/.sidebar-offcanvas-->
-  <div class="col-lg-8 col-sm-12">
+  <div class="col-lg-8 col-sm-12 col-xs-12">
     <h1>
       <a>{{ $tema->titulo }}</a>
     </h1>

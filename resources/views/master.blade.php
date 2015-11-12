@@ -27,11 +27,15 @@
 </head>
 
 <body>
+
+
+
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Navegacion/span>
+          <span class="sr-only">Navegacion</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -39,52 +43,51 @@
           <a class="navbar-brand" href="/">Prograpedia</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ><a href="/acercade">Quienes Somos</a></li>
-            <li><a href="/contactanos">Contactanos</a></li>
-          </ul>
+         
+
+          {!! Form::open(array('route' => 'busquedas.store')) !!}
+
+          <div class="navbar-form navbar-left" role="search">
+
+
+            <div class="input-group input-group-sm">
+
+              {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
+              {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
+              <span class="input-group-btn">
+
+              <button type="sumbit" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </span>
+            </div>
+
+          </div>
+
+          {!! Form::close() !!}
+          
           <ul class="nav navbar-nav navbar-right">
-            <ul class="nav navbar-nav">
-              {!! Form::open(array('route' => 'busquedas.store')) !!}
 
-              <div class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-
-                  {!! Form::text('var', 1, array('class' => 'form-control','style' => 'display:none') ) !!}
-                  {!! Form::text('busqueda', null, array('class' => 'form-control', 'placeholder' => 'Busqueda') ) !!}
-
-                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-
-                </div>
-              </div>
-
-              {!! Form::close() !!}
-            </ul>
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle">
-                </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal"> Inicio <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Usuario">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-default">Enviar</button>
-                    <a href="/registro">Nuevo Usuario</a>
-                  </li>
-                </form>
+         <li ><a href="/acercade">Quienes Somos</a></li>
+            <li><a href="/contactanos">Contactanos</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Inicio <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Perfil</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header"></li>
+                <li><a href="#">Salir</a></li>
               </ul>
+            </li>
+           
 
             </ul>
-          </li>
-        </ul>
+          
+     
       </div><!--/.nav-collapse -->
     </div>
   </nav>
+
+
+
 
   @yield('navegacion') 
   @yield('contenido')
@@ -172,7 +175,7 @@
         </address>
       </div>
 
-      <div class="col-lg-3 col-sm-3">
+      <div class="col-lg-3 col-sm-3 ">
         <div class="page-footer wow fadeInUp" data-wow-duration="2s" data-wow-delay=".5s">
           <h1>
             Secciones

@@ -41,38 +41,38 @@
 @section('contenido')
 
 <!-- Text input-->     
-<div class="starter-template">
-  <div class="container">
-    <div class ="row">
-      <div class ="col-md-8 col-md-offset-1">
-        <div class="panel panel-default">
-          <!--<div class="panel-heading">Nuevo tema.</div>-->
-          <div class="container">
+<div class="espacio">
+ <div class="row">
+      <div class ="col-md-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-1">
+      <div class="panel panel-default">
+        <!--<div class="panel-heading">Nuevo tema.</div>-->
 
 
-            <div class="row">
-              <div class="col-md-8">
-                <table class="table">
-                  <tr>
-                    <th >Titulo</th>
-                    <th>Fecha</th>
-                  </tr>
-                  @foreach ($temas as $tema)
-                  <tr>
-                    <td><a href={{'/temas/'.$tema->id}}>{{ $tema->titulo }} 
-                    <td>{{ $tema->fechapublicacion }}</td>
-                  </tr>
-                  @endforeach
-                </table>
-              </div>
-            </div>
+
+
+        <div class="table-responsive">   
+          <table class="table">
+            <tr>
+              <th >Titulo</th>
+              <th>Fecha</th>
+            </tr>
+            @foreach ($temas as $tema)
+            <tr>
+              <td><a href={{'/temas/'.$tema->id}}>{{ $tema->titulo }} 
+                <td>{{ $tema->fechapublicacion }}</td>
+              </tr>
+              @endforeach
+            </table>
           </div>
+
+
         </div>
         {!! $temas->render() !!}
       </div>
     </div>
   </div>
-</div>
+
+
   @endsection
 
   @section('navegacion')
