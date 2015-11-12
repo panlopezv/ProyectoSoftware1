@@ -88,7 +88,7 @@
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-                    <button type="button" class="btn btn-default btn-lg active">Cancelar</button>
+                    <button href="/index" type="button"  class="btn btn-default btn-lg active">Cancelar</button>
                 </div>
                         
               {!! Form::close() !!}
