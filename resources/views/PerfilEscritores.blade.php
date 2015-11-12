@@ -28,38 +28,39 @@
       <br/>
       <div class="col-md-8 col-xs-12  col-md-offset-4 col-sm-offset-2 col-xl-offset-1">
        <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="panel">
             <header class="panel-heading">
-              Escritores
+              Personas
             </header>
 
-            <ul class="list-group teammates">
-              <li class="list-group-item">
-                <a href=""><img src="img/26115.jpg" width="50" height="50"></a>
-                <span class="pull-right label label-danger inline m-t-15">Admin</span>
-                <a href="">Damon Parker</a>
-              </li>
-              <li class="list-group-item">
-                <a href=""><img src="img/26115.jpg"  width="50" height="50"></a>
-                <span class="pull-right label label-info inline m-t-15">Member</span>
-                <a href="">Joe Waston</a>
-              </li>
-              <li class="list-group-item">
-                <a href=""><img src="img/26115.jpg"  width="50" height="50"></a>
-                <span class="pull-right label label-warning inline m-t-15">Editor</span>
-                <a href="">Jannie Dvis</a>
-              </li>
-              <li class="list-group-item">
-                <a href=""><img src="img/26115.jpg"  width="50" height="50"></a>
-                <span class="pull-right label label-warning inline m-t-15">Editor</span>
-                <a href="">Emma Welson</a>
-              </li>
-              <li class="list-group-item">
-                <a href=""><img src="img/26115.jpg"  width="50" height="50"></a>
-                <span class="pull-right label label-success inline m-t-15">Subscriber</span>
-                <a href="">Emma Welson</a>
-              </li>
+            <ul class="list-group teammates">              
+              <?php
+                foreach ($usuarios as $usuario){
+
+                echo '<li class="list-group-item">
+                  <a><img src="/public/imagenpersona/".';
+                  echo $usuario->ubicacionavatar;
+                  if($usuario->tipo == 'Administrador'){
+                  echo ' width="50" height="50"></a>
+                  <span class="pull-right label label-danger inline m-t-15"> ';
+                  }
+                  else if($usuario->tipo == 'Escritor'){
+                  echo ' width="50" height="50"></a>
+                  <span class="pull-right label label-warning inline m-t-15"> ';
+                  }
+                  else if($usuario->tipo == 'Lector'){
+                  echo ' width="50" height="50"></a>
+                  <span class="pull-right label label-success inline m-t-15"> ';
+                  }
+                  echo $usuario->tipo ;
+                  echo '</span>
+                  <a>';
+                  echo $usuario->nombres.' '.$usuario->apellidos;
+                  echo '</a>
+                  </li>';
+                }
+              ?>
             </ul>
             <div class="panel-footer bg-white">
               <!-- <span class="pull-right badge badge-info">32</span> -->
