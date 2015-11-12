@@ -65,26 +65,31 @@
               {!! Form::close() !!}
             </ul>   
 
+            <ul class="nav navbar-nav navbar-right" >
             <?php
                 if (isset($_COOKIE['usuario'])){
                   echo '<li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">';
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >';
                   echo      $_COOKIE['usuario'];
-                  echo      '<b class="caret"></b>
-                          <ul class="dropdown-menu">
-                            <form class="navbar-form navbar-left" role="search">
-                              <a href="/cerrarSesion">Cerrar sesion</a></li>
-                            </form>
-                            <li><a href=""></a></li>
-                          </ul>';
+                  echo      '<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Perfil</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li class="dropdown-header"></li>
+                              <li><a href="/cerrarSesion">Salir</a></li>
+                            </ul>
+                          </li>';
                 }else{
                   echo '<li>
-                          <a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#login-modal" >
-                            inicio <b class="caret"></b>
+                          <a href="" data-toggle="modal" data-target="#login-modal" >
+                            inicio 
                           </a>
                         </li>';
                 }
-              ?>
+            ?>
+           
+
+            </ul>
 
           </ul>
         </div><!--/.nav-collapse -->

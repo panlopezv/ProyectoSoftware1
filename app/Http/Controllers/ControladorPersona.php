@@ -56,30 +56,21 @@ class ControladorPersona extends Controller
         $validator = Validator::make($request->all(), [
             'nombre'        => 'required',
             'apellido'      => 'required',
-            'usuario'       => 'required',
-            'correo'        => 'required',
-            'contrasenia'   => 'required',
             'sexo'          => 'required'
         ],[
-            'required' => 'necesitamos que ingrese su :attribute.',
-            'exists'    => 'el :attribute ya existe',
+            'required' => 'Ingrese su :attribute.',
+            'unique' => 'ya existe el usuario',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()
                         ->withErrors($validator -> errors())
-                        ->withInput($request->except('contrasenia'))
-                        ->withInput($request->except('conContrasenia'));
-
-        }else if ($con1!=$con2) {
-            return redirect()->back()
-                        ->withErrors('las contraseñas son diferentes')
-                        ->withInput($request->except('contrasenia'))
-                        ->withInput($request->except('conContrasenia'));
 
         }
 
-        $nuevaPersona = new Persona;
+        $usuario = DB::table('usuario')->where('id',$request->input('usuario'))->first();
+        $idPersona = $usuario->personaid;
+        $nuevaPersona = persona::find();
         $nuevaPersona->nombres = $request->input('nombre');
         $nuevaPersona->apellidos = $request->input('apellido');
         $nuevaPersona->fechanacimiento = $request->input('fechaNacimiento');
@@ -87,15 +78,7 @@ class ControladorPersona extends Controller
         $nuevaPersona->sexo = $request->input('sexo');
         $nuevaPersona->save();
 
-        $usuario = new Usuario;
-        $usuario->usuario = $request->input('usuario');
-        $usuario->correo = $request->input('correo');
-        $usuario->contrasenya = bcrypt($request->input('contrasenia'));
-        $usuario->personaid = $nuevaPersona->id;
-        $usuario->tipousuarioid = 3;
-        $usuario->save();
-
-        return redirect('inicio');
+        return redirect('/Perfil');
     }
 
     /**

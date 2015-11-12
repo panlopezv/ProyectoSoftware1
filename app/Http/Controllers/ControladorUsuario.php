@@ -40,7 +40,54 @@ class ControladorUsuario extends Controller
      */
     public function store(Request $request)
     {
+        $con1 = $request->Input('contrasenia');
+        $con2 = $request->Input('conContrasenia');
 
+        $validator = Validator::make($request->all(), [
+            'usuario'       => 'required|unique:usuario',
+            'correo'        => 'required',
+            'contrasenia'   => 'required|max:16|min:8',
+        ],[
+            'required'  => 'Ingrese su :attribute.',
+            'unique'    => 'ya existe el usuario',
+            'min'       => 'La contraseña debe tener como minimo 8 caracteres.',
+            'max'       => 'La contraseña debe tener como maximo 16 caracteres.'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator -> errors())
+                        ->withInput($request->except('contrasenia'))
+                        ->withInput($request->except('conContrasenia'));
+
+        }else if ($con1!=$con2) {
+            return redirect()->back()
+                        ->withErrors('las contraseñas son diferentes')
+                        ->withInput($request->except('contrasenia'))
+                        ->withInput($request->except('conContrasenia'));
+
+        }
+
+        $nuevaPersona = new Persona;
+        $nuevaPersona->nombres = "";
+        $nuevaPersona->apellidos = "";
+        $nuevaPersona->fechanacimiento = "";
+        $nuevaPersona->ubicacionavatar = "";
+        $nuevaPersona->sexo = "";
+        $nuevaPersona->save();
+
+        $usuario = new Usuario;
+        $usuario->usuario = $request->input('usuario');
+        $usuario->correo = $request->input('correo');
+        $usuario->contrasenya = bcrypt($request->input('contrasenia'));
+        $usuario->personaid = $nuevaPersona->id;
+        $usuario->tipousuarioid = 3;
+        $usuario->save();
+
+        setcookie("id", $usuario->id);
+        setcookie("usuario", $usuario->usuario);
+
+        return redirect('CompletarInformacion');
     }
 
     /**

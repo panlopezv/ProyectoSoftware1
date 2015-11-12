@@ -40,7 +40,7 @@
 
 @section('contenido')
 
-<!-- Text input-->  
+<!-- Text input-->
 <div class="espacio"/> 
 <div class="espacio"/>   
 <div class="starter-template">
@@ -48,7 +48,7 @@
     <div class ="row">
       <div class ="col-md-8 col-md-offset-1">
         <div class="panel panel-default">
-          <div class="panel-heading">Nuevo Usuario</div>
+          <div class="panel-heading">Completar informacion</div>
             <div class="panel-body">
               
 
@@ -66,29 +66,37 @@
 
               {!! Form::open(array('route' => 'controladorPersona.store')) !!}
                  
+
                 <div class="form-group">
-                  {!! Form::label('usuario', 'Usuario') !!}
-                  {!! Form::text('usuario', null, array('class' => 'form-control' ) ) !!}
+                  {!! Form::label('nombre', 'Nombres') !!}
+                  {!! Form::text('nombre', null, array('class' => 'form-control' ) ) !!}
                 </div>
 
                 <div class="form-group">
-                  {!! Form::label('correo', 'Correo Electronico') !!}
-                  {!! Form::email('correo', null, array('class' => 'form-control', 'placeholder' => 'ejemplo@correo.url.edu.gt') ) !!}
+                  {!! Form::label('apellido', 'Apellidos') !!}
+                  {!! Form::text('apellido', null, array('class' => 'form-control' )) !!}
                 </div>
 
                 <div class="form-group">
-                  {!! Form::label('contrasenia', 'Contraseña') !!}
-                  {!! Form::password('contrasenia', array('class' => 'form-control' ) ) !!}
+                  {!! Form::label('sexo', 'Sexo') !!}
+                  {!! Form::select('sexo', array('' => 'Seleccione', '1' => 'Hombre', '0' => 'Mujer' ), null, array('class' => 'form-control' )) !!}
                 </div>
 
                 <div class="form-group">
-                  {!! Form::label('conContrasenia', 'Repita Contraseña') !!}
-                  {!! Form::password('conContrasenia', array('class' => 'form-control' ) ) !!}
+                  {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento') !!}
+                  {!! Form::date('fechaNacimiento', \Carbon\Carbon::now()) !!}
                 </div>
+
+                <div class="form-group">
+                  {!! Form::label('avatar', 'Seleccione una imagen') !!}
+                  {!! Form::file('avatar'); !!}
+                </div>
+
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-                    <button type="button" class="btn btn-default btn-lg active">Cancelar</button>
+                    <button type="button" class="btn btn-default btn-lg active">Omitir</button>
                 </div>
                         
               {!! Form::close() !!}

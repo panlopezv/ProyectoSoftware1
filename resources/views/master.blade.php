@@ -65,18 +65,29 @@
           {!! Form::close() !!}
           
           <ul class="nav navbar-nav navbar-right">
-
-         <li ><a href="/acercade">Quienes Somos</a></li>
+            <li ><a href="/acercade">Quienes Somos</a></li>
             <li><a href="/contactanos">Contactanos</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Inicio <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Perfil</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header"></li>
-                <li><a href="#">Salir</a></li>
-              </ul>
-            </li>
+            <?php
+                if (isset($_COOKIE['usuario'])){
+                  echo '<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >';
+                  echo      $_COOKIE['usuario'];
+                  echo      '<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Perfil</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li class="dropdown-header"></li>
+                              <li><a href="/cerrarSesion">Salir</a></li>
+                            </ul>
+                          </li>';
+                }else{
+                  echo '<li>
+                          <a href="" data-toggle="modal" data-target="#login-modal" >
+                            inicio 
+                          </a>
+                        </li>';
+                }
+            ?>
            
 
             </ul>
@@ -97,7 +108,7 @@
 </div>
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
-    <div class ="col-md-6">
+    <div class ="col-md-7 margeniz">
       <div class="modal-content">    
         <div class="modal-header" align="center">
           <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
@@ -112,14 +123,14 @@
               <div class="panel panel-default">
                 <div class="panel-body">
 
-                  {!! Form::open(array('route' => 'controladorUsuario.store')) !!}
+                  {!! Form::open(array('route' => 'sesion.store')) !!}
 
                   <div class="form-group">
-                    {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario o E-mail') ) !!}
+                    {!! Form::text('usuario', null, array('class' => 'form-control' , 'placeholder' => 'Usuario') ) !!}
                   </div>
 
                   <div class="form-group">
-                    {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'contraseña') ) !!}
+                    {!! Form::password('pass', array('class' => 'form-control' , 'placeholder' => 'Contraseña') ) !!}
                   </div>
 
                   <button type="submit" class="btn btn-primary">Iniciar Sesion</button>

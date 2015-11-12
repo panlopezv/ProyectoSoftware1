@@ -63,6 +63,15 @@ Route::get('registro', function () {
 Route::get('iniciofallido', function () {
     return view('InicioFallido');
 });
+
+Route::get('InformacionPerfil', function () {
+    return view('InformacionPerfil');
+});
+
+Route::get('CompletarInformacion', function () {
+    return view('CompletarInformacion');
+});
+
 Route::get('inicio', function () {
     return view('Inicio');
 });

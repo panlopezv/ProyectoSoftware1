@@ -40,7 +40,7 @@
 
 @section('contenido')
 
-<!-- Text input-->  
+<!-- Text input-->
 <div class="espacio"/> 
 <div class="espacio"/>   
 <div class="starter-template">
@@ -66,6 +66,17 @@
 
               {!! Form::open(array('route' => 'controladorPersona.store')) !!}
                  
+
+                <div class="form-group">
+                  {!! Form::label('nombre', 'Nombres') !!}
+                  {!! Form::text('nombre', null, array('class' => 'form-control' ) ) !!}
+                </div>
+
+                <div class="form-group">
+                  {!! Form::label('apellido', 'Apellidos') !!}
+                  {!! Form::text('apellido', null, array('class' => 'form-control' )) !!}
+                </div>
+
                 <div class="form-group">
                   {!! Form::label('usuario', 'Usuario') !!}
                   {!! Form::text('usuario', null, array('class' => 'form-control' ) ) !!}
@@ -85,6 +96,23 @@
                   {!! Form::label('conContrasenia', 'Repita Contraseña') !!}
                   {!! Form::password('conContrasenia', array('class' => 'form-control' ) ) !!}
                 </div>
+
+                <div class="form-group">
+                  {!! Form::label('sexo', 'Sexo') !!}
+                  {!! Form::select('sexo', array('' => 'Seleccione', '1' => 'Hombre', '0' => 'Mujer' ), null, array('class' => 'form-control' )) !!}
+                </div>
+
+                <div class="form-group">
+                  {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento') !!}
+                  {!! Form::date('fechaNacimiento', \Carbon\Carbon::now()) !!}
+                </div>
+
+                <div class="form-group">
+                  {!! Form::label('avatar', 'Seleccione una imagen') !!}
+                  {!! Form::file('avatar'); !!}
+                </div>
+
+
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
