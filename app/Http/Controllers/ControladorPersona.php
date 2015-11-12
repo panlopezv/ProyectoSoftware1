@@ -68,15 +68,14 @@ class ControladorPersona extends Controller
 
         }
 
-        $usuario = DB::table('usuario')->where('id',$request->input('usuario'))->first();
-        $idPersona = $usuario->personaid;
-        $nuevaPersona = persona::find();
-        $nuevaPersona->nombres = $request->input('nombre');
-        $nuevaPersona->apellidos = $request->input('apellido');
-        $nuevaPersona->fechanacimiento = $request->input('fechaNacimiento');
-        $nuevaPersona->ubicacionavatar = $request->input('avatar');
-        $nuevaPersona->sexo = $request->input('sexo');
-        $nuevaPersona->save();
+        $usuario = DB::table('usuario')->where('id',$_COOKIE['id'])->first();
+        $persona = Persona::find($usuario->personaid;);
+        $persona->nombres = $request->input('nombre');
+        $persona->apellidos = $request->input('apellido');
+        $persona->fechanacimiento = $request->input('fechaNacimiento');
+        $persona->ubicacionavatar = $request->input('avatar');
+        $persona->sexo = $request->input('sexo');
+        $persona->save();
 
         return redirect('/Perfil');
     }

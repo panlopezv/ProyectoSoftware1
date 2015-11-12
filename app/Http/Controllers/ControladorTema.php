@@ -72,7 +72,7 @@ class ControladorTema extends Controller
                 return redirect()->back()->withErrors($validador -> errors())->withInput($request->all());
             }
             else {
-                ControladorTema::insertarTema($request->input('titulo'), $request->input('contenido'), $request->input('referencia'), $request->input('categoria'), '1');
+                ControladorTema::insertarTema($request->input('titulo'), $request->input('contenido'), $request->input('referencia'), $request->input('categoria'), $_COOKIE['id']);
                 $nuevoTemaID = DB::table('tema')->max('id');
                 return redirect('temas/'.$nuevoTemaID);
             }
