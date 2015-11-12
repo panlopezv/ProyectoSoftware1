@@ -61,12 +61,12 @@ class ControladorUsuario extends Controller
                         ->withInput($request->except('contrasenia'))
                         ->withInput($request->except('conContrasenia'));
 
-        }else if ($con1!=$con2) {
+        }
+        else if ($con1!=$con2) {
             return redirect()->back()
                         ->withErrors('las contraseñas son diferentes')
                         ->withInput($request->except('contrasenia'))
                         ->withInput($request->except('conContrasenia'));
-
         }
 
         $nuevaPersona = new Persona;

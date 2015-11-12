@@ -20,6 +20,11 @@ class ControladorPerfil extends Controller
     */
     public function index()
     {
+        $usuario = DB::table('usuario')
+            ->join('persona', 'persona.id', '=', 'usuario.personaid')
+            ->join('temas', 'tipousuario.id', '=', 'usuario.tipousuarioid')
+            ->select('persona.*', 'tipousuario.tipo')
+            ->get();
       return view('PerfilPrincipal');
     }
 
@@ -27,7 +32,7 @@ class ControladorPerfil extends Controller
     {
       if ($request->var >0) {
         return redirect('busqueda/'.$request->busqueda);
-      }else {
+      } else {
         return redirect('nuevotema');
       }
     }
@@ -54,9 +59,6 @@ class ControladorPerfil extends Controller
     */
     public function mostrarTemas()
     {
-
-
-
       return view('PerfilTemas');
     }
 
@@ -82,6 +84,5 @@ class ControladorPerfil extends Controller
     public function nuevaCategoria()
     {
       return view('PerfilNuevaCategoria');
-
     }
 }

@@ -24,6 +24,7 @@
   <div id="page-content-wrapper">
     <div class="container-fluid2">
       <div class="col-md-3 col-xs-12  col-md-offset-5 col-sm-offset-2 col-xl-offset-1">
+        
         <div class="thumbnail">
           <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
           <h3 class="text-center">Miguel Diaz</h3>
