@@ -32,7 +32,7 @@ Route::get('perfil/nuevacategoria','ControladorPerfil@nuevaCategoria');
 //categoria
 Route::resource('controladorCategoria','ControladorCategoria');
 Route::resource('controladorcategoria','ControladorCategoria');
-Route::get('nuevacategoria','ControladorCategoria@nuevaCategoria');
+//Route::get('nuevacategoria','ControladorCategoria@nuevaCategoria');
 Route::get('categorias', 'ControladorCategoria@index');
 Route::get('categorias/{b}', 'ControladorBusqueda@buscarCategoria');
 
@@ -44,7 +44,7 @@ Route::get('busqueda', 'ControladorBusqueda@index');
 //temas
 Route::resource('controladorTema','ControladorTema');
 Route::resource('controladorComentario', 'ControladorComentario');
-Route::get('nuevotema', 'ControladorTema@nuevoTema');
+//Route::get('nuevotema', 'ControladorTema@nuevoTema');
 Route::get('temas/{idTema}', 'ControladorTema@index');
 Route::get('temas/modificar/{id}', 'ControladorTema@edit');
 

@@ -74,7 +74,7 @@
                   echo      $_COOKIE['usuario'];
                   echo      '<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Perfil</a></li>
+                              <li><a href="/perfil">Perfil</a></li>
                               <li role="separator" class="divider"></li>
                               <li class="dropdown-header"></li>
                               <li><a href="/cerrarSesion">Salir</a></li>
