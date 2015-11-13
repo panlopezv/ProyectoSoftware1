@@ -35,7 +35,7 @@
                 @endif
               
 
-              {!! Form::open(array('route' => 'actualizar.store')) !!}
+              {!! Form::open(array('route' => 'actualizar.store', 'files' => true)) !!}
                  
 
                 <div class="form-group">
@@ -74,8 +74,9 @@
                 </div>
 
                 <div class="form-group">
-                  {!! Form::label('avatar', 'Seleccione una imagen') !!}
-                  {!! Form::file('avatar'); !!}
+                  {!! Form::checkbox('palomita', 'value') !!}
+                  {!! Form::label('avatar', 'Cambiar imagen') !!}
+                  {!! Form::file('avatar') !!}
                 </div>
 
 

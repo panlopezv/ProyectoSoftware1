@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Hash;
+use Storage;
 
 class ControladorActualizar extends Controller
 {
@@ -55,11 +56,11 @@ class ControladorActualizar extends Controller
 
         if ($request->input('nombre') <> ''){
             $personaActualizada->nombres = $request->input('nombre');
-        }else if($request->input('apellido') <> ''){
+        }if($request->input('apellido') <> ''){
             $personaActualizada->apellidos = $request->input('apellido');
 
-        }else if($request->input('usuario') <> ''){
-            $validator = Validator::make($request->input('usuario'), [
+        }if($request->input('usuario') <> ''){
+            $validator = Validator::make($request->all(), [
                 'usuario'       => 'unique:usuario',
             ],[
                 'unique'    => 'ya existe el :attribute.',
@@ -73,23 +74,23 @@ class ControladorActualizar extends Controller
             }
             $usuarioActualizado->usuario = $request->input('usuario');            
 
-        }else if($request->input('contrasenia') <> ''){
+        }if($request->input('contrasenia') <> ''){
             $con1 = $request->Input('contrasenia');
             $con2 = $request->Input('conContrasenia');
-            $validator = Validator::make($request->input('contrasenia'), [
+            $validator = Validator::make($request->all(), [
             'contrasenia'   => 'max:16|min:8',
             ],[
                 'min'       => 'La contraseña debe tener como minimo 8 caracteres.',
                 'max'       => 'La contraseña debe tener como maximo 16 caracteres.',
             ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator -> errors())
-                        ->withInput($request->except('contrasenia'))
-                        ->withInput($request->except('conContrasenia'));
+            if ($validator->fails()) {
+                return redirect()->back()
+                            ->withErrors($validator -> errors())
+                            ->withInput($request->except('contrasenia'))
+                            ->withInput($request->except('conContrasenia'));
 
-        }
+            }
             if ($con1!=$con2) {
             return redirect()->back()
                         ->withErrors('las contraseñas son diferentes')
@@ -98,8 +99,8 @@ class ControladorActualizar extends Controller
             }
             $usuarioActualizado->contrasenya = bcrypt($request->input('contrasenia'));
 
-        }else if ($request->input('correo') <> ''){
-            $validator = Validator::make($request->input('correo'), [
+        }if ($request->input('correo') <> ''){
+            $validator = Validator::make($request->all(), [
                 'correo'       => 'unique:usuario',
             ],[
                 'unique'    => 'ya existe el :attribute.',
@@ -112,13 +113,13 @@ class ControladorActualizar extends Controller
                             ->withInput($request->except('conContrasenia'));
             }
             $usuarioActualizado->correo = $request->input('correo'); 
-        }else if ($request->input('sexo') <> ''){
+        }if ($request->input('sexo') <> ''){
             $personaActualizada->sexo = $request->input('sexo');
-        }else if ($request->input('fechaNacimiento') <> ''){
+        }if ($request->input('fechaNacimiento') <> ''){
             $personaActualizada->fechaNacimiento = $request->input('fechaNacimiento');
-        }else if ($request->input('avatar') <> ''){
-            unlink('/public/ejemplotema/'. $persona->ubicacionavatar);
-            $imageName = str_replace( " " , "-" , $usuarioActualizado->usuario) . "_" . rand(11111,99999) . '.' . $request->file('avatar')->getClientOriginalExtension();
+        }if ($request->input('palomita') == true){
+            //Storage::delete('/public/imagenpersona/'.$persona->ubicacionavatar);
+            $imageName = str_replace( " " , "-" , $usuario->usuario) . "_" . rand(11111,99999) . '.' . $request->file('avatar')->getClientOriginalExtension();
             $request->file('avatar')->move(base_path() . '/public/imagenpersona/', $imageName);
             $personaActualizada->ubicacionavatar = $imageName;
         }
