@@ -34,7 +34,7 @@ class ControladorBusqueda extends Controller
         if ($request->var >0) {
             return redirect('busqueda/'.$request->busqueda);
         } else {
-            return redirect('nuevotema');
+           // return redirect('nuevotema');
         }
     }
 

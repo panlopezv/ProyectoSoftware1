@@ -2,24 +2,14 @@
 
 @section('css')
  <link href="css/simple-sidebar.css" rel="stylesheet">
-
 <link href="css/style2.css" rel="stylesheet">
-
-
 @endsection
+
 @section('script')
-
-
-
-
 
 @endsection
 
 @section('contenido')
-
-
-
-
 <div class="row">
   <div id="page-content-wrapper">
     <div class="container-fluid2">
@@ -46,6 +36,7 @@
               echo '<h6 class="text-center">Mujer</h6>';
             }
           ?>
+          <h5 class="text-center"><a href="/modificarperfil">Modificar</a></h5>
         </div>
 
       </div>
@@ -113,12 +104,7 @@
       </div>
     </div>
   </div>
-
-
 </div>
-
-
-
 @endsection
 
 

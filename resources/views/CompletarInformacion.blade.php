@@ -96,7 +96,7 @@
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-                    <button type="button" class="btn btn-default btn-lg active">Omitir</button>
+                    <a class="btn btn-danger btn-lg active" href="/perfil" role="button">Omitir</a>
                 </div>
                         
               {!! Form::close() !!}

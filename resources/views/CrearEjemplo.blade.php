@@ -70,7 +70,11 @@
 
             <div class="form-group">
               <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
-              <button type="reset" class="btn btn-danger btn-lg active">Limpiar</button>
+              <?php
+              echo '<a class="btn btn-danger btn-lg active" href="/temas/';
+              echo $tema->temaid;
+              echo '" role="button">Cancelar</a>';
+              ?>
             </div>
             
             {!! Form::close() !!}

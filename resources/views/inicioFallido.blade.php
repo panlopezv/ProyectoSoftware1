@@ -48,7 +48,7 @@
       <br>
       <br>
       <br>
-        <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+        <img class="img-circle" id="img_logo" src="{{asset('images/logo.jpg')}}">
       </div>
     </div>
   </div>

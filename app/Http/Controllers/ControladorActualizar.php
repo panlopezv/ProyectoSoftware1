@@ -20,9 +20,14 @@ class ControladorActualizar extends Controller
      */
     public function index()
     {
+        if(isset($_COOKIE['id'])){
         $usuario = DB::table('usuario')->where('id',$_COOKIE['id'])->first();
         $persona = DB::table('persona')->where('id',$usuario->personaid)->first();
-        return view('/informacionperfil', compact('usuario', 'persona'));
+        return view('InformacionPerfil', compact('usuario', 'persona'));
+        }
+        else{
+            return view('InicioFallido');
+        }
     }
 
     /**

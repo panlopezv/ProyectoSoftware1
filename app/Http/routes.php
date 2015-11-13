@@ -23,6 +23,7 @@ Route::resource('controladorUsuario', 'ControladorUsuario');
 
 //perfil
 Route::get('perfil','ControladorPerfil@index');
+Route::get('modificarperfil','ControladorActualizar@index');
 Route::get('perfil/escritores','ControladorPerfil@mostrarEscritores');
 Route::get('perfil/temas','ControladorPerfil@mostrarTemas');
 Route::get('perfil/nuevotema','ControladorPerfil@nuevoTema');
@@ -67,10 +68,6 @@ Route::get('registro', function () {
 });
 Route::get('iniciofallido', function () {
     return view('InicioFallido');
-});
-
-Route::get('InformacionPerfil', function () {
-    return view('InformacionPerfil');
 });
 
 Route::get('CompletarInformacion', function () {

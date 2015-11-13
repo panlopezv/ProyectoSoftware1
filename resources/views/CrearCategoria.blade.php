@@ -64,7 +64,7 @@
 
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
-          <button type="reset" class="btn btn-danger btn-lg active">Limpiar</button>
+          <a class="btn btn-danger btn-lg active" href="/" role="button">Cancelar</a>
         </div>
         
         {!! Form::close() !!}

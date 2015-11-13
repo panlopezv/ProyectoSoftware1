@@ -25,10 +25,9 @@
   <!-- Introduction Row -->
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Acerca de Nosotros
-        <small>PrograPedia te da la bienvenida</small>
+      <h1 class="page-header">PrograPedia te da la bienvenida
       </h1>
-      <p>PrograPedia se hizo con el fin de ayudar a personas que estén iniciando en el mundo de la programación, y nuestra tarea es subir contenido para facilitar a las nuevas generaciones de PROGRAMDORES entusiastas de crear y mejorar al Mundo.</p>
+      <p>PrograPedia se hizo con el fin de ayudar a personas que estan iniciando en el mundo de la programación, y nuestra tarea es subir contenido para facilitar a las nuevas generaciones de PROGRAMADORES entusiastas a desarrollar y mejorar el Mundo.</p>
     </div>
   </div>
 
@@ -59,11 +58,7 @@
       <p>Estudiante Universitario, amante del reggaetoon y de la cultura asiatica. Nacido y criado en Quetzaltenango, Quetzaltenango, su mayor habilidad es crear problemas.</p>
     </div>
 
-  </div>
-
-
-
-    
+  </div>    
   @endsection
 
   @section('navegacion')

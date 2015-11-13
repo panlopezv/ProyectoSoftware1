@@ -51,8 +51,7 @@ class ControladorEjemplo extends Controller
      */
     public function store(Request $request)
     {
-    if(isset($_COOKIE['id'])){
-
+        if(isset($_COOKIE['id'])){
         $validador = Validator::make($request->all(),[
             'titulo'        => 'required',
             'descripcion'        => 'required',

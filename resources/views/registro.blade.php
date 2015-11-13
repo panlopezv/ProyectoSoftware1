@@ -87,8 +87,8 @@
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-success">Aceptar</button>
-                  <a class="btn btn-default" href="/" role="button">Cancelar</a>
+                  <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
+                  <a class="btn btn-danger btn-lg active" href="/" role="button">Cancelar</a>
                 </div>
                         
               {!! Form::close() !!}

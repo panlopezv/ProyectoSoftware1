@@ -34,7 +34,7 @@ class ControladorPerfil extends Controller
             return view('PerfilPrincipal', compact('persona', 'temas'));
         }
         else{
-            return view('iniciofallido');
+            return view('InicioFallido');
         }
     }
 
@@ -43,7 +43,7 @@ class ControladorPerfil extends Controller
       if ($request->var >0) {
         return redirect('busqueda/'.$request->busqueda);
       } else {
-        return redirect('nuevotema');
+        //return redirect('nuevotema');
       }
     }
 
@@ -85,10 +85,13 @@ class ControladorPerfil extends Controller
     */
     public function nuevoTema()
     {
-
-      $categorias = Categoria::all()->lists('categoria','id');
-      $categorias[''] = 'Categoria del tema';
-      return view('PerfilNuevoTema')->with('categorias', $categorias);
+        if(isset($_COOKIE['id'])){
+          $categorias = Categoria::all()->lists('categoria','id');
+          $categorias[''] = 'Categoria del tema';
+          return view('PerfilNuevoTema')->with('categorias', $categorias);
+        }else{
+            return view('InicioFallido');
+        }
 
     }
     
@@ -99,6 +102,10 @@ class ControladorPerfil extends Controller
     */
     public function nuevaCategoria()
     {
-      return view('PerfilNuevaCategoria');
+        if(isset($_COOKIE['id'])){
+            return view('PerfilNuevaCategoria');
+        }else{
+            return view('InicioFallido');
+        }
     }
 }
