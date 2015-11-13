@@ -92,10 +92,8 @@
                   {!! Form::file('avatar') !!}
                 </div>
 
-
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
+                    <button type="submit" class="btn btn-success btn-lg active">Aceptar</button>
                     <a class="btn btn-danger btn-lg active" href="/perfil" role="button">Omitir</a>
                 </div>
                         

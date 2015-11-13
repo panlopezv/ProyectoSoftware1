@@ -13,11 +13,6 @@
 
 Route::get('/', 'ControladorInicio@index');
 
-Route::get('persona/{nombre}/{apellido}/{fecha}/{ubicacion}/{sexo}', 'ControladorPersona@insertarPersona');
-Route::get('personas', 'ControladorPersona@index');
-Route::get('personas/{id}', 'ControladorPersona@index2');
-
-
 Route::resource('controladorPersona', 'ControladorPersona');
 Route::resource('controladorUsuario', 'ControladorUsuario');
 
@@ -70,17 +65,10 @@ Route::get('iniciofallido', function () {
     return view('InicioFallido');
 });
 
-Route::get('CompletarInformacion', function () {
+Route::get('completarinformacion', function () {
     return view('CompletarInformacion');
 });
 
 Route::get('acercade', function () {
     return view('QuienesSomos');
-});
-
-Route::get('prueba', function () {
-    return view('BaseVista');
-});
-Route::get('base', function () {
-    return view('registro');
 });
