@@ -55,7 +55,7 @@
   <div class="panel-body">
     @if ($errors->any())
       <div class="alert alert-info" role="alert">
-        <p>Corrige los siguientes errores</p>
+        <p>Corregir los siguientes campos:></p>
         <ul>
           @foreach($errors->all() as $error)
             <li>{!! $error !!}</li>
@@ -75,7 +75,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-      <a href="registro"> Nuevo Usuario</a>  
+      <a href="/registro"> Nuevo Usuario</a>  
 
      {!! Form::close() !!}
   </div>
