@@ -35,11 +35,11 @@
                   <span class="pull-right label label-danger inline m-t-15"> ';
                   }
                   else if($usuario->tipo == 'Escritor'){
-                  echo ' width="50" height="50"></a>
+                  echo '" width="50" height="50"></a>
                   <span class="pull-right label label-warning inline m-t-15"> ';
                   }
                   else if($usuario->tipo == 'Lector'){
-                  echo ' width="50" height="50"></a>
+                  echo '" width="50" height="50"></a>
                   <span class="pull-right label label-success inline m-t-15"> ';
                   }
                   echo $usuario->tipo ;

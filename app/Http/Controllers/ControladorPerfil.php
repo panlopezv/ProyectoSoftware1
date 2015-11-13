@@ -54,12 +54,42 @@ class ControladorPerfil extends Controller
     */
     public function mostrarEscritores()
     {
-        $usuarios = DB::table('persona')
-            ->join('usuario', 'usuario.personaid', '=', 'persona.id')
-            ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipousuarioid')
-            ->select('persona.*', 'tipousuario.tipo')
-            ->get();
-      return view('PerfilEscritores',  compact('usuarios'));
+        if(isset($_COOKIE['id'])){
+            if(isset($tipousuario)){
+                if($tipousuario=="Administrador"){
+                $usuarios = DB::table('persona')
+                    ->join('usuario', 'usuario.personaid', '=', 'persona.id')
+                    ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipousuarioid')
+                    ->select('persona.*', 'tipousuario.tipo')
+                    ->get();
+                return view('PerfilEscritores',  compact('usuarios'));
+                }
+                else {
+                    return view('/errors/401');
+                }
+            }
+            else {
+                $tusuario = DB::table('tipousuario')
+                    ->join('usuario', 'usuario.tipousuarioid', '=', 'tipousuario.id')
+                    ->select('tipousuario.tipo')
+                    ->where('usuario.id', $_COOKIE['id'])
+                    ->first();
+                    $tipousuario=$tusuario->tipo;
+                    if($tipousuario=="Administrador"){
+                    $usuarios = DB::table('persona')
+                        ->join('usuario', 'usuario.personaid', '=', 'persona.id')
+                        ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipousuarioid')
+                        ->select('persona.*', 'tipousuario.tipo')
+                        ->get();
+                    return view('PerfilEscritores',  compact('usuarios'));
+                    }
+                    else {
+                        return view('/errors/401');
+                    }
+            }
+        }else{
+            return view('InicioFallido');
+        }
     }
 
     /**
@@ -69,13 +99,44 @@ class ControladorPerfil extends Controller
     */
     public function mostrarTemas()
     {
-        $temas = DB::table('tema')
-            ->join('usuario', 'tema.usuarioid', '=', 'usuario.id')
-            ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
-            ->select('tema.*', 'usuario.usuario', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
-            ->groupBy('tema.id')
-            ->get();
-        return view('PerfilTemas', compact('temas'));
+        if(isset($_COOKIE['id'])){
+            if(isset($tipousuario)){
+                if($tipousuario=="Administrador"){
+                    $temas = DB::table('tema')
+                        ->join('usuario', 'tema.usuarioid', '=', 'usuario.id')
+                        ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
+                        ->select('tema.*', 'usuario.usuario', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
+                        ->groupBy('tema.id')
+                        ->get();
+                    return view('PerfilTemas', compact('temas'));
+                }
+                else {
+                    return view('/errors/401');
+                }
+            }
+            else {
+                $tusuario = DB::table('tipousuario')
+                    ->join('usuario', 'usuario.tipousuarioid', '=', 'tipousuario.id')
+                    ->select('tipousuario.tipo')
+                    ->where('usuario.id', $_COOKIE['id'])
+                    ->first();
+                    $tipousuario=$tusuario->tipo;
+                if($tipousuario=="Administrador"){
+                    $temas = DB::table('tema')
+                        ->join('usuario', 'tema.usuarioid', '=', 'usuario.id')
+                        ->leftJoin('comentario', 'tema.id', '=', 'comentario.temaid')
+                        ->select('tema.*', 'usuario.usuario', DB::raw('count(comentario.temaid) as cantidadcomentarios'))
+                        ->groupBy('tema.id')
+                        ->get();
+                    return view('PerfilTemas', compact('temas'));
+                }
+                else {
+                    return view('/errors/401');
+                }
+            }
+        }else{
+            return view('InicioFallido');
+        }
     }
 
     /**
@@ -86,13 +147,36 @@ class ControladorPerfil extends Controller
     public function nuevoTema()
     {
         if(isset($_COOKIE['id'])){
-          $categorias = Categoria::all()->lists('categoria','id');
-          $categorias[''] = 'Categoria del tema';
-          return view('PerfilNuevoTema')->with('categorias', $categorias);
+            if(isset($tipousuario)){
+                if($tipousuario=="Administrador"||$tipousuario=="Escritor"){
+                      $categorias = Categoria::all()->lists('categoria','id');
+                      $categorias[''] = 'Categoria del tema';
+                      return view('PerfilNuevoTema')->with('categorias', $categorias);
+                }            
+                else {
+                    return view('/errors/401');
+                }
+            }
+            else{
+                $tusuario = DB::table('tipousuario')
+                    ->join('usuario', 'usuario.tipousuarioid', '=', 'tipousuario.id')
+                    ->select('tipousuario.tipo')
+                    ->where('usuario.id', $_COOKIE['id'])
+                    ->first();
+                    $tipousuario=$tusuario->tipo;
+                if($tipousuario=="Administrador"||$tipousuario=="Escritor"){
+                      $categorias = Categoria::all()->lists('categoria','id');
+                      $categorias[''] = 'Categoria del tema';
+                      return view('PerfilNuevoTema')->with('categorias', $categorias);
+                }            
+                else {
+                    return view('/errors/401');
+                }
+
+            }
         }else{
             return view('InicioFallido');
         }
-
     }
     
     /**
@@ -103,7 +187,28 @@ class ControladorPerfil extends Controller
     public function nuevaCategoria()
     {
         if(isset($_COOKIE['id'])){
-            return view('PerfilNuevaCategoria');
+            if(isset($tipousuario)){
+                if($tipousuario=="Administrador"||$tipousuario=="Escritor"){
+                    return view('PerfilNuevaCategoria');
+                }
+                else{
+                    return view('/errors/401');
+                }
+            }
+            else{
+                $tusuario = DB::table('tipousuario')
+                    ->join('usuario', 'usuario.tipousuarioid', '=', 'tipousuario.id')
+                    ->select('tipousuario.tipo')
+                    ->where('usuario.id', $_COOKIE['id'])
+                    ->first();
+                    $tipousuario=$tusuario->tipo;
+                    if($tipousuario=="Administrador"||$tipousuario=="Escritor"){
+                        return view('PerfilNuevaCategoria');
+                    }
+                    else{
+                        return view('/errors/401');
+                    }
+            }
         }else{
             return view('InicioFallido');
         }

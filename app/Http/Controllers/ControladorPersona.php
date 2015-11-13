@@ -70,7 +70,7 @@ class ControladorPersona extends Controller
         }else if($resta < 10){
             return redirect()->back()
                         ->withErrors('Es muy pequeño para registrarse');
-        }else if ($resta > 45){
+        }else if ($resta > 75){
             return redirect()->back()
                         ->withErrors('Es muy grande para registrarse');
         }

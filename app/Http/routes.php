@@ -72,3 +72,8 @@ Route::get('completarinformacion', function () {
 Route::get('acercade', function () {
     return view('QuienesSomos');
 });
+
+Route::get('e401', function () {
+    return view('/errors/401');
+});
+
