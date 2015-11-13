@@ -88,7 +88,7 @@ class ControladorUsuario extends Controller
         setcookie("id", $usuario->id);
         setcookie("usuario", $usuario->usuario);
 
-        return redirect('/CompletarInformacion');
+        return redirect('completarinformacion');
     }
 
     /**

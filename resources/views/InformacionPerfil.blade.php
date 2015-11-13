@@ -69,42 +69,37 @@
 
                 <div class="form-group">
                   {!! Form::label('nombre', 'Nombres') !!}
-                  {!! Form::text('nombre', null, array('class' => 'form-control' ) ) !!}
+                  {!! Form::text('nombre', null, array('class' => 'form-control', 'placeholder' => $persona->nombres ) ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('apellido', 'Apellidos') !!}
-                  {!! Form::text('apellido', null, array('class' => 'form-control' )) !!}
+                  {!! Form::text('apellido', null, array('class' => 'form-control' , 'placeholder' => $persona->apellidos)) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('usuario', 'Usuario') !!}
-                  {!! Form::text('usuario', null, array('class' => 'form-control' ) ) !!}
+                  {!! Form::text('usuario', null, array('class' => 'form-control', 'placeholder' => $usuario->usuario ) ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('correo', 'Correo Electronico') !!}
-                  {!! Form::email('correo', null, array('class' => 'form-control', 'placeholder' => 'ejemplo@correo.url.edu.gt') ) !!}
+                  {!! Form::email('correo', null, array('class' => 'form-control', 'placeholder' => $usuario->correo) ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('contrasenia', 'Contraseña') !!}
-                  {!! Form::password('contrasenia', array('class' => 'form-control' ) ) !!}
+                  {!! Form::password('contrasenia', array('class' => 'form-control', 'placeholder' => 'Escriba una contraseña para cambiarla' ) ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('conContrasenia', 'Repita Contraseña') !!}
-                  {!! Form::password('conContrasenia', array('class' => 'form-control' ) ) !!}
+                  {!! Form::password('conContrasenia', array('class' => 'form-control', 'placeholder' => 'Escriba la contraseña de nuevo' ) ) !!}
                 </div>
 
                 <div class="form-group">
                   {!! Form::label('sexo', 'Sexo') !!}
-                  {!! Form::select('sexo', array('' => 'Seleccione', '1' => 'Hombre', '0' => 'Mujer' ), null, array('class' => 'form-control' )) !!}
-                </div>
-
-                <div class="form-group">
-                  {!! Form::label('fechaNacimiento', 'Fecha de Nacimiento') !!}
-                  {!! Form::date('fechaNacimiento', \Carbon\Carbon::now()) !!}
+                  {!! Form::select('sexo', array('' => 'Seleccione', '1' => 'Hombre', '0' => 'Mujer' ), $persona->sexo , array('class' => 'form-control')) !!}
                 </div>
 
                 <div class="form-group">
@@ -115,8 +110,8 @@
 
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-                    <button type="button" class="btn btn-default btn-lg active">Cancelar</button>
+                  <button type="submit" class="btn btn-success">Aceptar</button>
+                  <a class="btn btn-default" href="/perfil" role="button">Cancelar</a>
                 </div>
                         
               {!! Form::close() !!}

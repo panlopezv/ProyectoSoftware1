@@ -14,13 +14,15 @@ use Hash;
 class ControladorActualizar extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * obtiene los datos en variables, una tipo persona y otra tipo usuario del usuario que ha iniciado sesion
      *
-     * @return \Illuminate\Http\Response
+     * @return vista informacionperfil con $usuario, $persona
      */
     public function index()
     {
-        //
+        $usuario = DB::table('usuario')->where('id',$_COOKIE['id'])->first();
+        $persona = DB::table('persona')->where('id',$usuario->personaid)->first();
+        return view('/informacionperfil', compact('usuario', 'persona'));
     }
 
     /**
@@ -34,10 +36,10 @@ class ControladorActualizar extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * modifica un usuario y/o persona en la base de datos
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  parametros enviados del formulario en $request
+     * @return vista perfil
      */
     public function store(Request $request)
     {

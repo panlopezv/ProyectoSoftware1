@@ -50,6 +50,9 @@ class ControladorPersona extends Controller
      */
     public function store(Request $request)
     {
+        $fecha = date("Y", strtotime($request->input('fechaNacimiento')));
+        $y =     date("Y");
+        $resta = $y - $fecha;
 
         $validator = Validator::make($request->all(), [
             'nombre'        => 'required',
@@ -64,6 +67,12 @@ class ControladorPersona extends Controller
             return redirect()->back()
                         ->withErrors($validator -> errors());
 
+        }else if($resta < 10){
+            return redirect()->back()
+                        ->withErrors('Es muy pequeño para registrarse');
+        }else if ($resta > 45){
+            return redirect()->back()
+                        ->withErrors('Es muy grande para registrarse');
         }
 
     
